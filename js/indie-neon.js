@@ -35,6 +35,11 @@
           p.classList.toggle('open',willOpen);
           b.setAttribute('aria-expanded',String(willOpen));
           p.setAttribute('aria-hidden',String(!willOpen));
+          // Deactivate regular button when menu is opened/closed
+          const regularBtn = $('#demoRegular');
+          if(regularBtn && regularBtn.classList.contains('active')) {
+            regularBtn.classList.remove('active');
+          }
           if(willOpen){ const first=$('.submenu-item',p); first&&first.focus(); }
         });
         $$('.submenu-item',p).forEach((item,idx,list)=>{
