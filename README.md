@@ -26,6 +26,7 @@ indie-neon-ui/
 │   ├── tabs.js            # Tabs component functionality
 │   ├── modals.js          # Modal and drawer functionality
 │   └── dropdown.js        # Custom dropdown functionality
+├── .gitignore             # Git ignore file for common exclusions
 ├── index.html             # Main demo page with all components
 └── README.md              # This documentation
 ```

@@ -11,6 +11,7 @@
   position: fixed;
   inset: 0;
   display: none;
+  z-index: 2000; /* Higher than toast notifications (1000) */
 }
 
 /* Show modal/drawer when not hidden */
@@ -30,7 +31,7 @@
 /* Modal dialog container */
 .modal .dialog {
   position: relative;
-  z-index: 1;
+  z-index: 2001; /* Higher than modal backdrop (2000) */
   margin: 10vh auto;
   max-width: 520px;
   background: var(--surface);
@@ -91,4 +92,5 @@
   background: var(--surface);
   border-left: 2px solid rgba(55,183,255,.35);
   box-shadow: -10px 0 40px rgba(0,0,0,.5);
+  z-index: 2001; /* Higher than modal backdrop (2000) */
 }
