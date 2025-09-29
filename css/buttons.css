@@ -1,0 +1,101 @@
+/* ===========================================
+   BUTTON COMPONENTS
+   =========================================== */
+
+/* Base button styles */
+.btn {
+  position: relative;
+  width: var(--btn-w);
+  height: var(--btn-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  
+  /* Neon gradient border effect */
+  background: linear-gradient(var(--surface), var(--surface)) padding-box,
+              linear-gradient(135deg, var(--neon-blue), var(--neon-purple)) border-box;
+  
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  
+  /* Neon glow shadow */
+  box-shadow: 0 0 12px rgba(55,183,255,.25), 0 0 18px rgba(154,77,255,.18);
+  
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: all .15s ease;
+}
+
+/* Button hover state */
+.btn:hover {
+  filter: saturate(1.1);
+  box-shadow: 0 0 18px rgba(55,183,255,.35), 0 0 28px rgba(154,77,255,.28);
+}
+
+/* Button active/pressed state */
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Button disabled state */
+.btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+/* Button size variants */
+.btn.small {
+  height: 44px;
+  width: auto;
+  padding: 0 16px;
+}
+
+/* Button style variants */
+.btn.ghost {
+  background: linear-gradient(transparent, transparent) padding-box,
+              linear-gradient(135deg, var(--neon-blue), var(--neon-purple)) border-box;
+}
+
+.btn.destructive {
+  border-image: linear-gradient(135deg, #ff6b6b, #ff3b3b) 1;
+}
+
+/* Button active state (for toggles) */
+.btn.active {
+  background: linear-gradient(transparent, transparent) padding-box,
+              linear-gradient(135deg, var(--neon-blue), var(--neon-purple)) border-box;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(55,183,255,.8), 0 0 16px rgba(154,77,255,.6);
+  box-shadow: 0 0 32px rgba(55,183,255,.65), 0 0 48px rgba(154,77,255,.55);
+}
+
+/* Ghost effect for click animations */
+.btn.ghost-effect {
+  background: linear-gradient(transparent, transparent) padding-box,
+              linear-gradient(135deg, var(--neon-blue), var(--neon-purple)) border-box !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(55,183,255,.8), 0 0 16px rgba(154,77,255,.6) !important;
+  box-shadow: 0 0 32px rgba(55,183,255,.65), 0 0 48px rgba(154,77,255,.55) !important;
+}
+
+/* ===========================================
+   BUTTON WITH CHEVRON (for accordions)
+   =========================================== */
+
+.with-chevron {
+  justify-content: space-between;
+  padding: 0 20px 0 24px;
+}
+
+.chev {
+  transition: transform .15s ease;
+}
+
+.btn.active .chev {
+  transform: rotate(180deg);
+}

@@ -1,0 +1,117 @@
+/* ===========================================
+   FEEDBACK COMPONENTS
+   =========================================== */
+
+/* ===========================================
+   TOAST NOTIFICATIONS
+   =========================================== */
+
+/* Toast container (positioned top-right) */
+.toast-root {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  gap: 10px;
+  z-index: 1000;
+}
+
+/* Individual toast notification */
+.toast {
+  min-width: 260px;
+  max-width: 360px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(147,197,253,.35);
+  background: rgba(15,22,40,.9);
+  color: var(--text);
+  box-shadow: 0 6px 24px rgba(0,0,0,.35);
+}
+
+/* Toast tone variants */
+.toast.good {
+  border-color: rgba(57,229,157,.55);
+}
+
+.toast.warn {
+  border-color: rgba(255,209,102,.55);
+}
+
+.toast.bad {
+  border-color: rgba(255,107,107,.55);
+}
+
+/* ===========================================
+   TOOLTIP COMPONENT
+   =========================================== */
+
+.tooltip {
+  position: relative;
+}
+
+/* Tooltip content (appears on hover/focus) */
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(100% + 8px);
+  white-space: nowrap;
+  background: #0c1426;
+  color: #cfeaff;
+  border: 1px solid rgba(147,197,253,.35);
+  border-radius: 8px;
+  padding: 6px 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s ease;
+  box-shadow: 0 6px 24px rgba(0,0,0,.35);
+}
+
+/* Show tooltip on hover and focus */
+.tooltip:hover::after, .tooltip:focus-visible::after {
+  opacity: 1;
+}
+
+/* ===========================================
+   PROGRESS & SPINNER COMPONENTS
+   =========================================== */
+
+/* Progress bar container */
+.progress {
+  width: 240px;
+  height: 10px;
+  border-radius: 8px;
+  background: #17233c;
+  border: 1px solid rgba(147,197,253,.35);
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(55,183,255,.12);
+}
+
+/* Progress bar fill */
+.progress .bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+}
+
+/* Demo progress bar (60% width) */
+.progress .bar.demo-progress {
+  width: 60%;
+}
+
+/* Loading spinner */
+.spinner {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 3px solid rgba(147,197,253,.25);
+  border-top-color: #8ecaff;
+  animation: spin 1s linear infinite;
+}
+
+/* Spinner rotation animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,81 @@
+/* ===========================================
+   ACCORDION / MENU COMPONENT
+   =========================================== */
+
+/* Accordion submenu container */
+.submenu {
+  margin-top: -2px;
+  padding: 12px 12px 8px;
+  width: var(--btn-w);
+  box-sizing: border-box;
+  
+  /* Collapsed state */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all .3s ease;
+}
+
+/* Expanded state */
+.submenu.open {
+  max-height: 200px;
+  opacity: 1;
+}
+
+/* Individual submenu items */
+.submenu-item {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  margin: 8px 0;
+  border-radius: 12px;
+  
+  /* Subtle border and background */
+  border: 1px solid rgba(147,197,253,.35);
+  background: rgba(20,28,48,.55);
+  color: #9fc6ff;
+  
+  transition: all .15s ease;
+  cursor: pointer;
+  
+  /* Initial animation state */
+  transform: translateY(-10px);
+  opacity: 0;
+  animation: slideInFadeIn .4s ease forwards;
+}
+
+/* Slide-in animation keyframes */
+@keyframes slideInFadeIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Staggered animation delays for multiple items */
+.submenu-item:nth-child(1) { animation-delay: .05s; }
+.submenu-item:nth-child(2) { animation-delay: .1s; }
+.submenu-item:nth-child(3) { animation-delay: .15s; }
+.submenu-item:nth-child(4) { animation-delay: .2s; }
+
+/* Ghost effect for submenu items (click animation) */
+.submenu-item.ghost-effect {
+  background: linear-gradient(transparent, transparent) padding-box,
+              linear-gradient(135deg, var(--neon-blue), var(--neon-purple)) border-box !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(55,183,255,.8), 0 0 16px rgba(154,77,255,.6) !important;
+  box-shadow: 0 0 32px rgba(55,183,255,.65), 0 0 48px rgba(154,77,255,.55) !important;
+}
+
+/* First item spacing */
+.submenu-item:first-child {
+  margin-top: 16px;
+}
+
+/* Submenu item hover state */
+.submenu-item:hover {
+  background: rgba(24,40,76,.75);
+  color: #cfe5ff;
+}

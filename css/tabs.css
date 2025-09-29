@@ -1,0 +1,52 @@
+/* ===========================================
+   TABS COMPONENT
+   =========================================== */
+
+/* Tabs container */
+.tabs {
+  display: grid;
+  gap: 10px;
+}
+
+/* Tab list (horizontal row of tabs) */
+.tablist {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Individual tab button */
+.tab {
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 14px;
+  border: 2px solid transparent;
+  
+  /* Neon gradient border */
+  background: linear-gradient(var(--surface), var(--surface)) padding-box,
+              linear-gradient(135deg, var(--neon-blue), var(--neon-purple)) border-box;
+  
+  color: var(--text);
+  cursor: pointer;
+  transition: all .15s ease;
+}
+
+/* Active tab state */
+.tab.active {
+  background: linear-gradient(transparent, transparent) padding-box,
+              linear-gradient(135deg, var(--neon-blue), var(--neon-purple)) border-box;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(55,183,255,.8), 0 0 16px rgba(154,77,255,.6);
+  box-shadow: 0 0 32px rgba(55,183,255,.65), 0 0 48px rgba(154,77,255,.55);
+}
+
+/* Tab panel (content area) */
+.tabpanel {
+  display: none;
+  padding: 12px 4px;
+}
+
+/* Active tab panel */
+.tabpanel.active {
+  display: block;
+}

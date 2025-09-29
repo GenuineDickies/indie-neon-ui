@@ -1,0 +1,99 @@
+/* ===========================================
+   BASE STYLES & CSS VARIABLES
+   =========================================== */
+
+/* CSS Custom Properties (Variables) */
+:root {
+  /* Color Palette */
+  --bg: #0a0f1a;                    /* Main background */
+  --panel: #0e1422;                 /* Panel/surface background */
+  --surface: #121a2e;               /* Component surface */
+  
+  /* Neon Accent Colors */
+  --neon-blue: #37b7ff;             /* Primary neon blue */
+  --neon-purple: #9a4dff;           /* Secondary neon purple */
+  
+  /* Text Colors */
+  --text: #cfeaff;                  /* Primary text */
+  --muted: #9fb6cc;                 /* Muted/secondary text */
+  
+  /* Active States */
+  --active-fill: #1b2a4d;           /* Active background fill */
+  --active-text: #0b1220;           /* Active text color */
+  
+  /* Layout & Sizing */
+  --radius: 16px;                   /* Default border radius */
+  --btn-h: 56px;                    /* Button height */
+  --btn-w: min(560px, 92vw);        /* Button width */
+}
+
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  /* Radial gradient background with neon theme */
+  background: radial-gradient(1200px 800px at 30% -10%, #0d1830 0%, var(--bg) 60%) no-repeat fixed;
+  background-size: 100% 100%;
+  color: var(--text);
+  font: 500 16px/1.4 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+}
+
+/* ===========================================
+   LAYOUT UTILITIES
+   =========================================== */
+
+/* Main container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 16px;
+  display: grid;
+  gap: 28px;
+}
+
+/* Demo header */
+.demo-header {
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.demo-header h1 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  /* Neon text shadow effect */
+  text-shadow: 0 0 12px rgba(55,183,255,.25), 0 0 18px rgba(154,77,255,.18);
+}
+
+.demo-header p {
+  margin: 0;
+  color: #aaccff;
+}
+
+/* Flexbox utilities */
+.hstack {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Grid utilities */
+.stack {
+  display: grid;
+  gap: 16px;
+}
+
+.grid-2 {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
