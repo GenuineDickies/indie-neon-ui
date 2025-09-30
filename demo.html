@@ -21,6 +21,34 @@
                 <a href="#installation" class="nav-link">Installation</a>
                 <a href="mockup.html" class="nav-link">Dashboard</a>
             </div>
+            <div class="color-controls">
+                <div class="color-slider-container">
+                    <label for="colorSlider" class="color-slider-label">Theme Color</label>
+                    <input type="range" id="colorSlider" class="color-slider" min="0" max="360" value="200" />
+                    <div class="color-preview" id="colorPreview"></div>
+                    <button id="restoreDefaultBtn" class="restore-default-btn" title="Restore default colors">
+                        default
+                    </button>
+                </div>
+                <div class="new-feature-badge floating-badge">
+                    <div class="badge-arrows">
+                        <div class="arrow arrow-1">⬆️</div>
+                        <div class="arrow arrow-2">⬆️</div>
+                        <div class="arrow arrow-3">⬆️</div>
+                    </div>
+                    <div class="badge-content">
+                        <span class="badge-text">🎨 NEW! 🎨</span>
+                        <span class="badge-subtext">2,250+ Colors!</span>
+                        <span class="badge-emoji">✨</span>
+                    </div>
+                    <div class="sparkles">
+                        <div class="sparkle sparkle-1">✨</div>
+                        <div class="sparkle sparkle-2">⭐</div>
+                        <div class="sparkle sparkle-3">✨</div>
+                        <div class="sparkle sparkle-4">⭐</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -33,6 +61,7 @@
                 <p class="hero-description">
                     A sleek, modern CSS component library with neon-inspired design. 
                     Perfect for creating futuristic interfaces with beautiful animations and effects.
+                    <br><strong>2,250+ color variations</strong> available through the interactive color slider.
                 </p>
                 <div class="hero-actions">
                     <a href="#installation" class="btn large">Get Started</a>
