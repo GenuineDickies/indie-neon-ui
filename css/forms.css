@@ -103,6 +103,12 @@ input[type="text"], select, textarea, input[type="range"] {
   transition: all .15s ease;
 }
 
+/* Placeholder styles */
+input[type="text"]::placeholder, textarea::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
 /* Focus state for form inputs */
 input[type="text"]:focus, select:focus, textarea:focus {
   box-shadow: 0 0 0 3px rgba(55,183,255,.55), 

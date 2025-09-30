@@ -71,7 +71,9 @@
 }
 
 .btn.destructive {
-  border-image: linear-gradient(135deg, #ff6b6b, #ff3b3b) 1;
+  border: 2px solid transparent;
+  background: linear-gradient(var(--surface), var(--surface)) padding-box,
+              linear-gradient(135deg, #ff6b6b, #ff3b3b) border-box;
 }
 
 /* Button active state (for toggles) */
