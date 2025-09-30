@@ -44,7 +44,7 @@
       <h2>Accordion / Menu</h2>
       <div class="stack">
         <!-- Regular button with active state toggle -->
-        <button class="btn" id="demoRegular">Regular Button (lit toggle)</button>
+        <button class="btn btn-same-width" id="demoRegular">Regular Button (lit toggle)</button>
 
         <!-- Accordion menu with expandable submenu -->
         <div class="accordion" data-accordion>
@@ -59,9 +59,9 @@
           <!-- Submenu panel with menu items -->
           <ul class="submenu" id="acc-1" data-acc-panel role="menu" aria-hidden="true">
             <!-- Menu items with data-action attributes for JavaScript handlers -->
-            <li><button class="submenu-item" role="menuitem" data-action="new-request">New Service Request</button></li>
-            <li><button class="submenu-item" role="menuitem" data-action="lookup-vehicle">Lookup Vehicle</button></li>
-            <li><button class="submenu-item" role="menuitem" data-action="create-invoice">Create Invoice</button></li>
+            <li><a href="#" class="submenu-item" role="menuitem" data-action="new-request">New Service Request</a></li>
+            <li><a href="#" class="submenu-item" role="menuitem" data-action="lookup-vehicle">Lookup Vehicle</a></li>
+            <li><a href="#" class="submenu-item" role="menuitem" data-action="create-invoice">Create Invoice</a></li>
           </ul>
         </div>
       </div>
@@ -124,7 +124,7 @@
         </label>
 
         <!-- Custom dropdown component -->
-        <label class="field">
+        <div class="field">
           <span>Select</span>
           <div class="dropdown" data-dropdown>
             <!-- Dropdown trigger button -->
@@ -137,13 +137,13 @@
             </button>
             <!-- Dropdown menu options -->
             <ul class="dropdown-menu" role="listbox" aria-hidden="true">
-              <li><button class="dropdown-item" role="option" data-value="option1" tabindex="-1">Option 1</button></li>
-              <li><button class="dropdown-item" role="option" data-value="option2" tabindex="-1">Option 2</button></li>
-              <li><button class="dropdown-item" role="option" data-value="option3" tabindex="-1">Option 3</button></li>
-              <li><button class="dropdown-item" role="option" data-value="option4" tabindex="-1">Option 4</button></li>
+              <li><span class="dropdown-item" role="option" data-value="option1" tabindex="-1">Option 1</span></li>
+              <li><span class="dropdown-item" role="option" data-value="option2" tabindex="-1">Option 2</span></li>
+              <li><span class="dropdown-item" role="option" data-value="option3" tabindex="-1">Option 3</span></li>
+              <li><span class="dropdown-item" role="option" data-value="option4" tabindex="-1">Option 4</span></li>
             </ul>
           </div>
-        </label>
+        </div>
 
         <!-- Textarea field -->
         <label class="field">

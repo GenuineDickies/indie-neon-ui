@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indie Neon UI - Modern CSS Component Library</title>
+    <link rel="stylesheet" href="dist/indie-neon-ui.min.css">
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="demo-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">⚡</span>
+                <span class="brand-text">Indie Neon UI</span>
+            </div>
+            <div class="nav-links">
+                <a href="#components" class="nav-link">Components</a>
+                <a href="#examples" class="nav-link">Examples</a>
+                <a href="#installation" class="nav-link">Installation</a>
+                <a href="mockup.html" class="nav-link">Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">Modern CSS Library</div>
+                <h1 class="hero-title">Indie Neon UI</h1>
+                <p class="hero-description">
+                    A sleek, modern CSS component library with neon-inspired design. 
+                    Perfect for creating futuristic interfaces with beautiful animations and effects.
+                </p>
+                <div class="hero-actions">
+                    <a href="#installation" class="btn large">Get Started</a>
+                    <a href="mockup.html" class="btn large ghost">View Demo</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Components</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Dependencies</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2.5KB</span>
+                        <span class="stat-label">Minified</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- Components Section -->
+        <section id="components" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Components</h2>
+                <p class="section-description">Explore the complete set of UI components with neon-inspired design</p>
+            </div>
+
+            <!-- Buttons Subsection -->
+            <div class="component-group">
+                <div class="component-header">
+                    <h3 class="component-title">Buttons</h3>
+                    <p class="component-description">Interactive buttons with multiple styles and sizes</p>
+                </div>
+                
+                <div class="component-showcase">
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Styles</h4>
+                        <div class="hstack">
+                            <button class="btn">Primary</button>
+                            <button class="btn ghost">Ghost</button>
+                            <button class="btn destructive">Destructive</button>
+                            <button class="btn" disabled>Disabled</button>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Sizes</h4>
+                        <div class="hstack">
+                            <button class="btn small">Small</button>
+                            <button class="btn">Regular</button>
+                            <button class="btn large">Large</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Components Subsection -->
+            <div class="component-group">
+                <div class="component-header">
+                    <h3 class="component-title">Interactive Components</h3>
+                    <p class="component-description">Advanced components with state management and animations</p>
+                </div>
+                
+                <div class="component-showcase">
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Toggle Button</h4>
+                        <div class="stack">
+                            <button class="btn btn-same-width" id="demoRegular">Toggle Button</button>
+                            <p class="showcase-note">Click to toggle active state with neon glow effect</p>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Accordion Menu</h4>
+                        <div class="accordion" data-accordion>
+                            <button class="btn with-chevron" data-acc-btn aria-expanded="false" aria-haspopup="menu" aria-controls="acc-1">
+                                <span>Menu Options</span>
+                                <svg class="chev" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                                    <path d="M2 8 L6 4 L10 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                            <ul class="submenu" id="acc-1" data-acc-panel role="menu" aria-hidden="true">
+                                <li><a href="#" class="submenu-item" role="menuitem" data-action="new-request">New Service Request</a></li>
+                                <li><a href="#" class="submenu-item" role="menuitem" data-action="lookup-vehicle">Lookup Vehicle</a></li>
+                                <li><a href="#" class="submenu-item" role="menuitem" data-action="create-invoice">Create Invoice</a></li>
+                            </ul>
+                        </div>
+                        <p class="showcase-note">Expandable menu with smooth animations and keyboard navigation</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Controls Subsection -->
+            <div class="component-group">
+                <div class="component-header">
+                    <h3 class="component-title">Form Controls</h3>
+                    <p class="component-description">Input fields, dropdowns, and selection controls with neon styling</p>
+                </div>
+                
+                <div class="component-showcase">
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Input Fields</h4>
+                        <div class="grid-2">
+                            <label class="field">
+                                <span>Text Input</span>
+                                <input type="text" placeholder="Enter your text..."/>
+                            </label>
+                            
+                            <div class="field">
+                                <span>Custom Dropdown</span>
+                                <div class="dropdown" data-dropdown>
+                                    <button class="dropdown-btn" aria-expanded="false" aria-label="Choose option">
+                                        <span class="dropdown-text">Choose option...</span>
+                                        <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                                            <path d="M2 4 L6 8 L10 4" fill="none" stroke="currentColor" stroke-width="2"/>
+                                        </svg>
+                                    </button>
+                                    <ul class="dropdown-menu" role="listbox" aria-label="Dropdown options">
+                                        <li role="option"><span class="dropdown-item" data-value="option1">Option 1</span></li>
+                                        <li role="option"><span class="dropdown-item" data-value="option2">Option 2</span></li>
+                                        <li role="option"><span class="dropdown-item" data-value="option3">Option 3</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Selection Controls</h4>
+                        <div class="grid-2">
+                            <label class="switch">
+                                <input type="checkbox"/>
+                                <span class="track"></span>
+                                <span class="label">Toggle Switch</span>
+                            </label>
+
+                            <label class="checkbox">
+                                <input type="checkbox"/>
+                                <span>Checkbox</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+            <!-- Data Display Subsection -->
+            <div class="component-group">
+                <div class="component-header">
+                    <h3 class="component-title">Data Display</h3>
+                    <p class="component-description">Cards, tables, and other components for presenting information</p>
+                </div>
+                
+                <div class="component-showcase">
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Card Component</h4>
+                        <div class="card">
+                            <h3>Feature Card</h3>
+                            <p>Beautiful cards with neon glow effects and smooth animations. Perfect for showcasing content and actions.</p>
+                            <button class="btn small">Learn More</button>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Data Table</h4>
+                        <div class="table-wrap">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Project</th>
+                                        <th>Status</th>
+                                        <th>Progress</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Project Alpha</td><td>Active</td><td>850 pts</td></tr>
+                                    <tr><td>Task Beta</td><td>Pending</td><td>1,200 pts</td></tr>
+                                    <tr><td>Feature Gamma</td><td>Complete</td><td>650 pts</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+            <!-- Feedback & Loading Subsection -->
+            <div class="component-group">
+                <div class="component-header">
+                    <h3 class="component-title">Feedback & Loading</h3>
+                    <p class="component-description">Toast notifications, progress indicators, and loading states</p>
+                </div>
+                
+                <div class="component-showcase">
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Notifications</h4>
+                        <div class="hstack">
+                            <button class="btn" id="toastBtn">Show Toast</button>
+                            <button class="btn ghost tooltip" data-tooltip="This is a tooltip!">Hover me</button>
+                        </div>
+                        <p class="showcase-note">Toast notifications and tooltips for user feedback</p>
+                    </div>
+                    
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Progress Indicators</h4>
+                        <div class="hstack">
+                            <div class="progress">
+                                <div class="bar demo-progress"></div>
+                            </div>
+                            <div class="spinner" aria-label="Loading"></div>
+                        </div>
+                        <p class="showcase-note">Progress bars and loading spinners for async operations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Examples Section -->
+        <section id="examples" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Real-world Examples</h2>
+                <p class="section-description">See Indie Neon UI in action with complete application examples</p>
+            </div>
+            
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-icon">📊</div>
+                    <h3 class="example-title">Dashboard Mockup</h3>
+                    <p class="example-description">Complete dashboard application showcasing all components in a real-world scenario</p>
+                    <a href="mockup.html" class="btn">View Dashboard</a>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-icon">⚡</div>
+                    <h3 class="example-title">Component Playground</h3>
+                    <p class="example-description">Interactive playground to test and experiment with all components</p>
+                    <button class="btn ghost" id="playgroundBtn">Coming Soon</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation Section -->
+        <section id="installation" class="section">
+            <div class="section-header">
+                <h2 class="section-title">Installation</h2>
+                <p class="section-description">Get started with Indie Neon UI in your project</p>
+            </div>
+            
+            <div class="installation-grid">
+                <div class="install-card">
+                    <div class="install-header">
+                        <div class="install-icon">📦</div>
+                        <h3 class="install-title">NPM Package</h3>
+                    </div>
+                    <p class="install-description">Install via npm for use in your projects with full control over customization</p>
+                    <div class="install-code">
+                        <code class="code-block">npm install indie-neon-ui</code>
+                    </div>
+                    <div class="install-features">
+                        <span class="feature-badge">Full Control</span>
+                        <span class="feature-badge">Customizable</span>
+                        <span class="feature-badge">Tree Shakeable</span>
+                    </div>
+                </div>
+                
+                <div class="install-card">
+                    <div class="install-header">
+                        <div class="install-icon">🌐</div>
+                        <h3 class="install-title">CDN</h3>
+                    </div>
+                    <p class="install-description">Include directly in your HTML for quick prototyping and simple projects</p>
+                    <div class="install-code">
+                        <code class="code-block">&lt;script src="https://unpkg.com/indie-neon-ui@latest/dist/indie-neon-ui.cdn.js"&gt;&lt;/script&gt;</code>
+                    </div>
+                    <div class="install-features">
+                        <span class="feature-badge">Quick Start</span>
+                        <span class="feature-badge">No Build Step</span>
+                        <span class="feature-badge">Always Latest</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="demo-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-icon">⚡</span>
+                    <span class="brand-text">Indie Neon UI</span>
+                </div>
+                <p class="footer-description">A modern CSS component library for creating beautiful, futuristic interfaces</p>
+                <div class="footer-links">
+                    <a href="#components" class="footer-link">Components</a>
+                    <a href="#examples" class="footer-link">Examples</a>
+                    <a href="#installation" class="footer-link">Installation</a>
+                    <a href="mockup.html" class="footer-link">Dashboard</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Indie Neon UI. Built with passion for modern web design.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="dist/indie-neon-ui.min.js"></script>
+    <script>
+        // Initialize Indie Neon UI
+        IndieNeon.init();
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Demo functionality
+        document.getElementById('toastBtn').addEventListener('click', () => {
+            IndieNeon.toast('Welcome to Indie Neon UI!', {tone: 'good'});
+        });
+        
+        // Listen for dropdown changes
+        const dropdownBtn = document.querySelector('.dropdown-btn');
+        if (dropdownBtn) {
+            dropdownBtn.addEventListener('change', (e) => {
+                IndieNeon.toast(`Selected: ${e.detail.text}`, {tone: 'good'});
+            });
+        }
+        
+        // Card button demo
+        const cardBtn = document.querySelector('.card .btn');
+        if (cardBtn) {
+            cardBtn.addEventListener('click', () => {
+                cardBtn.classList.add('ghost-effect');
+                IndieNeon.toast('Card action triggered!', {tone: 'good'});
+                setTimeout(() => {
+                    cardBtn.classList.remove('ghost-effect');
+                }, 300);
+            });
+        }
+        
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.demo-nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+        
+        // Playground button functionality
+        document.getElementById('playgroundBtn').addEventListener('click', () => {
+            IndieNeon.toast('Playground coming soon!', {tone: 'good'});
+        });
+    </script>
+</body>
+</html>
+

@@ -66,10 +66,12 @@
           button.setAttribute('aria-expanded', String(willOpen));
           panel.setAttribute('aria-hidden', String(!willOpen));
           
-          // Deactivate regular button when menu is opened/closed
-          const regularBtn = $('#demoRegular');
-          if (regularBtn && regularBtn.classList.contains('active')) {
-            regularBtn.classList.remove('active');
+          // Deactivate regular button when menu is opened
+          if (willOpen) {
+            const regularBtn = $('#demoRegular');
+            if (regularBtn && regularBtn.classList.contains('active')) {
+              regularBtn.classList.remove('active');
+            }
           }
           
           // Focus first submenu item when opening
@@ -88,6 +90,18 @@
          */
         const handleItemClick = () => {
           const action = item.getAttribute('data-action');
+          const text = item.textContent;
+          
+          // Remove active class from all submenu items
+          submenuItems.forEach(subItem => subItem.classList.remove('active'));
+          
+          // Add active class to clicked item
+          item.classList.add('active');
+          
+          // Show toast notification
+          if (window.IndieNeon && typeof IndieNeon.toast === 'function') {
+            IndieNeon.toast(`${text} selected!`, {tone: 'good'});
+          }
           
           // Execute configured action if available
           if (action && typeof IndieNeon.config.actions[action] === 'function') {
@@ -108,7 +122,10 @@
         };
         
         // Click event
-        item.addEventListener('click', handleItemClick);
+        item.addEventListener('click', (e) => {
+          e.preventDefault(); // Prevent default link behavior
+          handleItemClick();
+        });
         
         // Keyboard navigation
         item.addEventListener('keydown', event => {

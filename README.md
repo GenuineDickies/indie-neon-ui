@@ -1,7 +1,84 @@
-# Indie Neon UI (Vanilla, No Libraries)
-Production-grade neon UI components in pure HTML/CSS/JS. Dark theme with glowing neon blue/purple accents and smooth animations.
+# Indie Neon UI - CSS Library
+A production-grade neon UI component library in pure HTML/CSS/JavaScript. Features a dark theme with glowing neon blue/purple accents and smooth animations.
 
-My first ever public repo. I didn't want a library for my styling... so I made a library? Anyhow, created with AI then tweaked until I was pleased with it. So, use it as you wish. I figured I liked it, someone else might.
+[![npm version](https://badge.fury.io/js/indie-neon-ui.svg)](https://badge.fury.io/js/indie-neon-ui)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## 🚀 Installation
+
+### NPM
+```bash
+npm install indie-neon-ui
+```
+
+### CDN (Single File)
+```html
+<script src="https://unpkg.com/indie-neon-ui@latest/dist/indie-neon-ui.cdn.js"></script>
+```
+
+### CDN (Separate Files)
+```html
+<link rel="stylesheet" href="https://unpkg.com/indie-neon-ui@latest/dist/indie-neon-ui.min.css">
+<script src="https://unpkg.com/indie-neon-ui@latest/dist/indie-neon-ui.min.js"></script>
+```
+
+### Download
+Download the latest release from [GitHub](https://github.com/yourusername/indie-neon-ui/releases) and include the files manually.
+
+## ⚡ Quick Start
+
+### Basic HTML Setup
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App</title>
+    <!-- Include Indie Neon UI -->
+    <link rel="stylesheet" href="https://unpkg.com/indie-neon-ui@latest/dist/indie-neon-ui.min.css">
+</head>
+<body>
+    <!-- Your content -->
+    <div class="container">
+        <button class="btn">Click me!</button>
+        <div class="card">
+            <h3>Card Title</h3>
+            <p>Card content with neon glow.</p>
+        </div>
+    </div>
+    
+    <!-- Include JavaScript -->
+    <script src="https://unpkg.com/indie-neon-ui@latest/dist/indie-neon-ui.min.js"></script>
+    <script>
+        // Initialize components
+        IndieNeon.init();
+        
+        // Show toast notification
+        IndieNeon.toast("Welcome to Indie Neon UI!", {tone: "good"});
+    </script>
+</body>
+</html>
+```
+
+### NPM Usage
+```javascript
+// Import CSS (if using bundler)
+import 'indie-neon-ui/dist/indie-neon-ui.css';
+
+// Import JavaScript
+import IndieNeon from 'indie-neon-ui';
+
+// Initialize
+IndieNeon.init();
+
+// Configure custom actions
+IndieNeon.configure({
+  actions: {
+    "my-action": () => IndieNeon.toast("Action executed!")
+  }
+});
+```
 
 ## 📁 File Structure
 

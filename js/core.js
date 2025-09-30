@@ -66,7 +66,30 @@
       const regularBtn = $('#demoRegular');
       if (regularBtn) {
         regularBtn.addEventListener('click', () => {
-          regularBtn.classList.toggle('active');
+          const willActivate = !regularBtn.classList.contains('active');
+          
+          // Deactivate accordion button if regular button is being activated
+          const accordionBtn = $('[data-acc-btn]');
+          const accordionPanel = $('[data-acc-panel]');
+          if (willActivate && accordionBtn) {
+            accordionBtn.classList.remove('active');
+            if (accordionPanel) {
+              accordionPanel.classList.remove('open');
+              accordionBtn.setAttribute('aria-expanded', 'false');
+              accordionPanel.setAttribute('aria-hidden', 'true');
+            }
+          }
+          
+          // Toggle regular button with ghost effect
+          regularBtn.classList.toggle('active', willActivate);
+          if (willActivate) {
+            regularBtn.classList.add('ghost-effect');
+            setTimeout(() => {
+              regularBtn.classList.remove('ghost-effect');
+            }, 300);
+          }
+          
+          this.toast(willActivate ? 'Regular button activated!' : 'Regular button deactivated!', {tone: 'good'});
         });
       }
     },

@@ -121,10 +121,12 @@
   border: none;
   color: var(--text);
   text-align: left;
+  text-decoration: none;
   cursor: pointer;
   transition: all .15s ease;
   font: inherit;
   border-bottom: 1px solid rgba(147,197,253,.1);
+  display: block;
 }
 
 /* Remove border from last item */

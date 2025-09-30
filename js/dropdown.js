@@ -122,7 +122,10 @@
         };
         
         // Click event
-        item.addEventListener('click', selectItem);
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          selectItem(e);
+        });
         
         // Keyboard navigation
         item.addEventListener('keydown', event => {

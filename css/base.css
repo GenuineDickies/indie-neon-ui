@@ -22,9 +22,9 @@
   --active-text: #0b1220;           /* Active text color */
   
   /* Layout & Sizing */
-  --radius: 16px;                   /* Default border radius */
-  --btn-h: 56px;                    /* Button height */
-  --btn-w: min(560px, 92vw);        /* Button width */
+  --radius: 12px;                   /* Default border radius */
+  --btn-h: 40px;                    /* Button height */
+  --btn-w: auto;                    /* Button width - auto for natural sizing */
 }
 
 /* Reset & Base Styles */
