@@ -25,6 +25,127 @@
   --radius: 12px;                   /* Default border radius */
   --btn-h: 40px;                    /* Button height */
   --btn-w: auto;                    /* Button width - auto for natural sizing */
+
+  /* Color palette - base colors */
+  --color-success: #39e59d;
+  --color-warning: #ffd166;
+  --color-danger: #ff6b6b;
+  --color-info: #2196f3;
+  
+  /* Status indicators */
+  --status-online-color: var(--color-success);
+  --status-online-bg: rgba(57, 229, 157, 0.1);
+  --status-online-border: rgba(57, 229, 157, 0.3);
+  --status-online-glow: rgba(57, 229, 157, 0.4);
+
+  --status-away-color: var(--color-warning);
+  --status-away-bg: rgba(255, 209, 102, 0.1);
+  --status-away-border: rgba(255, 209, 102, 0.3);
+  --status-away-glow: rgba(255, 209, 102, 0.4);
+
+  --status-busy-color: var(--color-danger);
+  --status-busy-bg: rgba(255, 107, 107, 0.1);
+  --status-busy-border: rgba(255, 107, 107, 0.3);
+  --status-busy-glow: rgba(255, 107, 107, 0.4);
+
+  --status-loading-color: var(--neon-blue);
+  --status-loading-bg: rgba(55, 183, 255, 0.1);
+  --status-loading-border: rgba(55, 183, 255, 0.3);
+  --status-loading-glow: rgba(55, 183, 255, 0.4);
+
+  /* Badges */
+  --badge-primary-color: var(--neon-blue);
+  --badge-primary-bg: rgba(55, 183, 255, 0.1);
+  --badge-primary-border: rgba(55, 183, 255, 0.3);
+  --badge-primary-glow: rgba(55, 183, 255, 0.4);
+
+  --badge-success-color: var(--color-success);
+  --badge-success-bg: rgba(57, 229, 157, 0.1);
+  --badge-success-border: rgba(57, 229, 157, 0.3);
+  --badge-success-glow: rgba(57, 229, 157, 0.4);
+
+  --badge-warning-color: var(--color-warning);
+  --badge-warning-bg: rgba(255, 209, 102, 0.1);
+  --badge-warning-border: rgba(255, 209, 102, 0.3);
+  --badge-warning-glow: rgba(255, 209, 102, 0.4);
+
+  --badge-danger-color: var(--color-danger);
+  --badge-danger-bg: rgba(255, 107, 107, 0.1);
+  --badge-danger-border: rgba(255, 107, 107, 0.3);
+  --badge-danger-glow: rgba(255, 107, 107, 0.4);
+
+  --badge-info-color: var(--color-info);
+  --badge-info-bg: rgba(33, 150, 243, 0.1);
+  --badge-info-border: rgba(33, 150, 243, 0.3);
+  --badge-info-glow: rgba(33, 150, 243, 0.4);
+
+  /* Filter chips */
+  --chip-primary-color: var(--neon-blue);
+  --chip-primary-bg: rgba(55, 183, 255, 0.1);
+  --chip-primary-border: rgba(55, 183, 255, 0.3);
+
+  --chip-success-color: var(--color-success);
+  --chip-success-bg: rgba(57, 229, 157, 0.1);
+  --chip-success-border: rgba(57, 229, 157, 0.3);
+
+  --chip-warning-color: var(--color-warning);
+  --chip-warning-bg: rgba(255, 209, 102, 0.1);
+  --chip-warning-border: rgba(255, 209, 102, 0.3);
+
+  --chip-danger-color: var(--color-danger);
+  --chip-danger-bg: rgba(255, 107, 107, 0.1);
+  --chip-danger-border: rgba(255, 107, 107, 0.3);
+
+  --chip-info-color: var(--color-info);
+  --chip-info-bg: rgba(33, 150, 243, 0.1);
+  --chip-info-border: rgba(33, 150, 243, 0.3);
+
+  /* RGB values for dynamic color generation */
+  --badge-primary-rgb: 55, 183, 255;
+  --badge-success-rgb: 57, 229, 157;
+  --badge-warning-rgb: 255, 209, 102;
+  --badge-danger-rgb: 255, 107, 107;
+  --badge-info-rgb: 33, 150, 243;
+
+  --chip-primary-rgb: 55, 183, 255;
+  --chip-success-rgb: 57, 229, 157;
+  --chip-warning-rgb: 255, 209, 102;
+  --chip-danger-rgb: 255, 107, 107;
+  --chip-info-rgb: 33, 150, 243;
+
+  /* Alert banners */
+  --alert-info-color: var(--color-info);
+  --alert-info-border: rgba(33, 150, 243, 0.3);
+  --alert-info-bg-start: rgba(33, 150, 243, 0.1);
+  --alert-info-bg-end: rgba(3, 169, 244, 0.05);
+  --alert-info-icon-bg: rgba(33, 150, 243, 0.2);
+
+  --alert-success-color: var(--color-success);
+  --alert-success-border: rgba(57, 229, 157, 0.3);
+  --alert-success-bg-start: rgba(57, 229, 157, 0.1);
+  --alert-success-bg-end: rgba(76, 175, 80, 0.05);
+  --alert-success-icon-bg: rgba(57, 229, 157, 0.2);
+
+  --alert-warning-color: var(--color-warning);
+  --alert-warning-border: rgba(255, 209, 102, 0.3);
+  --alert-warning-bg-start: rgba(255, 209, 102, 0.1);
+  --alert-warning-bg-end: rgba(255, 152, 0, 0.05);
+  --alert-warning-icon-bg: rgba(255, 209, 102, 0.2);
+
+  --alert-error-color: var(--color-danger);
+  --alert-error-border: rgba(255, 107, 107, 0.3);
+  --alert-error-bg-start: rgba(255, 107, 107, 0.1);
+  --alert-error-bg-end: rgba(244, 67, 54, 0.05);
+  --alert-error-icon-bg: rgba(255, 107, 107, 0.2);
+
+  --alert-info-rgb: 33, 150, 243;
+  --alert-success-rgb: 57, 229, 157;
+  --alert-warning-rgb: 255, 209, 102;
+  --alert-error-rgb: 255, 107, 107;
+
+  --tooltip-bg: rgba(10, 15, 26, 0.92);
+  --tooltip-border: rgba(55, 183, 255, 0.35);
+  --tooltip-shadow: 0 12px 32px rgba(8, 20, 36, 0.45), 0 0 12px rgba(55, 183, 255, 0.25);
 }
 
 /* Reset & Base Styles */
@@ -96,4 +217,10 @@ body {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  justify-items: center;
+}
+
+.grid-2 > * {
+  width: 100%;
+  max-width: 400px;
 }

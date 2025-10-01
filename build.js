@@ -1,8 +1,23 @@
 #!/usr/bin/env node
 
 /**
- * Build script for Indie Neon UI
- * Combines and minifies CSS and JavaScript files
+ * ============================================
+ * Indie Neon UI - Build Script
+ * ============================================
+ * 
+ * This script combines and minifies all CSS and JavaScript files
+ * into distributable bundles for production use.
+ * 
+ * Output files:
+ * - dist/indie-neon-ui.css (development)
+ * - dist/indie-neon-ui.min.css (production)
+ * - dist/indie-neon-ui.js (development)
+ * - dist/indie-neon-ui.min.js (production)
+ * - dist/indie-neon-ui.cdn.js (CDN single-file version)
+ * 
+ * Usage:
+ *   node build.js
+ *   npm run build
  */
 
 const fs = require('fs');
@@ -24,6 +39,11 @@ function minifyCSS(css) {
     .replace(/;\s*/g, ';') // Remove spaces after semicolons
     .replace(/,\s*/g, ',') // Remove spaces after commas
     .replace(/:\s*/g, ':') // Remove spaces after colons
+    .replace(/\s*{\s*/g, '{') // Remove spaces around braces
+    .replace(/\s*}\s*/g, '}') // Remove spaces around braces
+    .replace(/\s*;\s*/g, ';') // Remove spaces around semicolons
+    .replace(/\s*,\s*/g, ',') // Remove spaces around commas
+    .replace(/\s*:\s*/g, ':') // Remove spaces around colons
     .trim();
 }
 
@@ -51,7 +71,21 @@ const cssFiles = [
   'css/modals.css',
   'css/feedback.css',
   'css/cards.css',
-  'css/table.css'
+  'css/table.css',
+  'css/pagination.css',
+  'css/stats-cards.css',
+  'css/badges.css',
+  'css/star-rating.css',
+  'css/circular-progress.css',
+  'css/fab.css',
+  'css/loading-skeletons.css',
+  'css/alert-banners.css',
+  'css/search-bar.css',
+  'css/filter-chips.css',
+  'css/empty-states.css',
+  'css/button-group.css',
+  'css/status-indicators.css',
+  'css/demo.css'
 ];
 
 let combinedCSS = '';
@@ -97,8 +131,6 @@ fs.writeFileSync(path.join(distDir, 'indie-neon-ui.min.js'), minifiedJS);
 const cdnVersion = `/*!
  * Indie Neon UI - CDN Version
  * Version: 1.0.0
- * License: MIT
- * Author: Jason
  */
 
 // Embed CSS
@@ -116,7 +148,7 @@ console.log('📁 Generated files:');
 console.log('   - dist/indie-neon-ui.css (development)');
 console.log('   - dist/indie-neon-ui.min.css (production)');
 console.log('   - dist/indie-neon-ui.js (development)');
-console.log('   - distie-neon-ui.min.js (production)');
+console.log('   - dist/indie-neon-ui.min.js (production)');
 console.log('   - dist/indie-neon-ui.cdn.js (CDN single file)');
 console.log('');
 console.log('📊 File sizes:');

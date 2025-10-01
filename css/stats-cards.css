@@ -1,0 +1,322 @@
+/* ===========================================
+   STATS CARDS COMPONENT
+   =========================================== */
+
+/* Stats cards container */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 24px 0;
+}
+
+/* Individual stat card */
+.stat-card {
+  position: relative;
+  padding: 24px;
+  background: var(--surface);
+  border: 2px solid rgba(55, 183, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Stat card hover effect */
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(55, 183, 255, 0.4);
+  box-shadow: 0 8px 30px rgba(55, 183, 255, 0.2), 0 0 40px rgba(154, 77, 255, 0.1);
+}
+
+/* Stat card header */
+.stat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+/* Stat icon */
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+  color: #ffffff;
+  font-size: 24px;
+  box-shadow: 0 4px 12px rgba(55, 183, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 6px 20px rgba(55, 183, 255, 0.5);
+}
+
+/* Stat trend indicator */
+.stat-trend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-trend.positive {
+  background: rgba(57, 229, 157, 0.1);
+  color: #39e59d;
+  border: 1px solid rgba(57, 229, 157, 0.3);
+}
+
+.stat-trend.negative {
+  background: rgba(255, 107, 107, 0.1);
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.stat-trend.neutral {
+  background: rgba(159, 182, 204, 0.1);
+  color: var(--muted);
+  border: 1px solid rgba(159, 182, 204, 0.3);
+}
+
+/* Trend arrow */
+.trend-arrow {
+  width: 10px;
+  height: 10px;
+  transition: transform 0.3s ease;
+}
+
+.stat-trend.positive .trend-arrow {
+  transform: rotate(-45deg);
+}
+
+.stat-trend.negative .trend-arrow {
+  transform: rotate(45deg);
+}
+
+/* Stat content */
+.stat-content {
+  margin-bottom: 16px;
+}
+
+/* Stat value with counter animation */
+.stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+  text-shadow: 0 0 12px rgba(55, 183, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-value {
+  text-shadow: 0 0 20px rgba(55, 183, 255, 0.6);
+  transform: scale(1.05);
+}
+
+/* Stat label */
+.stat-label {
+  font-size: 14px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+/* Stat description */
+.stat-description {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+  margin-top: 8px;
+}
+
+/* Progress bar within stat card */
+.stat-progress {
+  width: 100%;
+  height: 6px;
+  background: rgba(55, 183, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.stat-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+  border-radius: 3px;
+  transition: width 0.8s ease;
+  box-shadow: 0 0 8px rgba(55, 183, 255, 0.4);
+}
+
+/* Animated background effect */
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(55, 183, 255, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.stat-card:hover::before {
+  left: 100%;
+}
+
+/* Stat card variants */
+.stat-card.primary {
+  border-color: rgba(55, 183, 255, 0.3);
+}
+
+.stat-card.primary .stat-icon {
+  background: linear-gradient(135deg, var(--neon-blue), #4fc3f7);
+}
+
+.stat-card.success {
+  border-color: rgba(57, 229, 157, 0.3);
+}
+
+.stat-card.success .stat-icon {
+  background: linear-gradient(135deg, #39e59d, #4caf50);
+}
+
+.stat-card.warning {
+  border-color: rgba(255, 209, 102, 0.3);
+}
+
+.stat-card.warning .stat-icon {
+  background: linear-gradient(135deg, #ffd166, #ff9800);
+}
+
+.stat-card.danger {
+  border-color: rgba(255, 107, 107, 0.3);
+}
+
+.stat-card.danger .stat-icon {
+  background: linear-gradient(135deg, #ff6b6b, #f44336);
+}
+
+/* Compact stat card */
+.stat-card.compact {
+  padding: 16px;
+}
+
+.stat-card.compact .stat-icon {
+  width: 36px;
+  height: 36px;
+  font-size: 18px;
+}
+
+.stat-card.compact .stat-value {
+  font-size: 24px;
+}
+
+/* Large stat card */
+.stat-card.large {
+  padding: 32px;
+}
+
+.stat-card.large .stat-icon {
+  width: 64px;
+  height: 64px;
+  font-size: 32px;
+}
+
+.stat-card.large .stat-value {
+  font-size: 48px;
+}
+
+/* Loading state */
+.stat-card.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.stat-card.loading .stat-value {
+  background: linear-gradient(90deg, var(--muted), var(--text), var(--muted));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.stat-card.loading .stat-progress-bar {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Counter animation keyframes */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat-value.animating {
+  animation: countUp 0.6s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px 0;
+  }
+  
+  .stat-card {
+    padding: 20px;
+  }
+  
+  .stat-value {
+    font-size: 28px;
+  }
+  
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-card {
+    padding: 16px;
+  }
+  
+  .stat-value {
+    font-size: 24px;
+  }
+  
+  .stat-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}

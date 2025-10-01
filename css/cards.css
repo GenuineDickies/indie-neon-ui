@@ -10,7 +10,9 @@
   border: 2px solid rgba(55,183,255,.25);
   box-shadow: 0 6px 28px rgba(0,0,0,.4);
   display: grid;
-  gap: 1px;
+  gap: 12px;
+  text-align: center;
+  justify-items: center;
 }
 
 /* Card title */
@@ -25,5 +27,12 @@
 
 /* Card paragraph text */
 .card p {
-  margin-top: -4px;
+  margin: 0;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Card buttons should not stretch full width */
+.card .btn {
+  margin-top: 4px;
 }

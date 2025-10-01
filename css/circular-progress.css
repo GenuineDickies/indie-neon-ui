@@ -1,0 +1,366 @@
+/* ===========================================
+   CIRCULAR PROGRESS RINGS COMPONENT
+   =========================================== */
+
+/* Circular progress container */
+.circular-progress {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+}
+
+/* SVG circle container */
+.circular-progress svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+/* Background circle */
+.circular-progress .bg-circle {
+  fill: none;
+  stroke: rgba(55, 183, 255, 0.1);
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+/* Progress circle */
+.circular-progress .progress-circle {
+  fill: none;
+  stroke: url(#progressGradient);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  transition: stroke-dashoffset 0.8s ease;
+  filter: drop-shadow(0 0 8px rgba(55, 183, 255, 0.4));
+}
+
+/* Gradient definition */
+.circular-progress .gradient-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Progress text */
+.circular-progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--text);
+  font-weight: 600;
+  z-index: 2;
+}
+
+.circular-progress-value {
+  font-size: 24px;
+  line-height: 1;
+  text-shadow: 0 0 8px rgba(55, 183, 255, 0.3);
+}
+
+.circular-progress-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Circular progress sizes */
+.circular-progress.small {
+  width: 80px;
+  height: 80px;
+}
+
+.circular-progress.small .bg-circle,
+.circular-progress.small .progress-circle {
+  stroke-width: 6;
+}
+
+.circular-progress.small .circular-progress-value {
+  font-size: 18px;
+}
+
+.circular-progress.small .circular-progress-label {
+  font-size: 10px;
+}
+
+.circular-progress.medium {
+  width: 120px;
+  height: 120px;
+}
+
+.circular-progress.large {
+  width: 160px;
+  height: 160px;
+}
+
+.circular-progress.large .bg-circle,
+.circular-progress.large .progress-circle {
+  stroke-width: 10;
+}
+
+.circular-progress.large .circular-progress-value {
+  font-size: 32px;
+}
+
+.circular-progress.large .circular-progress-label {
+  font-size: 14px;
+}
+
+.circular-progress.xlarge {
+  width: 200px;
+  height: 200px;
+}
+
+.circular-progress.xlarge .bg-circle,
+.circular-progress.xlarge .progress-circle {
+  stroke-width: 12;
+}
+
+.circular-progress.xlarge .circular-progress-value {
+  font-size: 40px;
+}
+
+.circular-progress.xlarge .circular-progress-label {
+  font-size: 16px;
+}
+
+/* Color variants */
+.circular-progress.primary .progress-circle {
+  stroke: url(#primaryGradient);
+}
+
+.circular-progress.success .progress-circle {
+  stroke: url(#successGradient);
+}
+
+.circular-progress.warning .progress-circle {
+  stroke: url(#warningGradient);
+}
+
+.circular-progress.danger .progress-circle {
+  stroke: url(#dangerGradient);
+}
+
+.circular-progress.info .progress-circle {
+  stroke: url(#infoGradient);
+}
+
+/* Animated progress */
+.circular-progress.animated .progress-circle {
+  animation: progressGlow 2s ease-in-out infinite;
+}
+
+@keyframes progressGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(55, 183, 255, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(55, 183, 255, 0.8));
+  }
+}
+
+/* Pulsing effect */
+.circular-progress.pulse .progress-circle {
+  animation: progressPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes progressPulse {
+  0%, 100% {
+    stroke-width: 8;
+  }
+  50% {
+    stroke-width: 12;
+  }
+}
+
+/* Spinning animation */
+.circular-progress.spinning .progress-circle {
+  animation: progressSpin 2s linear infinite;
+}
+
+@keyframes progressSpin {
+  from {
+    transform: rotate(-90deg);
+  }
+  to {
+    transform: rotate(270deg);
+  }
+}
+
+/* Multiple progress rings */
+.circular-progress.multi {
+  position: relative;
+}
+
+.circular-progress.multi .progress-circle:nth-child(2) {
+  stroke: url(#secondaryGradient);
+  stroke-width: 6;
+  filter: drop-shadow(0 0 6px rgba(154, 77, 255, 0.4));
+}
+
+.circular-progress.multi .progress-circle:nth-child(3) {
+  stroke: url(#tertiaryGradient);
+  stroke-width: 4;
+  filter: drop-shadow(0 0 4px rgba(57, 229, 157, 0.4));
+}
+
+/* Progress with icon */
+.circular-progress.with-icon .circular-progress-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.circular-progress-icon {
+  font-size: 24px;
+  color: var(--neon-blue);
+  text-shadow: 0 0 8px rgba(55, 183, 255, 0.4);
+}
+
+/* Progress with status */
+.circular-progress.with-status .circular-progress-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.circular-progress-status {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.circular-progress-status.complete {
+  background: rgba(57, 229, 157, 0.1);
+  color: #39e59d;
+  border: 1px solid rgba(57, 229, 157, 0.3);
+}
+
+.circular-progress-status.in-progress {
+  background: rgba(55, 183, 255, 0.1);
+  color: var(--neon-blue);
+  border: 1px solid rgba(55, 183, 255, 0.3);
+}
+
+.circular-progress-status.pending {
+  background: rgba(255, 209, 102, 0.1);
+  color: #ffd166;
+  border: 1px solid rgba(255, 209, 102, 0.3);
+}
+
+/* Progress with steps */
+.circular-progress.with-steps {
+  position: relative;
+}
+
+.circular-progress-step {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--surface);
+  border: 2px solid rgba(55, 183, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+.circular-progress-step.active {
+  background: var(--neon-blue);
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 8px rgba(55, 183, 255, 0.6);
+}
+
+.circular-progress-step.completed {
+  background: #39e59d;
+  border-color: #39e59d;
+  box-shadow: 0 0 8px rgba(57, 229, 157, 0.6);
+}
+
+/* Progress with percentage display */
+.circular-progress.with-percentage .circular-progress-value::after {
+  content: '%';
+  font-size: 0.6em;
+  opacity: 0.7;
+}
+
+/* Progress with fraction display */
+.circular-progress.with-fraction .circular-progress-value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.circular-progress-fraction {
+  font-size: 0.5em;
+  opacity: 0.7;
+}
+
+/* Progress with time display */
+.circular-progress.with-time .circular-progress-value {
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .circular-progress {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .circular-progress.small {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .circular-progress.large {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .circular-progress.xlarge {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .circular-progress-value {
+    font-size: 20px;
+  }
+  
+  .circular-progress-label {
+    font-size: 10px;
+  }
+}
+
+/* Dark theme adjustments */
+@media (prefers-color-scheme: dark) {
+  .circular-progress .bg-circle {
+    stroke: rgba(55, 183, 255, 0.15);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .circular-progress .bg-circle {
+    stroke: rgba(55, 183, 255, 0.3);
+  }
+  
+  .circular-progress .progress-circle {
+    stroke-width: 10;
+  }
+}

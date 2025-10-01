@@ -1,20 +1,22 @@
 {
   "name": "indie-neon-ui",
   "version": "1.0.0",
-  "description": "A production-grade neon UI component library in pure HTML/CSS/JavaScript with dark theme and glowing neon blue/purple accents",
+  "description": "A production-grade neon UI component library with 25+ components in pure HTML/CSS/JavaScript. Features dark theme, glowing neon accents, and 2,500 color variations.",
   "main": "dist/indie-neon-ui.js",
   "style": "dist/indie-neon-ui.css",
+  "author": "Indie Neon UI Contributors",
+  "license": "MIT",
   "files": [
     "dist/",
     "css/",
     "js/",
     "README.md",
-    "USAGE.md"
+    "LICENSE"
   ],
   "scripts": {
     "build": "node build.js",
-    "dev": "python3 -m http.server 8080",
-    "serve": "python3 -m http.server 8080"
+    "serve": "python3 -m http.server 8080",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "css",
@@ -29,18 +31,22 @@
     "ui-library",
     "components-library",
     "frontend",
-    "web"
+    "web",
+    "futuristic",
+    "glowing",
+    "animations",
+    "no-dependencies",
+    "accessible",
+    "responsive"
   ],
-  "author": "Jason",
-  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/indie-neon-ui.git"
+    "url": "https://github.com/GenuineDickies/indie-neon-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/indie-neon-ui/issues"
+    "url": "https://github.com/GenuineDickies/indie-neon-ui/issues"
   },
-  "homepage": "https://github.com/yourusername/indie-neon-ui#readme",
+  "homepage": "https://github.com/GenuineDickies/indie-neon-ui#readme",
   "engines": {
     "node": ">=12.0.0"
   },

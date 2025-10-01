@@ -1,0 +1,277 @@
+/* ===========================================
+   PAGINATION COMPONENT
+   =========================================== */
+
+/* Pagination container */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 0;
+  font-size: 14px;
+}
+
+/* Pagination wrapper for better control */
+.pagination-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--surface);
+  border: 1px solid rgba(55, 183, 255, 0.2);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Pagination button base styles */
+.pagination-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Pagination button hover state */
+.pagination-btn:hover:not(.disabled) {
+  background: rgba(55, 183, 255, 0.1);
+  border-color: rgba(55, 183, 255, 0.3);
+  color: var(--neon-blue);
+  text-shadow: 0 0 8px rgba(55, 183, 255, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(55, 183, 255, 0.2);
+}
+
+/* Active/current page button */
+.pagination-btn.active {
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+  border-color: transparent;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 20px rgba(55, 183, 255, 0.6), 0 0 40px rgba(154, 77, 255, 0.4);
+  transform: scale(1.05);
+}
+
+/* Disabled pagination button */
+.pagination-btn.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  color: var(--muted);
+}
+
+.pagination-btn.disabled:hover {
+  background: transparent;
+  border-color: transparent;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Navigation buttons (Previous/Next) */
+.pagination-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Icon buttons (arrows) */
+.pagination-icon {
+  width: 16px;
+  height: 16px;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn:hover .pagination-icon {
+  filter: drop-shadow(0 0 4px rgba(55, 183, 255, 0.6));
+}
+
+/* Ellipsis for large page counts */
+.pagination-ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 600;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Page number buttons */
+.pagination-page {
+  position: relative;
+}
+
+/* Glow effect for page numbers */
+.pagination-page::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.pagination-page:hover::before {
+  opacity: 0.3;
+}
+
+.pagination-page.active::before {
+  opacity: 1;
+}
+
+/* Pagination info (showing X of Y) */
+.pagination-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0 16px;
+  padding: 8px 12px;
+  background: rgba(55, 183, 255, 0.05);
+  border: 1px solid rgba(55, 183, 255, 0.1);
+  border-radius: 8px;
+}
+
+/* Jump to page input */
+.pagination-jump {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 16px;
+}
+
+.pagination-jump input {
+  width: 60px;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid rgba(55, 183, 255, 0.3);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.pagination-jump input:focus {
+  outline: none;
+  border-color: var(--neon-blue);
+  box-shadow: 0 0 8px rgba(55, 183, 255, 0.3);
+}
+
+/* Compact pagination variant */
+.pagination.compact {
+  gap: 4px;
+}
+
+.pagination.compact .pagination-btn {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  font-size: 12px;
+}
+
+/* Large pagination variant */
+.pagination.large {
+  gap: 12px;
+}
+
+.pagination.large .pagination-btn {
+  min-width: 48px;
+  height: 48px;
+  padding: 0 16px;
+  font-size: 16px;
+  border-radius: 12px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .pagination {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  
+  .pagination-wrapper {
+    flex-wrap: wrap;
+    gap: 2px;
+    padding: 6px;
+  }
+  
+  .pagination-btn {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 8px;
+    font-size: 12px;
+  }
+  
+  .pagination-info,
+  .pagination-jump {
+    margin: 8px 0;
+    order: 1;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Hide some page numbers on mobile */
+  .pagination-page:nth-child(n+6):nth-last-child(n+6) {
+    display: none;
+  }
+}
+
+/* Animation for ellipsis pulse */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    text-shadow: 0 0 4px rgba(55, 183, 255, 0.4);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(55, 183, 255, 0.8);
+  }
+}
+
+/* Loading state for pagination */
+.pagination.loading .pagination-btn {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.pagination.loading .pagination-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid transparent;
+  border-top-color: var(--neon-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

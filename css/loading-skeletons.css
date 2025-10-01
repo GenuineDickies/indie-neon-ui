@@ -1,0 +1,467 @@
+/* ===========================================
+   LOADING SKELETONS COMPONENT
+   =========================================== */
+
+/* Skeleton base styles */
+.skeleton {
+  background: linear-gradient(90deg, 
+    rgba(55, 183, 255, 0.1) 0%, 
+    rgba(55, 183, 255, 0.2) 50%, 
+    rgba(55, 183, 255, 0.1) 100%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer animation */
+@keyframes skeletonShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Skeleton text */
+.skeleton-text {
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+.skeleton-text:last-child {
+  margin-bottom: 0;
+}
+
+.skeleton-text.short {
+  width: 60%;
+}
+
+.skeleton-text.medium {
+  width: 80%;
+}
+
+.skeleton-text.long {
+  width: 100%;
+}
+
+/* Skeleton heading */
+.skeleton-heading {
+  height: 24px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+}
+
+.skeleton-heading.large {
+  height: 32px;
+  margin-bottom: 20px;
+}
+
+.skeleton-heading.small {
+  height: 20px;
+  margin-bottom: 12px;
+}
+
+/* Skeleton paragraph */
+.skeleton-paragraph {
+  margin-bottom: 16px;
+}
+
+.skeleton-paragraph .skeleton-text {
+  margin-bottom: 8px;
+}
+
+.skeleton-paragraph .skeleton-text:last-child {
+  width: 70%;
+}
+
+/* Skeleton avatar */
+.skeleton-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+.skeleton-avatar.small {
+  width: 24px;
+  height: 24px;
+}
+
+.skeleton-avatar.large {
+  width: 64px;
+  height: 64px;
+}
+
+.skeleton-avatar.xlarge {
+  width: 96px;
+  height: 96px;
+}
+
+/* Skeleton button */
+.skeleton-button {
+  height: 40px;
+  width: 120px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.skeleton-button.small {
+  height: 28px;
+  width: 80px;
+}
+
+.skeleton-button.large {
+  height: 52px;
+  width: 160px;
+}
+
+/* Skeleton card */
+.skeleton-card {
+  padding: 20px;
+  border: 1px solid rgba(55, 183, 255, 0.2);
+  border-radius: 12px;
+  background: var(--surface);
+  margin-bottom: 16px;
+}
+
+.skeleton-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.skeleton-card-content {
+  margin-bottom: 16px;
+}
+
+.skeleton-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Skeleton list */
+.skeleton-list {
+  margin-bottom: 16px;
+}
+
+.skeleton-list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(55, 183, 255, 0.1);
+}
+
+.skeleton-list-item:last-child {
+  border-bottom: none;
+}
+
+/* Skeleton table */
+.skeleton-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+}
+
+.skeleton-table th,
+.skeleton-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid rgba(55, 183, 255, 0.1);
+}
+
+.skeleton-table th {
+  background: rgba(55, 183, 255, 0.05);
+  font-weight: 600;
+}
+
+.skeleton-table .skeleton-text {
+  margin-bottom: 0;
+}
+
+/* Skeleton image */
+.skeleton-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.skeleton-image.square {
+  aspect-ratio: 1;
+}
+
+.skeleton-image.portrait {
+  aspect-ratio: 3/4;
+}
+
+.skeleton-image.landscape {
+  aspect-ratio: 16/9;
+}
+
+/* Skeleton progress bar */
+.skeleton-progress {
+  width: 100%;
+  height: 8px;
+  background: rgba(55, 183, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.skeleton-progress-bar {
+  height: 100%;
+  width: 60%;
+  background: linear-gradient(90deg, 
+    rgba(55, 183, 255, 0.2) 0%, 
+    rgba(55, 183, 255, 0.4) 50%, 
+    rgba(55, 183, 255, 0.2) 100%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+/* Skeleton chip/tag */
+.skeleton-chip {
+  display: inline-block;
+  height: 24px;
+  width: 80px;
+  border-radius: 12px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+/* Skeleton form field */
+.skeleton-field {
+  margin-bottom: 16px;
+}
+
+.skeleton-field-label {
+  height: 14px;
+  width: 120px;
+  margin-bottom: 8px;
+}
+
+.skeleton-field-input {
+  height: 40px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Skeleton grid */
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.skeleton-grid-item {
+  padding: 16px;
+  border: 1px solid rgba(55, 183, 255, 0.2);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+/* Skeleton sidebar */
+.skeleton-sidebar {
+  width: 250px;
+  padding: 20px;
+  background: var(--surface);
+  border-right: 1px solid rgba(55, 183, 255, 0.2);
+}
+
+.skeleton-sidebar-header {
+  margin-bottom: 24px;
+}
+
+.skeleton-sidebar-nav {
+  margin-bottom: 24px;
+}
+
+.skeleton-sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  margin-bottom: 4px;
+}
+
+/* Skeleton dashboard */
+.skeleton-dashboard {
+  padding: 24px;
+}
+
+.skeleton-dashboard-header {
+  margin-bottom: 32px;
+}
+
+.skeleton-dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.skeleton-dashboard-stat {
+  padding: 20px;
+  border: 1px solid rgba(55, 183, 255, 0.2);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.skeleton-dashboard-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+/* Skeleton with pulse effect */
+.skeleton.pulse {
+  animation: skeletonPulse 2s ease-in-out infinite;
+}
+
+@keyframes skeletonPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Skeleton with wave effect */
+.skeleton.wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton.wave::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(55, 183, 255, 0.3), 
+    transparent);
+  animation: skeletonWave 2s ease-in-out infinite;
+}
+
+@keyframes skeletonWave {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Skeleton with glow effect */
+.skeleton.glow {
+  box-shadow: 0 0 20px rgba(55, 183, 255, 0.2);
+  animation: skeletonGlow 2s ease-in-out infinite;
+}
+
+@keyframes skeletonGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(55, 183, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(55, 183, 255, 0.4);
+  }
+}
+
+/* Skeleton with neon border */
+.skeleton.neon {
+  border: 1px solid rgba(55, 183, 255, 0.3);
+  box-shadow: 0 0 10px rgba(55, 183, 255, 0.2);
+}
+
+/* Skeleton loading state */
+.skeleton.loading {
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Skeleton with content fade */
+.skeleton-content {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skeleton-content.loaded {
+  opacity: 1;
+}
+
+.skeleton.loading + .skeleton-content {
+  opacity: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .skeleton-dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .skeleton-dashboard-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .skeleton-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skeleton-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(55, 183, 255, 0.2);
+  }
+  
+  .skeleton-card {
+    padding: 16px;
+  }
+  
+  .skeleton-dashboard {
+    padding: 16px;
+  }
+}
+
+/* Dark theme adjustments */
+@media (prefers-color-scheme: dark) {
+  .skeleton {
+    background: linear-gradient(90deg, 
+      rgba(55, 183, 255, 0.05) 0%, 
+      rgba(55, 183, 255, 0.15) 50%, 
+      rgba(55, 183, 255, 0.05) 100%);
+  }
+  
+  .skeleton-progress-bar {
+    background: linear-gradient(90deg, 
+      rgba(55, 183, 255, 0.1) 0%, 
+      rgba(55, 183, 255, 0.3) 50%, 
+      rgba(55, 183, 255, 0.1) 100%);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .skeleton {
+    background: linear-gradient(90deg, 
+      rgba(55, 183, 255, 0.2) 0%, 
+      rgba(55, 183, 255, 0.4) 50%, 
+      rgba(55, 183, 255, 0.2) 100%);
+  }
+  
+  .skeleton.neon {
+    border: 2px solid rgba(55, 183, 255, 0.6);
+  }
+}

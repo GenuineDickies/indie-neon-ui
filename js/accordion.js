@@ -77,7 +77,11 @@
           // Focus first submenu item when opening
           if (willOpen) {
             const firstItem = $('.submenu-item', panel);
-            if (firstItem) firstItem.focus();
+            if (firstItem) {
+              // Ensure the link is focusable and focus it
+              firstItem.setAttribute('tabindex', '0');
+              firstItem.focus();
+            }
           }
         });
       }

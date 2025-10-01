@@ -1,0 +1,511 @@
+/* ===========================================
+   ALERT BANNERS COMPONENT
+   =========================================== */
+
+/* Alert banner container */
+.alert-banner {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: var(--surface);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Alert banner variants */
+.alert-banner.info {
+  border-color: var(--alert-info-border);
+  background: linear-gradient(135deg, var(--alert-info-bg-start), var(--alert-info-bg-end));
+}
+
+.alert-banner.success {
+  border-color: var(--alert-success-border);
+  background: linear-gradient(135deg, var(--alert-success-bg-start), var(--alert-success-bg-end));
+}
+
+.alert-banner.warning {
+  border-color: var(--alert-warning-border);
+  background: linear-gradient(135deg, var(--alert-warning-bg-start), var(--alert-warning-bg-end));
+}
+
+.alert-banner.error {
+  border-color: var(--alert-error-border);
+  background: linear-gradient(135deg, var(--alert-error-bg-start), var(--alert-error-bg-end));
+}
+
+.alert-banner.neutral {
+  border-color: rgba(159, 182, 204, 0.3);
+  background: linear-gradient(135deg, rgba(159, 182, 204, 0.1), rgba(144, 164, 174, 0.05));
+}
+
+/* Alert banner icon */
+.alert-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.alert-banner.info .alert-icon {
+  background: var(--alert-info-icon-bg);
+  color: var(--alert-info-color);
+  border: 1px solid var(--alert-info-border);
+}
+
+.alert-banner.success .alert-icon {
+  background: var(--alert-success-icon-bg);
+  color: var(--alert-success-color);
+  border: 1px solid var(--alert-success-border);
+}
+
+.alert-banner.warning .alert-icon {
+  background: var(--alert-warning-icon-bg);
+  color: var(--alert-warning-color);
+  border: 1px solid var(--alert-warning-border);
+}
+
+.alert-banner.error .alert-icon {
+  background: var(--alert-error-icon-bg);
+  color: var(--alert-error-color);
+  border: 1px solid var(--alert-error-border);
+}
+
+.alert-banner.neutral .alert-icon {
+  background: rgba(159, 182, 204, 0.2);
+  color: var(--muted);
+  border: 1px solid rgba(159, 182, 204, 0.3);
+}
+
+/* Alert banner content */
+.alert-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.alert-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 4px;
+  line-height: 1.4;
+}
+
+.alert-message {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.alert-message:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+/* Alert banner actions */
+.alert-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.alert-action {
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.alert-banner.info .alert-action {
+  border-color: var(--alert-info-border);
+  color: var(--alert-info-color);
+}
+
+.alert-banner.info .alert-action:hover {
+  background: var(--alert-info-bg-start);
+  border-color: rgba(var(--alert-info-rgb, 33, 150, 243), 0.5);
+}
+
+.alert-banner.success .alert-action {
+  border-color: var(--alert-success-border);
+  color: var(--alert-success-color);
+}
+
+.alert-banner.success .alert-action:hover {
+  background: var(--alert-success-bg-start);
+  border-color: rgba(var(--alert-success-rgb, 57, 229, 157), 0.5);
+}
+
+.alert-banner.warning .alert-action {
+  border-color: var(--alert-warning-border);
+  color: var(--alert-warning-color);
+}
+
+.alert-banner.warning .alert-action:hover {
+  background: var(--alert-warning-bg-start);
+  border-color: rgba(var(--alert-warning-rgb, 255, 209, 102), 0.5);
+}
+
+.alert-banner.error .alert-action {
+  border-color: var(--alert-error-border);
+  color: var(--alert-error-color);
+}
+
+.alert-banner.error .alert-action:hover {
+  background: var(--alert-error-bg-start);
+  border-color: rgba(var(--alert-error-rgb, 255, 107, 107), 0.5);
+}
+
+.alert-banner.neutral .alert-action {
+  border-color: rgba(159, 182, 204, 0.3);
+  color: var(--muted);
+}
+
+.alert-banner.neutral .alert-action:hover {
+  background: rgba(159, 182, 204, 0.1);
+  border-color: rgba(159, 182, 204, 0.5);
+}
+
+/* Dismiss button */
+.alert-dismiss {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin-top: 2px;
+}
+
+.alert-dismiss:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+}
+
+/* Alert banner sizes */
+.alert-banner.small {
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+.alert-banner.small .alert-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+}
+
+.alert-banner.small .alert-title {
+  font-size: 14px;
+}
+
+.alert-banner.small .alert-message {
+  font-size: 12px;
+}
+
+.alert-banner.large {
+  padding: 24px 28px;
+  font-size: 18px;
+}
+
+.alert-banner.large .alert-icon {
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+}
+
+.alert-banner.large .alert-title {
+  font-size: 20px;
+}
+
+.alert-banner.large .alert-message {
+  font-size: 16px;
+}
+
+/* Alert banner with neon glow */
+.alert-banner.neon {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(55, 183, 255, 0.1);
+}
+
+.alert-banner.neon.info {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(33, 150, 243, 0.2);
+}
+
+.alert-banner.neon.success {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(57, 229, 157, 0.2);
+}
+
+.alert-banner.neon.warning {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 209, 102, 0.2);
+}
+
+.alert-banner.neon.error {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 107, 107, 0.2);
+}
+
+/* Alert banner with pulse animation */
+.alert-banner.pulse {
+  animation: alertPulse 2s ease-in-out infinite;
+}
+
+@keyframes alertPulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(55, 183, 255, 0.2);
+  }
+}
+
+/* Alert banner with slide-in animation */
+.alert-banner.slide-in {
+  animation: alertSlideIn 0.5s ease-out;
+}
+
+@keyframes alertSlideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Alert banner with fade-in animation */
+.alert-banner.fade-in {
+  animation: alertFadeIn 0.3s ease-out;
+}
+
+@keyframes alertFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Alert banner with shimmer effect */
+.alert-banner.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.alert-banner.shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.1), 
+    transparent);
+  animation: alertShimmer 2s ease-in-out infinite;
+}
+
+@keyframes alertShimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Alert banner with progress bar */
+.alert-banner.with-progress {
+  position: relative;
+}
+
+.alert-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+  border-radius: 0 0 10px 10px;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba(55, 183, 255, 0.4);
+}
+
+/* Alert banner with countdown */
+.alert-banner.with-countdown .alert-dismiss {
+  position: relative;
+}
+
+.alert-countdown {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 16px;
+  height: 16px;
+  background: var(--neon-blue);
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--surface);
+}
+
+/* Alert banner with close confirmation */
+.alert-banner.with-confirmation .alert-dismiss {
+  position: relative;
+}
+
+.alert-confirm {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: var(--surface);
+  border: 1px solid rgba(55, 183, 255, 0.3);
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.alert-confirm.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.alert-confirm-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.alert-confirm-btn {
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text);
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.alert-confirm-btn.confirm {
+  border-color: rgba(255, 107, 107, 0.3);
+  color: #ff6b6b;
+}
+
+.alert-confirm-btn.confirm:hover {
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.alert-confirm-btn.cancel {
+  border-color: rgba(159, 182, 204, 0.3);
+  color: var(--muted);
+}
+
+.alert-confirm-btn.cancel:hover {
+  background: rgba(159, 182, 204, 0.1);
+}
+
+/* Alert banner group */
+.alert-group {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+}
+
+.alert-group .alert-banner {
+  margin-bottom: 0;
+  animation: alertSlideIn 0.5s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .alert-banner {
+    padding: 12px 16px;
+    margin-bottom: 12px;
+  }
+  
+  .alert-banner.large {
+    padding: 20px 24px;
+  }
+  
+  .alert-actions {
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .alert-action {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .alert-group {
+    top: 16px;
+    right: 16px;
+    left: 16px;
+    max-width: none;
+  }
+  
+  .alert-group .alert-banner {
+    animation: alertFadeIn 0.3s ease-out;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .alert-banner {
+    border-width: 3px;
+  }
+  
+  .alert-icon {
+    border-width: 2px;
+  }
+  
+  .alert-action {
+    border-width: 2px;
+  }
+}

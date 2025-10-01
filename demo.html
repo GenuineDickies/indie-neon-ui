@@ -12,7 +12,9 @@
     <nav class="demo-nav">
         <div class="nav-container">
             <div class="nav-brand">
-                <span class="brand-icon">⚡</span>
+                <svg class="brand-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
                 <span class="brand-text">Indie Neon UI</span>
             </div>
             <div class="nav-links">
@@ -24,7 +26,8 @@
             <div class="color-controls">
                 <div class="color-slider-container">
                     <label for="colorSlider" class="color-slider-label">Theme Color</label>
-                    <input type="range" id="colorSlider" class="color-slider" min="0" max="360" value="200" />
+                    <div class="color-number-display" id="colorNumberDisplay">1501</div>
+                    <input type="range" id="colorSlider" class="color-slider" min="0" max="2499" value="1500" aria-label="Theme color slider" />
                     <div class="color-preview" id="colorPreview"></div>
                     <button id="restoreDefaultBtn" class="restore-default-btn" title="Restore default colors">
                         default
@@ -32,20 +35,51 @@
                 </div>
                 <div class="new-feature-badge floating-badge">
                     <div class="badge-arrows">
-                        <div class="arrow arrow-1">⬆️</div>
-                        <div class="arrow arrow-2">⬆️</div>
-                        <div class="arrow arrow-3">⬆️</div>
+                        <div class="arrow arrow-1">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 2l4 4-4 4"/>
+                            </svg>
+                        </div>
+                        <div class="arrow arrow-2">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 2l4 4-4 4"/>
+                            </svg>
+                        </div>
+                        <div class="arrow arrow-3">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 2l4 4-4 4"/>
+                            </svg>
+                        </div>
                     </div>
                     <div class="badge-content">
-                        <span class="badge-text">🎨 NEW! 🎨</span>
-                        <span class="badge-subtext">2,250+ Colors!</span>
-                        <span class="badge-emoji">✨</span>
+                        <span class="badge-text">NEW!</span>
+                        <span class="badge-subtext">2,500 Colors!</span>
+                        <span class="badge-instruction">Click slider then use arrow keys ←→</span>
+                        <svg class="badge-emoji" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M8 1l1.5 3.5L13 5.5l-3 2.5L11 12l-3-2L5 12l1-4L3 5.5l3.5-1L8 1z"/>
+                        </svg>
                     </div>
                     <div class="sparkles">
-                        <div class="sparkle sparkle-1">✨</div>
-                        <div class="sparkle sparkle-2">⭐</div>
-                        <div class="sparkle sparkle-3">✨</div>
-                        <div class="sparkle sparkle-4">⭐</div>
+                        <div class="sparkle sparkle-1">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 1l1 2.5L9.5 4.5l-2.5 2L8 9.5l-2-1.5L4 9.5l1-3L2.5 4.5l2.5-1L6 1z"/>
+                            </svg>
+                        </div>
+                        <div class="sparkle sparkle-2">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 1l1 2.5L9.5 4.5l-2.5 2L8 9.5l-2-1.5L4 9.5l1-3L2.5 4.5l2.5-1L6 1z"/>
+                            </svg>
+                        </div>
+                        <div class="sparkle sparkle-3">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 1l1 2.5L9.5 4.5l-2.5 2L8 9.5l-2-1.5L4 9.5l1-3L2.5 4.5l2.5-1L6 1z"/>
+                            </svg>
+                        </div>
+                        <div class="sparkle sparkle-4">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 1l1 2.5L9.5 4.5l-2.5 2L8 9.5l-2-1.5L4 9.5l1-3L2.5 4.5l2.5-1L6 1z"/>
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -61,7 +95,7 @@
                 <p class="hero-description">
                     A sleek, modern CSS component library with neon-inspired design. 
                     Perfect for creating futuristic interfaces with beautiful animations and effects.
-                    <br><strong>2,250+ color variations</strong> available through the interactive color slider.
+                    <br><strong>30+ components</strong> with 2,500+ color variations available through the interactive color slider.
                 </p>
                 <div class="hero-actions">
                     <a href="#installation" class="btn large">Get Started</a>
@@ -69,7 +103,7 @@
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
-                        <span class="stat-number">15+</span>
+                        <span class="stat-number">30+</span>
                         <span class="stat-label">Components</span>
                     </div>
                     <div class="stat">
@@ -77,7 +111,7 @@
                         <span class="stat-label">Dependencies</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">2.5KB</span>
+                        <span class="stat-number">92.5KB</span>
                         <span class="stat-label">Minified</span>
                     </div>
                 </div>
@@ -89,20 +123,20 @@
         <!-- Components Section -->
         <section id="components" class="section">
             <div class="section-header">
-                <h2 class="section-title">Components</h2>
-                <p class="section-description">Explore the complete set of UI components with neon-inspired design</p>
+                <h2 class="section-title">Component Library</h2>
+                <p class="section-description">Explore 30+ beautifully crafted UI components with neon-inspired design, animations, and modern UX patterns</p>
             </div>
 
-            <!-- Buttons Subsection -->
+            <!-- Buttons & Actions -->
             <div class="component-group">
                 <div class="component-header">
-                    <h3 class="component-title">Buttons</h3>
-                    <p class="component-description">Interactive buttons with multiple styles and sizes</p>
+                    <h3 class="component-title">Buttons & Actions</h3>
+                    <p class="component-description">Interactive buttons with multiple styles, sizes, and states</p>
                 </div>
                 
                 <div class="component-showcase">
                     <div class="showcase-group">
-                        <h4 class="showcase-label">Styles</h4>
+                        <h4 class="showcase-label">Button Variants</h4>
                         <div class="hstack">
                             <button class="btn">Primary</button>
                             <button class="btn ghost">Ghost</button>
@@ -112,53 +146,26 @@
                     </div>
                     
                     <div class="showcase-group">
-                        <h4 class="showcase-label">Sizes</h4>
+                        <h4 class="showcase-label">Button Sizes</h4>
                         <div class="hstack">
                             <button class="btn small">Small</button>
-                            <button class="btn">Regular</button>
+                            <button class="btn">Default</button>
                             <button class="btn large">Large</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Interactive Components Subsection -->
-            <div class="component-group">
-                <div class="component-header">
-                    <h3 class="component-title">Interactive Components</h3>
-                    <p class="component-description">Advanced components with state management and animations</p>
-                </div>
-                
-                <div class="component-showcase">
-                    <div class="showcase-group">
-                        <h4 class="showcase-label">Toggle Button</h4>
-                        <div class="stack">
-                            <button class="btn btn-same-width" id="demoRegular">Toggle Button</button>
-                            <p class="showcase-note">Click to toggle active state with neon glow effect</p>
                         </div>
                     </div>
                     
                     <div class="showcase-group">
-                        <h4 class="showcase-label">Accordion Menu</h4>
-                        <div class="accordion" data-accordion>
-                            <button class="btn with-chevron" data-acc-btn aria-expanded="false" aria-haspopup="menu" aria-controls="acc-1">
-                                <span>Menu Options</span>
-                                <svg class="chev" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-                                    <path d="M2 8 L6 4 L10 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                </svg>
-                            </button>
-                            <ul class="submenu" id="acc-1" data-acc-panel role="menu" aria-hidden="true">
-                                <li><a href="#" class="submenu-item" role="menuitem" data-action="new-request">New Service Request</a></li>
-                                <li><a href="#" class="submenu-item" role="menuitem" data-action="lookup-vehicle">Lookup Vehicle</a></li>
-                                <li><a href="#" class="submenu-item" role="menuitem" data-action="create-invoice">Create Invoice</a></li>
-                            </ul>
-                        </div>
-                        <p class="showcase-note">Expandable menu with smooth animations and keyboard navigation</p>
+                        <h4 class="showcase-label">Floating Action Button (FAB)</h4>
+                        <button class="fab pulse fab-demo" aria-label="Add new item">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <!-- Form Controls Subsection -->
+            <!-- Form Controls -->
             <div class="component-group">
                 <div class="component-header">
                     <h3 class="component-title">Form Controls</h3>
@@ -167,63 +174,186 @@
                 
                 <div class="component-showcase">
                     <div class="showcase-group">
-                        <h4 class="showcase-label">Input Fields</h4>
-                        <div class="grid-2">
+                        <h4 class="showcase-label">Text Inputs</h4>
+                        <div class="stack">
                             <label class="field">
-                                <span>Text Input</span>
-                                <input type="text" placeholder="Type something..."/>
+                                <span>Email Address</span>
+                                <input type="email" placeholder="you@example.com" aria-label="Email address"/>
                             </label>
-                            
-                            <div class="field">
-                                <span>Custom Dropdown</span>
-                                <div class="dropdown" data-dropdown>
-                                    <button class="dropdown-btn" aria-expanded="false" aria-label="Choose option">
-                                        <span class="dropdown-text">Choose option...</span>
-                                        <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-                                            <path d="M2 4 L6 8 L10 4" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <label class="field">
+                                <span>Message</span>
+                                <textarea placeholder="Type your message..."></textarea>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Selection Controls</h4>
+                        <div class="stack">
+                            <label class="switch">
+                                <input type="checkbox" checked aria-label="Enable notifications"/>
+                                <span class="track"></span>
+                                <span class="label">Enable Notifications</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" checked aria-label="Subscribe to newsletter"/>
+                                <span>Subscribe to Newsletter</span>
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="plan" checked aria-label="Free plan"/>
+                                <span>Free Plan</span>
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="plan" aria-label="Pro plan"/>
+                                <span>Pro Plan</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Dropdown</h4>
+                        <div class="dropdown" data-dropdown>
+                            <button class="dropdown-btn" aria-expanded="false" aria-label="Choose option">
+                                <span class="dropdown-text">Select an option</span>
+                                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                                    <path d="M2 4 L6 8 L10 4" fill="none" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </button>
+                            <ul class="dropdown-menu" role="listbox" aria-label="Dropdown options">
+                                <li role="option"><span class="dropdown-item" data-value="option1">Option 1</span></li>
+                                <li role="option"><span class="dropdown-item" data-value="option2">Option 2</span></li>
+                                <li role="option"><span class="dropdown-item" data-value="option3">Option 3</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Search Bar</h4>
+                        <div class="search-bar">
+                            <input type="text" class="search-input" placeholder="Search..." aria-label="Search"/>
+                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="M21 21l-4.35-4.35"/>
+                            </svg>
+                            <button class="search-button">→</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Badges & Indicators -->
+            <div class="component-group">
+                <div class="component-header">
+                    <h3 class="component-title">Badges & Indicators</h3>
+                    <p class="component-description">Status badges, labels, and filter chips for categorization and status display</p>
+                </div>
+                
+                <div class="component-showcase">
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Badge Variants</h4>
+                        <div class="badge-group">
+                            <span class="badge primary">Primary</span>
+                            <span class="badge success">Success</span>
+                            <span class="badge warning">Warning</span>
+                            <span class="badge danger">Danger</span>
+                            <span class="badge info">Info</span>
+                            <span class="badge neutral">Neutral</span>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Filter Chips</h4>
+                        <div class="filter-chips">
+                            <button class="filter-chip active">All</button>
+                            <button class="filter-chip">Design</button>
+                            <button class="filter-chip">Development</button>
+                            <button class="filter-chip">Marketing</button>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Star Rating</h4>
+                        <div class="star-rating medium">
+                            <span class="star active">★</span>
+                            <span class="star active">★</span>
+                            <span class="star active">★</span>
+                            <span class="star active">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Display -->
+            <div class="component-group">
+                <div class="component-header">
+                    <h3 class="component-title">Data Display</h3>
+                    <p class="component-description">Cards, tables, and stats for presenting and organizing information</p>
+                </div>
+                
+                <div class="component-showcase">
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Stats Cards</h4>
+                        <div class="stats-grid stats-grid-demo">
+                            <div class="stat-card">
+                                <div class="stat-header">
+                                    <div class="stat-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                            <circle cx="8.5" cy="7" r="4"/>
+                                            <path d="M20 8v6M23 11h-6"/>
                                         </svg>
-                                    </button>
-                                    <ul class="dropdown-menu" role="listbox" aria-label="Dropdown options">
-                                        <li role="option"><span class="dropdown-item" data-value="option1">Option 1</span></li>
-                                        <li role="option"><span class="dropdown-item" data-value="option2">Option 2</span></li>
-                                        <li role="option"><span class="dropdown-item" data-value="option3">Option 3</span></li>
-                                    </ul>
+                                    </div>
+                                    <div class="stat-trend positive">
+                                        <span>+12%</span>
+                                    </div>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-value">2,543</div>
+                                    <div class="stat-label">Total Users</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card success">
+                                <div class="stat-header">
+                                    <div class="stat-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                        </svg>
+                                    </div>
+                                    <div class="stat-trend positive">
+                                        <span>+8%</span>
+                                    </div>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-value">$45.2K</div>
+                                    <div class="stat-label">Revenue</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card warning">
+                                <div class="stat-header">
+                                    <div class="stat-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                        </svg>
+                                    </div>
+                                    <div class="stat-trend negative">
+                                        <span>-3%</span>
+                                    </div>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-value">89.2%</div>
+                                    <div class="stat-label">Performance</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="showcase-group">
-                        <h4 class="showcase-label">Selection Controls</h4>
-                        <div class="grid-2">
-                            <label class="switch">
-                                <input type="checkbox"/>
-                                <span class="track"></span>
-                                <span class="label">Toggle Switch</span>
-                            </label>
-
-                            <label class="checkbox">
-                                <input type="checkbox"/>
-                                <span>Checkbox</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-            <!-- Data Display Subsection -->
-            <div class="component-group">
-                <div class="component-header">
-                    <h3 class="component-title">Data Display</h3>
-                    <p class="component-description">Cards, tables, and other components for presenting information</p>
-                </div>
-                
-                <div class="component-showcase">
-                    <div class="showcase-group">
                         <h4 class="showcase-label">Card Component</h4>
                         <div class="card">
-                            <h3>Feature Card</h3>
+                            <h3>Feature Highlight</h3>
                             <p>Beautiful cards with neon glow effects and smooth animations. Perfect for showcasing content and actions.</p>
                             <button class="btn small">Learn More</button>
                         </div>
@@ -238,46 +368,171 @@
                                         <th>Project</th>
                                         <th>Status</th>
                                         <th>Progress</th>
+                                        <th>Points</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td>Project Alpha</td><td>Active</td><td>850 pts</td></tr>
-                                    <tr><td>Task Beta</td><td>Pending</td><td>1,200 pts</td></tr>
-                                    <tr><td>Feature Gamma</td><td>Complete</td><td>650 pts</td></tr>
+                                    <tr>
+                                        <td>Project Alpha</td>
+                                        <td><span class="badge success small">Active</span></td>
+                                        <td>85%</td>
+                                        <td>850</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Task Beta</td>
+                                        <td><span class="badge warning small">Pending</span></td>
+                                        <td>60%</td>
+                                        <td>1,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Feature Gamma</td>
+                                        <td><span class="badge primary small">Complete</span></td>
+                                        <td>100%</td>
+                                        <td>650</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-            <!-- Feedback & Loading Subsection -->
+            <!-- Feedback & Notifications -->
             <div class="component-group">
                 <div class="component-header">
-                    <h3 class="component-title">Feedback & Loading</h3>
-                    <p class="component-description">Toast notifications, progress indicators, and loading states</p>
+                    <h3 class="component-title">Feedback & Notifications</h3>
+                    <p class="component-description">Alert banners, toast notifications, and progress indicators</p>
                 </div>
                 
                 <div class="component-showcase">
                     <div class="showcase-group">
-                        <h4 class="showcase-label">Notifications</h4>
-                        <div class="hstack">
-                            <button class="btn" id="toastBtn">Show Toast</button>
-                            <button class="btn ghost tooltip" data-tooltip="This is a tooltip!">Hover me</button>
+                        <h4 class="showcase-label">Alert Banners</h4>
+                        <div class="stack">
+                            <div class="alert-banner info">
+                                <div class="alert-icon">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="8" cy="8" r="7"/>
+                                        <path d="M8 12v-4M8 5v.01"/>
+                                    </svg>
+                                </div>
+                                <div class="alert-content">
+                                    <div class="alert-title">New Update Available</div>
+                                    <div class="alert-message">Version 2.0 is now available with new features.</div>
+                                </div>
+                            </div>
+                            
+                            <div class="alert-banner success">
+                                <div class="alert-icon">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M13 4L6 11l-3-3"/>
+                                    </svg>
+                                </div>
+                                <div class="alert-content">
+                                    <div class="alert-title">Success!</div>
+                                    <div class="alert-message">Your changes have been saved successfully.</div>
+                                </div>
+                            </div>
                         </div>
-                        <p class="showcase-note">Toast notifications and tooltips for user feedback</p>
+                    </div>
+                    
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Toast Notifications</h4>
+                        <button class="btn" id="toastBtn">Show Toast</button>
                     </div>
                     
                     <div class="showcase-group">
                         <h4 class="showcase-label">Progress Indicators</h4>
-                        <div class="hstack">
+                        <div class="stack">
                             <div class="progress">
                                 <div class="bar demo-progress"></div>
                             </div>
-                            <div class="spinner" aria-label="Loading"></div>
+                            <div class="hstack">
+                                <div class="spinner" aria-label="Loading"></div>
+                                <span>Loading...</span>
+                            </div>
                         </div>
-                        <p class="showcase-note">Progress bars and loading spinners for async operations</p>
+                    </div>
+                    
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Tooltip</h4>
+                        <button class="btn ghost tooltip" data-tooltip="Helpful information appears here!">Hover Me</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation & Interactive -->
+            <div class="component-group">
+                <div class="component-header">
+                    <h3 class="component-title">Navigation & Interactive</h3>
+                    <p class="component-description">Tabs, accordions, modals, and pagination for navigation and user interaction</p>
+                </div>
+                
+                <div class="component-showcase">
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Tabs</h4>
+                        <div class="tabs" data-tabs>
+                            <div class="tab-list" role="tablist">
+                                <button class="tab" role="tab" aria-selected="true">Overview</button>
+                                <button class="tab" role="tab">Details</button>
+                                <button class="tab" role="tab">Settings</button>
+                            </div>
+                            <div class="tab-panels">
+                                <div class="tab-panel" role="tabpanel">
+                                    <p>Overview content goes here...</p>
+                                </div>
+                                <div class="tab-panel" role="tabpanel" hidden>
+                                    <p>Details content goes here...</p>
+                                </div>
+                                <div class="tab-panel" role="tabpanel" hidden>
+                                    <p>Settings content goes here...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Accordion</h4>
+                        <div class="accordion" data-accordion>
+                            <button class="btn with-chevron" data-acc-btn aria-expanded="false" aria-controls="acc-demo">
+                                <span>Click to Expand</span>
+                                <svg class="chev" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                                    <path d="M2 8 L6 4 L10 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                            <ul class="submenu" id="acc-demo" data-acc-panel aria-hidden="true">
+                                <li><a href="#" class="submenu-item">Menu Item 1</a></li>
+                                <li><a href="#" class="submenu-item">Menu Item 2</a></li>
+                                <li><a href="#" class="submenu-item">Menu Item 3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Modal Dialog</h4>
+                        <button class="btn" data-open-modal="#demoModal">Open Modal</button>
+                    </div>
+                    
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Pagination</h4>
+                        <div class="pagination">
+                            <div class="pagination-wrapper">
+                                <button class="pagination-btn disabled" aria-label="Previous page">
+                                    <svg class="pagination-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M10 12L6 8l4-4"/>
+                                    </svg>
+                                </button>
+                                <button class="pagination-btn pagination-page active">1</button>
+                                <button class="pagination-btn pagination-page">2</button>
+                                <button class="pagination-btn pagination-page">3</button>
+                                <span class="pagination-ellipsis">...</span>
+                                <button class="pagination-btn pagination-page">10</button>
+                                <button class="pagination-btn" aria-label="Next page">
+                                    <svg class="pagination-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M6 12l4-4-4-4"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -292,17 +547,83 @@
             
             <div class="examples-grid">
                 <div class="example-card">
-                    <div class="example-icon">📊</div>
+                    <div class="example-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="4" y="4" width="16" height="16" rx="2"/>
+                            <rect x="28" y="4" width="16" height="16" rx="2"/>
+                            <rect x="4" y="28" width="16" height="16" rx="2"/>
+                            <rect x="28" y="28" width="16" height="16" rx="2"/>
+                        </svg>
+                    </div>
                     <h3 class="example-title">Dashboard Mockup</h3>
-                    <p class="example-description">Complete dashboard application showcasing all components in a real-world scenario</p>
+                    <p class="example-description">Complete dashboard application showcasing all components in a real-world scenario with interactive elements</p>
                     <a href="mockup.html" class="btn">View Dashboard</a>
                 </div>
                 
                 <div class="example-card">
-                    <div class="example-icon">⚡</div>
-                    <h3 class="example-title">Component Playground</h3>
-                    <p class="example-description">Interactive playground to test and experiment with all components</p>
-                    <button class="btn ghost" id="playgroundBtn">Coming Soon</button>
+                    <div class="example-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            <circle cx="36" cy="12" r="8"/>
+                            <circle cx="36" cy="36" r="8"/>
+                        </svg>
+                    </div>
+                    <h3 class="example-title">Component Library</h3>
+                    <p class="example-description">Full component showcase with code examples and detailed documentation for developers</p>
+                    <a href="index.html" class="btn ghost">View Components</a>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="24" cy="24" r="20"/>
+                            <path d="M24 4a20 20 0 0 1 0 40"/>
+                            <path d="M4 24h40"/>
+                        </svg>
+                    </div>
+                    <h3 class="example-title">Color Themes</h3>
+                    <p class="example-description">2,500+ color variations available through the interactive color slider at the top of this page</p>
+                    <button class="btn ghost" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Try Color Slider</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Highlight Section -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Indie Neon UI?</h2>
+                <p class="section-description">Modern, lightweight, and packed with features for building beautiful interfaces</p>
+            </div>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3>🎨 Beautiful Design</h3>
+                    <p>Neon-inspired aesthetic with smooth animations, gradients, and glow effects that make your UI stand out</p>
+                </div>
+                
+                <div class="card">
+                    <h3>⚡ Zero Dependencies</h3>
+                    <p>Pure HTML, CSS, and JavaScript. No frameworks required. Just 92.5KB minified</p>
+                </div>
+                
+                <div class="card">
+                    <h3>🎯 Easy to Use</h3>
+                    <p>Simple class-based API. Just add classes to your HTML elements and you're ready to go</p>
+                </div>
+                
+                <div class="card">
+                    <h3>♿ Accessible</h3>
+                    <p>Full keyboard navigation, ARIA labels, and screen reader support built-in</p>
+                </div>
+                
+                <div class="card">
+                    <h3>📱 Responsive</h3>
+                    <p>Works beautifully on desktop, tablet, and mobile devices with optimized touch interactions</p>
+                </div>
+                
+                <div class="card">
+                    <h3>🎨 2,500 Colors</h3>
+                    <p>Dynamic color system with real-time theme updates. Customize to match your brand perfectly</p>
                 </div>
             </div>
         </section>
@@ -310,17 +631,22 @@
         <!-- Installation Section -->
         <section id="installation" class="section">
             <div class="section-header">
-                <h2 class="section-title">Installation</h2>
-                <p class="section-description">Get started with Indie Neon UI in your project</p>
+                <h2 class="section-title">Get Started</h2>
+                <p class="section-description">Quick and easy installation - choose your preferred method</p>
             </div>
             
             <div class="installation-grid">
                 <div class="install-card">
                     <div class="install-header">
-                        <div class="install-icon">📦</div>
+                        <div class="install-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 12h40l-2 24H6L4 12z"/>
+                                <path d="M16 12V8a8 8 0 0 1 16 0v4"/>
+                            </svg>
+                        </div>
                         <h3 class="install-title">NPM Package</h3>
                     </div>
-                    <p class="install-description">Install via npm for use in your projects with full control over customization</p>
+                    <p class="install-description">Install via npm for use in modern build tools and full control over customization</p>
                     <div class="install-code">
                         <code class="code-block">npm install indie-neon-ui</code>
                     </div>
@@ -333,17 +659,70 @@
                 
                 <div class="install-card">
                     <div class="install-header">
-                        <div class="install-icon">🌐</div>
-                        <h3 class="install-title">CDN</h3>
+                        <div class="install-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="24" cy="24" r="20"/>
+                                <path d="M24 4a20 20 0 0 1 0 40"/>
+                                <path d="M24 4a20 20 0 0 0 0 40"/>
+                                <path d="M4 24h40"/>
+                            </svg>
+                        </div>
+                        <h3 class="install-title">CDN (Single File)</h3>
                     </div>
-                    <p class="install-description">Include directly in your HTML for quick prototyping and simple projects</p>
+                    <p class="install-description">All-in-one bundle with CSS and JS combined for the quickest setup possible</p>
                     <div class="install-code">
                         <code class="code-block">&lt;script src="https://unpkg.com/indie-neon-ui@latest/dist/indie-neon-ui.cdn.js"&gt;&lt;/script&gt;</code>
                     </div>
                     <div class="install-features">
-                        <span class="feature-badge">Quick Start</span>
-                        <span class="feature-badge">No Build Step</span>
-                        <span class="feature-badge">Always Latest</span>
+                        <span class="feature-badge">Single File</span>
+                        <span class="feature-badge">Instant Setup</span>
+                        <span class="feature-badge">Auto-updated</span>
+                    </div>
+                </div>
+                
+                <div class="install-card">
+                    <div class="install-header">
+                        <div class="install-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2v10M34 2v10M8 14h32M10 8h28a2 2 0 0 1 2 2v28a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="install-title">CDN (Separate Files)</h3>
+                    </div>
+                    <p class="install-description">Load CSS and JS separately for better caching and control</p>
+                    <div class="install-code install-code-margin">
+                        <code class="code-block">&lt;link rel="stylesheet" href="https://unpkg.com/indie-neon-ui@latest/dist/indie-neon-ui.min.css"&gt;</code>
+                    </div>
+                    <div class="install-code">
+                        <code class="code-block">&lt;script src="https://unpkg.com/indie-neon-ui@latest/dist/indie-neon-ui.min.js"&gt;&lt;/script&gt;</code>
+                    </div>
+                    <div class="install-features">
+                        <span class="feature-badge">Better Caching</span>
+                        <span class="feature-badge">Flexible</span>
+                        <span class="feature-badge">Standard</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="component-showcase component-showcase-margin">
+                <div class="showcase-group">
+                    <h4 class="showcase-label">Quick Start Example</h4>
+                    <div class="card">
+                        <p class="demo-description">After including the library, initialize it in your JavaScript:</p>
+                        <div class="install-code">
+                            <code class="code-block code-block-demo">// Initialize Indie Neon UI
+IndieNeon.init();
+
+// Show a toast notification
+IndieNeon.toast("Welcome!", {tone: "good"});
+
+// Configure custom actions
+IndieNeon.configure({
+  actions: {
+    "my-action": () => alert("Action!")
+  }
+});</code>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -355,7 +734,9 @@
         <div class="footer-container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <span class="brand-icon">⚡</span>
+                    <svg class="brand-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
                     <span class="brand-text">Indie Neon UI</span>
                 </div>
                 <p class="footer-description">A modern CSS component library for creating beautiful, futuristic interfaces</p>
@@ -367,10 +748,59 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Indie Neon UI. Built with passion for modern web design.</p>
+                <p>Built with passion for modern web design.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Modal dialog -->
+    <div class="modal" id="demoModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <!-- Backdrop overlay (clickable to close) -->
+        <div class="backdrop" data-close></div>
+        <!-- Modal content container -->
+        <div class="dialog">
+            <header>
+                <h3>Modal Title</h3>
+                <button class="icon-btn" data-close aria-label="Close">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 4l-8 8"/>
+                        <path d="M4 4l8 8"/>
+                    </svg>
+                </button>
+            </header>
+            <div class="content">
+                <p>Centered modal with neon border and glow.</p>
+            </div>
+            <footer>
+                <button class="btn destructive" data-close>Cancel</button>
+                <button class="btn" data-close>Confirm</button>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Drawer panel -->
+    <div class="drawer" id="demoDrawer" aria-hidden="true" role="dialog" aria-modal="true">
+        <!-- Backdrop overlay (clickable to close) -->
+        <div class="backdrop" data-close></div>
+        <!-- Drawer panel container -->
+        <div class="panel">
+            <header>
+                <h3>Drawer</h3>
+                <button class="icon-btn" data-close aria-label="Close">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 4l-8 8"/>
+                        <path d="M4 4l8 8"/>
+                    </svg>
+                </button>
+            </header>
+            <div class="content">
+                <p>Right-side drawer content.</p>
+            </div>
+            <footer>
+                <button class="btn ghost" data-close>Close</button>
+            </footer>
+        </div>
+    </div>
 
     <script src="dist/indie-neon-ui.min.js"></script>
     <script>
@@ -391,30 +821,87 @@
             });
         });
         
-        // Demo functionality
+        // Toast notification demo
         document.getElementById('toastBtn').addEventListener('click', () => {
-            IndieNeon.toast('Welcome to Indie Neon UI!', {tone: 'good'});
+            IndieNeon.toast('Welcome to Indie Neon UI! 🎉', {tone: 'good'});
         });
         
         // Listen for dropdown changes
-        const dropdownBtn = document.querySelector('.dropdown-btn');
-        if (dropdownBtn) {
+        document.querySelectorAll('.dropdown-btn').forEach(dropdownBtn => {
             dropdownBtn.addEventListener('change', (e) => {
                 IndieNeon.toast(`Selected: ${e.detail.text}`, {tone: 'good'});
             });
-        }
+        });
         
         // Card button demo
-        const cardBtn = document.querySelector('.card .btn');
-        if (cardBtn) {
-            cardBtn.addEventListener('click', () => {
-                cardBtn.classList.add('ghost-effect');
+        document.querySelectorAll('.card .btn').forEach(cardBtn => {
+            cardBtn.addEventListener('click', (e) => {
+                e.target.classList.add('ghost-effect');
                 IndieNeon.toast('Card action triggered!', {tone: 'good'});
                 setTimeout(() => {
-                    cardBtn.classList.remove('ghost-effect');
+                    e.target.classList.remove('ghost-effect');
                 }, 300);
             });
-        }
+        });
+        
+        // Filter chips demo
+        document.querySelectorAll('.filter-chip').forEach(chip => {
+            chip.addEventListener('click', function() {
+                // Remove active from all chips
+                document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+                // Add active to clicked chip
+                this.classList.add('active');
+                IndieNeon.toast(`Filter: ${this.textContent}`, {tone: 'good'});
+            });
+        });
+        
+        // Star rating demo (make interactive)
+        const starRatings = document.querySelectorAll('.star-rating');
+        starRatings.forEach(rating => {
+            const stars = rating.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                star.addEventListener('click', () => {
+                    stars.forEach((s, i) => {
+                        if (i <= index) {
+                            s.classList.add('active');
+                        } else {
+                            s.classList.remove('active');
+                        }
+                    });
+                    IndieNeon.toast(`Rated ${index + 1} stars!`, {tone: 'good'});
+                });
+                
+                star.addEventListener('mouseenter', () => {
+                    stars.forEach((s, i) => {
+                        if (i <= index) {
+                            s.style.color = '#ffd700';
+                        } else {
+                            s.style.color = '';
+                        }
+                    });
+                });
+            });
+            
+            rating.addEventListener('mouseleave', () => {
+                const stars = rating.querySelectorAll('.star');
+                stars.forEach(s => {
+                    s.style.color = '';
+                });
+            });
+        });
+        
+        // Pagination demo
+        document.querySelectorAll('.pagination-page').forEach(pageBtn => {
+            pageBtn.addEventListener('click', function() {
+                if (this.classList.contains('active')) return;
+                
+                document.querySelectorAll('.pagination-page').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                IndieNeon.toast(`Navigated to page ${this.textContent}`, {tone: 'good'});
+            });
+        });
         
         // Add scroll effect to navigation
         window.addEventListener('scroll', () => {
@@ -426,10 +913,60 @@
             }
         });
         
-        // Playground button functionality
-        document.getElementById('playgroundBtn').addEventListener('click', () => {
-            IndieNeon.toast('Playground coming soon!', {tone: 'good'});
+        // Animate progress bar on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBar = entry.target.querySelector('.demo-progress');
+                    if (progressBar) {
+                        progressBar.style.width = '75%';
+                    }
+                }
+            });
+        }, observerOptions);
+        
+        const progressContainers = document.querySelectorAll('.progress');
+        progressContainers.forEach(container => observer.observe(container));
+        
+        // Search bar demo (with enter key support)
+        document.querySelectorAll('.search-input').forEach(searchInput => {
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const value = e.target.value;
+                    if (value.trim()) {
+                        IndieNeon.toast(`Searching for: ${value}`, {tone: 'good'});
+                    }
+                }
+            });
         });
+        
+        document.querySelectorAll('.search-button').forEach(searchBtn => {
+            searchBtn.addEventListener('click', () => {
+                const input = searchBtn.parentElement.querySelector('.search-input');
+                const value = input.value;
+                if (value.trim()) {
+                    IndieNeon.toast(`Searching for: ${value}`, {tone: 'good'});
+                }
+            });
+        });
+        
+        // Stats cards animation on scroll
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'countUp 0.6s ease-out';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.stat-value').forEach(stat => statsObserver.observe(stat));
+        
+        console.log('✨ Indie Neon UI initialized successfully!');
     </script>
 </body>
 </html>

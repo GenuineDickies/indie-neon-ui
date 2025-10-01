@@ -1,10 +1,41 @@
-# Indie Neon UI - Modern CSS Component Library
-A sleek, modern CSS component library with neon-inspired design. Perfect for creating futuristic interfaces with beautiful animations and effects. Features **2,250+ color variations** through an interactive color slider.
+# Indie Neon UI
+
+<div align="center">
+
+![Indie Neon UI Banner](https://img.shields.io/badge/Indie%20Neon%20UI-v1.0.0-37b7ff?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyIDJMMiAxMmgzdjhoN1YxM2g0bDItMnoiIGZpbGw9IiMzN2I3ZmYiLz48L3N2Zz4=)
+
+**A production-grade neon UI component library with 25+ components**  
+Built with pure HTML/CSS/JavaScript • Zero Dependencies • 2,500+ Color Variations
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub](https://img.shields.io/badge/GitHub-GenuineDickies%2Findie--neon--ui-blue)](https://github.com/GenuineDickies/indie-neon-ui)
+[![npm version](https://img.shields.io/npm/v/indie-neon-ui.svg?style=flat)](https://www.npmjs.com/package/indie-neon-ui)
+[![GitHub stars](https://img.shields.io/github/stars/GenuineDickies/indie-neon-ui.svg?style=social&label=Star)](https://github.com/GenuineDickies/indie-neon-ui)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/GenuineDickies/indie-neon-ui/blob/main/CONTRIBUTING.md)
 
-## 🚀 Installation
+[Demo](https://genuinedickies.github.io/indie-neon-ui/demo.html) • [Documentation](https://github.com/GenuineDickies/indie-neon-ui#readme) • [Examples](./examples/) • [Contributing](./CONTRIBUTING.md)
+
+</div>
+
+---
+
+## Features
+
+- **25+ Components** - Complete UI component library
+- **Zero Dependencies** - Pure HTML/CSS/JavaScript
+- **Lightweight** - ~15KB minified + gzipped
+- **2,500 Color Variations** - Interactive color system with real-time updates
+- **Neon Design** - Futuristic glowing effects and smooth animations
+- **Accessible** - Full ARIA support and keyboard navigation
+- **Responsive** - Works on desktop and mobile devices
+- **Cross-browser** - Compatible with all modern browsers
+
+## Preview
+
+<div align="center">
+  <img src="https://via.placeholder.com/800x400/0a0f1a/37b7ff?text=Indie+Neon+UI+Demo" alt="Indie Neon UI Preview">
+</div>
+
+## Installation & Quick Start
 
 ### NPM
 ```bash
@@ -22,11 +53,6 @@ npm install indie-neon-ui
 <script src="https://unpkg.com/indie-neon-ui@latest/dist/indie-neon-ui.min.js"></script>
 ```
 
-### Download
-Download the latest release from [GitHub](https://github.com/GenuineDickies/indie-neon-ui/releases) and include the files manually.
-
-## ⚡ Quick Start
-
 ### Basic HTML Setup
 ```html
 <!DOCTYPE html>
@@ -35,11 +61,9 @@ Download the latest release from [GitHub](https://github.com/GenuineDickies/indi
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My App</title>
-    <!-- Include Indie Neon UI -->
     <link rel="stylesheet" href="https://unpkg.com/indie-neon-ui@latest/dist/indie-neon-ui.min.css">
 </head>
 <body>
-    <!-- Your content -->
     <div class="container">
         <button class="btn">Click me!</button>
         <div class="card">
@@ -48,13 +72,9 @@ Download the latest release from [GitHub](https://github.com/GenuineDickies/indi
         </div>
     </div>
     
-    <!-- Include JavaScript -->
     <script src="https://unpkg.com/indie-neon-ui@latest/dist/indie-neon-ui.min.js"></script>
     <script>
-        // Initialize components
         IndieNeon.init();
-        
-        // Show toast notification
         IndieNeon.toast("Welcome to Indie Neon UI!", {tone: "good"});
     </script>
 </body>
@@ -63,16 +83,10 @@ Download the latest release from [GitHub](https://github.com/GenuineDickies/indi
 
 ### NPM Usage
 ```javascript
-// Import CSS (if using bundler)
 import 'indie-neon-ui/dist/indie-neon-ui.css';
-
-// Import JavaScript
 import IndieNeon from 'indie-neon-ui';
 
-// Initialize
 IndieNeon.init();
-
-// Configure custom actions
 IndieNeon.configure({
   actions: {
     "my-action": () => IndieNeon.toast("Action executed!")
@@ -80,53 +94,22 @@ IndieNeon.configure({
 });
 ```
 
-## 📁 File Structure
 
-The codebase has been refactored into a modular structure for better organization and maintainability:
+## Project Structure
 
 ```
 indie-neon-ui/
-├── css/                    # Component-specific CSS files
-│   ├── base.css           # CSS variables, base styles, layout utilities
-│   ├── buttons.css        # Button components and variants
-│   ├── accordion.css      # Accordion/menu component styles
-│   ├── tabs.css           # Tabs component styles
-│   ├── forms.css          # Form controls (switch, checkbox, radio, inputs)
-│   ├── dropdown.css       # Custom dropdown component styles
-│   ├── modals.css         # Modal and drawer component styles
-│   ├── feedback.css       # Toast, tooltip, progress, spinner styles
-│   ├── cards.css          # Card component styles
-│   ├── table.css          # Table component styles
-│   └── demo.css           # Demo page specific styles
-├── js/                     # Component-specific JavaScript modules
-│   ├── core.js            # Core utilities and main IndieNeon object
-│   ├── accordion.js       # Accordion/menu functionality
-│   ├── tabs.js            # Tabs component functionality
-│   ├── modals.js          # Modal and drawer functionality
-│   └── dropdown.js        # Custom dropdown functionality
-├── dist/                   # Built distribution files
-│   ├── indie-neon-ui.css  # Combined CSS file
-│   ├── indie-neon-ui.js   # Combined JavaScript file
-│   ├── indie-neon-ui.min.css # Minified CSS
-│   ├── indie-neon-ui.min.js  # Minified JavaScript
-│   └── indie-neon-ui.cdn.js  # CDN version
-├── demo.html              # Interactive demo page with color slider
-├── index.html             # Component showcase page
-├── mockup.html            # Dashboard mockup example
-├── build.js               # Build script for distribution
-├── package.json           # NPM package configuration
-└── README.md              # This documentation
+├── css/          # Source CSS files (25+ components)
+├── js/           # Source JavaScript modules  
+├── dist/         # Built files (generated by npm run build)
+├── examples/     # Usage examples
+├── demo.html     # Interactive demo with color slider
+└── build.js      # Build script
 ```
 
-### Component Organization
+**Modular architecture** - each component in its own file with comprehensive comments.
 
-Each component is now separated into its own CSS and JavaScript files:
-
-- **CSS Files**: Contain all styles for a specific component, including variants, states, and animations
-- **JavaScript Files**: Handle the interactive functionality, event listeners, and component logic
-- **HTML**: References all component files and includes comprehensive comments explaining each element
-
-## ✨ Components
+## Components
 
 ### **Interactive Elements**
 - **Buttons** (primary, ghost, destructive, disabled) with hover glow effects
@@ -162,29 +145,22 @@ Each component is now separated into its own CSS and JavaScript files:
 - **Spinner loader** with neon accent
 - **Card button ghost effect** (click animation with temporary glow)
 
-### **🎨 Interactive Color System**
-- **Dynamic Color Slider** with 2,250+ color variations
+### **Interactive Color System**
+- **Dynamic Color Slider** with 2,500 color variations
 - **Real-time Theme Updates** - All components update instantly
 - **Persistent Color Storage** - Remembers your color choice
 - **Default Color Restore** - One-click reset to original theme
 - **Smooth Color Transitions** - Beautiful animations between color changes
 
-## 🚀 Quick Start
-
-### Local Development
-Serve the folder to view the interactive demo:
+## Local Development
 ```bash
-python3 -m http.server 8080
-# or
-python -m http.server 8080
+npm run serve  # or python3 -m http.server 8080
 ```
-
 Then open:
 - **Interactive Demo**: http://localhost:8080/demo.html (with color slider)
-- **Component Showcase**: http://localhost:8080/index.html
 - **Dashboard Mockup**: http://localhost:8080/mockup.html
 
-## ⚙️ Configuration
+## Configuration
 Wire menu actions and customize behavior:
 ```js
 IndieNeon.configure({
@@ -196,7 +172,7 @@ IndieNeon.configure({
 IndieNeon.init();
 ```
 
-## 🔧 Development & Customization
+## Development & Customization
 
 ### Adding New Components
 1. Create a new CSS file in `css/` for the component styles
@@ -222,36 +198,101 @@ All components use CSS custom properties defined in `css/base.css`:
 - **Event Handling**: All components use proper event delegation and cleanup
 - **Accessibility**: Full keyboard navigation and ARIA support
 
-## 🎨 Design Features
+## Design Features
 - **Consistent Theme**: All components use unified neon color palette
 - **Smooth Animations**: 0.15s transitions throughout the interface
 - **Accessibility**: Proper ARIA attributes and keyboard navigation
 - **Responsive**: Works on desktop and mobile devices
 - **Performance**: No dependencies, vanilla JavaScript only
 
-## 🎯 Key Features
-- **15+ Components**: Complete UI component library
-- **Zero Dependencies**: Pure HTML/CSS/JavaScript
-- **2.5KB Minified**: Lightweight and fast
-- **Interactive Color System**: 2,250+ color variations with real-time updates
-- **Modern Design**: Neon-inspired with smooth animations
-- **Accessibility**: Full keyboard navigation and ARIA support
-- **Responsive**: Works on desktop and mobile devices
-- **Cross-browser**: Compatible with all modern browsers
+## What's Included
 
-## 🎨 Color Customization
+### Interactive Components
+- **Buttons** - Primary, ghost, destructive, and size variants
+- **Forms** - Text inputs, switches, checkboxes, radios, dropdowns
+- **Modals & Drawers** - Overlay dialogs and sliding panels
+- **Tabs** - Tabbed content with keyboard navigation
+- **Accordion** - Collapsible menu with smooth animations
+- **Dropdowns** - Custom select with keyboard support
 
-The library features a powerful interactive color system:
+### Display Components
+- **Cards** - Content containers with neon borders
+- **Tables** - Data tables with hover effects
+- **Badges** - Status and label indicators
+- **Stats Cards** - Metric display cards
+- **Empty States** - Placeholder UI for empty content
+
+### Feedback Components
+- **Toasts** - Notification messages
+- **Tooltips** - Hover information displays
+- **Progress Bars** - Loading and progress indicators
+- **Spinners** - Loading animations
+- **Alert Banners** - Informational messages
+- **Status Indicators** - Real-time status displays
+
+### Utility Components
+- **Pagination** - Page navigation controls
+- **Search Bar** - Search input with icon
+- **Filter Chips** - Selectable filter tags
+- **Button Groups** - Grouped button controls
+- **Star Rating** - Rating display and input
+- **Circular Progress** - Circular progress indicators
+- **Loading Skeletons** - Content placeholders
+- **FAB** - Floating action buttons
+
+## Interactive Color System
+
+Indie Neon UI features a powerful dynamic color system with **2,500+ color variations**:
 
 ```javascript
-// The color slider automatically updates all components
-// Colors are stored in localStorage and persist across sessions
-// Use the "default" button to restore original colors
+// The color slider in demo.html demonstrates real-time theme switching
+// All components automatically update when colors change
+// Color preferences are stored in localStorage
 ```
 
-**Color Features:**
-- **HSL-based**: 360-degree hue control
-- **Real-time Updates**: Instant theme changes
-- **Persistent Storage**: Remembers your preferences
-- **Smooth Transitions**: Beautiful color animations
-- **Default Restore**: One-click reset functionality
+**Color System Features:**
+- **2,500 Variations** - Full spectrum of color options
+- **Real-time Updates** - Instant theme changes across all components
+- **Persistent Storage** - Automatically saves your color preferences
+- **Smooth Transitions** - Beautiful animations between color changes
+- **One-click Reset** - Restore default theme instantly
+- **HSL-based** - Mathematically consistent color relationships
+
+See the [interactive demo](https://genuinedickies.github.io/indie-neon-ui/demo.html) to try the color slider!
+
+## Contributing
+
+We welcome contributions! Please open an issue or submit a pull request.
+
+### Ways to Contribute
+- Report bugs
+- Suggest new features
+- Improve documentation
+- Submit new components
+- Improve existing components
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+Built with love by the Indie Neon UI community.
+
+Special thanks to all [contributors](https://github.com/GenuineDickies/indie-neon-ui/graphs/contributors) who have helped make this project better!
+
+## Support
+
+- **Documentation**: [README.md](README.md)
+- **Issues**: [GitHub Issues](https://github.com/GenuineDickies/indie-neon-ui/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/GenuineDickies/indie-neon-ui/discussions)
+
+---
+
+<div align="center">
+
+**[⬆ Back to Top](#indie-neon-ui)**
+
+Made with neon
+
+</div>
