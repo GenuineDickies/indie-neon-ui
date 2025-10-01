@@ -32,7 +32,10 @@ Built with pure HTML/CSS/JavaScript • Zero Dependencies • 2,500+ Color Varia
 ## Preview
 
 <div align="center">
-  <img src="https://wkrllc.com/indie_neon_ui/demo.html" alt="Indie Neon UI Preview">
+  <a href="https://wkrllc.com/indie_neon_ui/demo.html" target="_blank">
+    <img src="https://via.placeholder.com/800x400/0a0f1a/37b7ff?text=Indie+Neon+UI+Demo" alt="Indie Neon UI Preview">
+  </a>
+  <p><strong>🎯 <a href="https://wkrllc.com/indie_neon_ui/demo.html" target="_blank">View Live Demo</a></strong></p>
 </div>
 
 ## Installation & Quick Start
