@@ -32,7 +32,7 @@ Built with pure HTML/CSS/JavaScript • Zero Dependencies • 2,500+ Color Varia
 ## Preview
 
 <div align="center">
-  <img src="https://via.placeholder.com/800x400/0a0f1a/37b7ff?text=Indie+Neon+UI+Demo" alt="Indie Neon UI Preview">
+  <img src="https://wkrllc.com/indie_neon_ui/demo.html" alt="Indie Neon UI Preview">
 </div>
 
 ## Installation & Quick Start
