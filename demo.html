@@ -467,20 +467,20 @@
                     <div class="showcase-group">
                         <h4 class="showcase-label">Tabs</h4>
                         <div class="tabs" data-tabs>
-                            <div class="tab-list" role="tablist">
-                                <button class="tab" role="tab" aria-selected="true">Overview</button>
-                                <button class="tab" role="tab">Details</button>
-                                <button class="tab" role="tab">Settings</button>
+                            <div class="tablist" role="tablist">
+                                <button class="tab active" role="tab" aria-selected="true" data-tab="tab-overview">Overview</button>
+                                <button class="tab" role="tab" aria-selected="false" data-tab="tab-details">Details</button>
+                                <button class="tab" role="tab" aria-selected="false" data-tab="tab-settings">Settings</button>
                             </div>
                             <div class="tab-panels">
-                                <div class="tab-panel" role="tabpanel">
-                                    <p>Overview content goes here...</p>
+                                <div class="tabpanel active" role="tabpanel" id="tab-overview">
+                                    <p>Overview content goes here with all the important information about this section.</p>
                                 </div>
-                                <div class="tab-panel" role="tabpanel" hidden>
-                                    <p>Details content goes here...</p>
+                                <div class="tabpanel" role="tabpanel" id="tab-details">
+                                    <p>Details content shows more specific information about the selected item.</p>
                                 </div>
-                                <div class="tab-panel" role="tabpanel" hidden>
-                                    <p>Settings content goes here...</p>
+                                <div class="tabpanel" role="tabpanel" id="tab-settings">
+                                    <p>Settings content allows you to configure various options and preferences.</p>
                                 </div>
                             </div>
                         </div>
@@ -510,19 +510,17 @@
                     
                     <div class="showcase-group">
                         <h4 class="showcase-label">Pagination</h4>
-                        <div class="pagination">
+                        <div class="pagination" data-total-pages="10">
                             <div class="pagination-wrapper">
-                                <button class="pagination-btn disabled" aria-label="Previous page">
+                                <button class="pagination-btn pagination-prev disabled" aria-label="Previous page">
                                     <svg class="pagination-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M10 12L6 8l4-4"/>
                                     </svg>
                                 </button>
-                                <button class="pagination-btn pagination-page active">1</button>
-                                <button class="pagination-btn pagination-page">2</button>
-                                <button class="pagination-btn pagination-page">3</button>
-                                <span class="pagination-ellipsis">...</span>
-                                <button class="pagination-btn pagination-page">10</button>
-                                <button class="pagination-btn" aria-label="Next page">
+                                <div class="pagination-pages">
+                                    <!-- Pages will be dynamically generated here -->
+                                </div>
+                                <button class="pagination-btn pagination-next" aria-label="Next page">
                                     <svg class="pagination-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M6 12l4-4-4-4"/>
                                     </svg>

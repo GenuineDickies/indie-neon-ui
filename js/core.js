@@ -41,6 +41,7 @@
       this._initTabs();
       this._initDialogs();
       this._initDropdowns();
+      this._initPagination();
       this._initToastRoot();
       this._initDemoButtons();
       this._initColorSlider();

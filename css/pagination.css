@@ -24,6 +24,13 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Pages container for dynamically generated pages */
+.pagination-pages {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 /* Pagination button base styles */
 .pagination-btn {
   display: flex;

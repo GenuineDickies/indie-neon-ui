@@ -106,6 +106,7 @@ const jsFiles = [
   'js/tabs.js',
   'js/modals.js',
   'js/dropdown.js',
+  'js/pagination.js',
   'js/sidebar.js'
 ];
 
