@@ -110,7 +110,8 @@
   color: var(--muted);
   font-size: 16px;
   font-weight: 600;
-  animation: pulse 2s ease-in-out infinite;
+  pointer-events: none;
+  user-select: none;
 }
 
 /* Page number buttons */
@@ -238,8 +239,8 @@
   }
 }
 
-/* Animation for ellipsis pulse */
-@keyframes pulse {
+/* Animation for ellipsis pulse - removed as it created unwanted glow effect */
+/* @keyframes pulse {
   0%, 100% {
     opacity: 0.6;
     text-shadow: 0 0 4px rgba(55, 183, 255, 0.4);
@@ -248,7 +249,7 @@
     opacity: 1;
     text-shadow: 0 0 8px rgba(55, 183, 255, 0.8);
   }
-}
+} */
 
 /* Loading state for pagination */
 .pagination.loading .pagination-btn {

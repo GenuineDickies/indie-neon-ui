@@ -69,6 +69,7 @@ const cssFiles = [
   'css/forms.css',
   'css/dropdown.css',
   'css/modals.css',
+  'css/sidebar.css',
   'css/feedback.css',
   'css/cards.css',
   'css/table.css',
@@ -104,7 +105,8 @@ const jsFiles = [
   'js/accordion.js',
   'js/tabs.js',
   'js/modals.js',
-  'js/dropdown.js'
+  'js/dropdown.js',
+  'js/sidebar.js'
 ];
 
 let combinedJS = '';

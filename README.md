@@ -4,7 +4,7 @@
 
 ![Indie Neon UI Banner](https://img.shields.io/badge/Indie%20Neon%20UI-v1.0.0-37b7ff?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyIDJMMiAxMmgzdjhoN1YxM2g0bDItMnoiIGZpbGw9IiMzN2I3ZmYiLz48L3N2Zz4=)
 
-**A production-grade neon UI component library with 25+ components**  
+**A production-grade neon UI component library with 30+ components**  
 Built with pure HTML/CSS/JavaScript • Zero Dependencies • 2,500+ Color Variations
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -20,9 +20,9 @@ Built with pure HTML/CSS/JavaScript • Zero Dependencies • 2,500+ Color Varia
 
 ## Features
 
-- **25+ Components** - Complete UI component library
+- **30+ Components** - Complete UI component library including navigation sidebar
 - **Zero Dependencies** - Pure HTML/CSS/JavaScript
-- **Lightweight** - ~15KB minified + gzipped
+- **Lightweight** - ~146KB minified (CDN single file)
 - **2,500 Color Variations** - Interactive color system with real-time updates
 - **Neon Design** - Futuristic glowing effects and smooth animations
 - **Accessible** - Full ARIA support and keyboard navigation
@@ -121,6 +121,14 @@ indie-neon-ui/
 - **Tabs** with keyboard navigation (left/right arrow keys)
 - **Switch Toggle** with neon glow animation
 - **Checkbox**, **Radio**, **Range** with neon accent colors
+- **Sidebar Navigation** - Full-featured collapsible sidebar with:
+  - Expandable/collapsible modes (full width or mini with icons)
+  - Mobile-responsive with slide-out drawer and overlay
+  - Section headers and dividers
+  - Navigation badges for notifications
+  - User profile footer
+  - Active state management
+  - Smooth animations and neon effects
 
 ### **Form Controls**
 - **Text Input** with neon focus states
@@ -134,6 +142,7 @@ indie-neon-ui/
 ### **Layout & Display**
 - **Modal** (centered with neon borders and backdrop blur)
 - **Drawer** (right-side slide panel)
+- **Sidebar** (full-featured navigation sidebar with collapsible modes)
 - **Cards** with large titles (28px), centered text, tight spacing, and neon borders
 - **Enhanced Table** with:
   - High-contrast alternating row colors for better readability
@@ -214,6 +223,7 @@ All components use CSS custom properties defined in `css/base.css`:
 - **Buttons** - Primary, ghost, destructive, and size variants
 - **Forms** - Text inputs, switches, checkboxes, radios, dropdowns
 - **Modals & Drawers** - Overlay dialogs and sliding panels
+- **Sidebar** - Collapsible navigation with mobile support
 - **Tabs** - Tabbed content with keyboard navigation
 - **Accordion** - Collapsible menu with smooth animations
 - **Dropdowns** - Custom select with keyboard support

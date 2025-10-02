@@ -231,10 +231,6 @@
                         <h4 class="showcase-label">Search Bar</h4>
                         <div class="search-bar">
                             <input type="text" class="search-input" placeholder="Search..." aria-label="Search"/>
-                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="11" cy="11" r="8"/>
-                                <path d="M21 21l-4.35-4.35"/>
-                            </svg>
                             <button class="search-button">→</button>
                         </div>
                     </div>
@@ -533,6 +529,12 @@
                                 </button>
                             </div>
                         </div>
+                    </div>
+                    
+                    <div class="showcase-group">
+                        <h4 class="showcase-label">Sidebar Navigation</h4>
+                        <button class="btn" id="sidebarDemoBtn">Show Sidebar Demo</button>
+                        <p style="margin-top: 8px; font-size: 13px; color: var(--muted);">Click to see a full sidebar navigation component with collapsible functionality</p>
                     </div>
                 </div>
             </div>
@@ -966,8 +968,418 @@ IndieNeon.configure({
         
         document.querySelectorAll('.stat-value').forEach(stat => statsObserver.observe(stat));
         
+        // Sidebar demo button
+        const sidebarDemoBtn = document.getElementById('sidebarDemoBtn');
+        if (sidebarDemoBtn) {
+            sidebarDemoBtn.addEventListener('click', () => {
+                const sidebarModal = document.getElementById('sidebarDemoModal');
+                if (sidebarModal) {
+                    sidebarModal.style.display = 'block';
+                    // Initialize sidebar after showing modal
+                    setTimeout(() => {
+                        if (window.initSidebarDemo) {
+                            window.initSidebarDemo();
+                        }
+                    }, 100);
+                }
+            });
+        }
+        
         console.log('✨ Indie Neon UI initialized successfully!');
     </script>
+    
+    <!-- Sidebar Demo Modal -->
+    <div id="sidebarDemoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 10000; overflow: auto;">
+        <button onclick="document.getElementById('sidebarDemoModal').style.display='none'" style="position: absolute; top: 20px; right: 20px; width: 48px; height: 48px; background: var(--surface); border: 2px solid var(--neon-blue); border-radius: 12px; color: var(--text); font-size: 24px; cursor: pointer; z-index: 10002; box-shadow: 0 4px 16px rgba(0,0,0,.3); transition: all .2s ease;">×</button>
+        
+        <div style="padding: 80px 20px 40px; max-width: 1400px; margin: 0 auto;">
+            <h2 style="text-align: center; margin-bottom: 32px; font-size: 32px; background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Sidebar Component Demo</h2>
+            
+            <!-- Mobile toggle button -->
+            <button class="sidebar-mobile-toggle" data-sidebar-mobile-toggle>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 6h18M3 12h18M3 18h18"/>
+                </svg>
+            </button>
+            
+            <!-- Sidebar overlay -->
+            <div class="sidebar-overlay" data-sidebar-overlay></div>
+            
+            <!-- Sidebar -->
+            <aside class="sidebar" data-sidebar>
+                <!-- Header -->
+                <div class="sidebar-header">
+                    <div class="sidebar-brand">
+                        <svg class="sidebar-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                        <span class="sidebar-brand-text">Indie Neon</span>
+                    </div>
+                    <button class="sidebar-toggle" data-sidebar-toggle>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 19l-7-7 7-7M4 12h16"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Body -->
+                <div class="sidebar-body">
+                    <!-- Main Navigation -->
+                    <div class="sidebar-section">
+                        <h6 class="sidebar-section-title">Main Menu</h6>
+                        <ul class="sidebar-nav">
+                            <li class="sidebar-nav-item">
+                                <a href="#" class="sidebar-nav-link active" data-tooltip="Dashboard">
+                                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="7" height="7"/>
+                                        <rect x="14" y="3" width="7" height="7"/>
+                                        <rect x="14" y="14" width="7" height="7"/>
+                                        <rect x="3" y="14" width="7" height="7"/>
+                                    </svg>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="#" class="sidebar-nav-link" data-tooltip="Analytics">
+                                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 3v18h18"/>
+                                        <path d="M18 17V9M13 17V5M8 17v-3"/>
+                                    </svg>
+                                    <span>Analytics</span>
+                                    <span class="sidebar-nav-badge">5</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="#" class="sidebar-nav-link has-submenu" data-tooltip="Projects">
+                                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                                    </svg>
+                                    <span>Projects</span>
+                                    <svg class="sidebar-nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M2 8 L6 4 L10 8" stroke-linecap="round"/>
+                                    </svg>
+                                </a>
+                                <ul class="sidebar-submenu">
+                                    <li class="sidebar-submenu-item">
+                                        <a href="#" class="sidebar-submenu-link">Active Projects</a>
+                                    </li>
+                                    <li class="sidebar-submenu-item">
+                                        <a href="#" class="sidebar-submenu-link">Archived</a>
+                                    </li>
+                                    <li class="sidebar-submenu-item">
+                                        <a href="#" class="sidebar-submenu-link">Templates</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="#" class="sidebar-nav-link has-submenu" data-tooltip="Team">
+                                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                        <circle cx="9" cy="7" r="4"/>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                                    </svg>
+                                    <span>Team</span>
+                                    <svg class="sidebar-nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M2 8 L6 4 L10 8" stroke-linecap="round"/>
+                                    </svg>
+                                </a>
+                                <ul class="sidebar-submenu">
+                                    <li class="sidebar-submenu-item">
+                                        <a href="#" class="sidebar-submenu-link">Members</a>
+                                    </li>
+                                    <li class="sidebar-submenu-item">
+                                        <a href="#" class="sidebar-submenu-link">Roles</a>
+                                    </li>
+                                    <li class="sidebar-submenu-item">
+                                        <a href="#" class="sidebar-submenu-link">Invitations</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="#" class="sidebar-nav-link" data-tooltip="Messages">
+                                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                    </svg>
+                                    <span>Messages</span>
+                                    <span class="sidebar-nav-badge">12</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="#" class="sidebar-nav-link" data-tooltip="Calendar">
+                                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2"/>
+                                        <path d="M16 2v4M8 2v4M3 10h18"/>
+                                    </svg>
+                                    <span>Calendar</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-divider"></div>
+                    
+                    <!-- Tools Section -->
+                    <div class="sidebar-section">
+                        <h6 class="sidebar-section-title">Tools</h6>
+                        <ul class="sidebar-nav">
+                            <li class="sidebar-nav-item">
+                                <a href="#" class="sidebar-nav-link" data-tooltip="Documents">
+                                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+                                        <path d="M13 2v7h7"/>
+                                    </svg>
+                                    <span>Documents</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-nav-item">
+                                <a href="#" class="sidebar-nav-link" data-tooltip="Settings">
+                                    <svg class="sidebar-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="3"/>
+                                        <path d="M12 1v6m0 6v6M5.6 5.6l4.2 4.2m4.2 4.2l4.2 4.2M1 12h6m6 0h6M5.6 18.4l4.2-4.2m4.2-4.2l4.2-4.2"/>
+                                    </svg>
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Footer -->
+                <div class="sidebar-footer">
+                    <div class="sidebar-user">
+                        <div class="sidebar-user-avatar">JD</div>
+                        <div class="sidebar-user-info">
+                            <span class="sidebar-user-name">John Doe</span>
+                            <span class="sidebar-user-role">Developer</span>
+                        </div>
+                        <svg style="width: 16px; height: 16px; color: var(--muted);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </div>
+                </div>
+            </aside>
+            
+            <!-- Main content area to show sidebar context -->
+            <div style="margin-left: 300px; padding: 40px; min-height: 600px; transition: margin-left .3s ease;" id="sidebarDemoContent">
+                <div style="max-width: 800px;">
+                    <h3 style="font-size: 28px; margin-bottom: 16px; color: var(--text);">Sidebar Features</h3>
+                    <div style="display: grid; gap: 20px;">
+                        <div style="padding: 20px; background: var(--surface); border-radius: 12px; border: 1px solid rgba(55,183,255,.2);">
+                            <h4 style="margin: 0 0 8px; color: var(--neon-blue);">🎯 Collapsible Design</h4>
+                            <p style="margin: 0; color: var(--muted); line-height: 1.6;">Click the toggle button in the sidebar header to collapse it into a mini sidebar with icons only.</p>
+                        </div>
+                        <div style="padding: 20px; background: var(--surface); border-radius: 12px; border: 1px solid rgba(55,183,255,.2);">
+                            <h4 style="margin: 0 0 8px; color: var(--neon-blue);">📱 Mobile Responsive</h4>
+                            <p style="margin: 0; color: var(--muted); line-height: 1.6;">On mobile devices, the sidebar transforms into a slide-out menu with overlay backdrop.</p>
+                        </div>
+                        <div style="padding: 20px; background: var(--surface); border-radius: 12px; border: 1px solid rgba(55,183,255,.2);">
+                            <h4 style="margin: 0 0 8px; color: var(--neon-blue);">✨ Neon Effects</h4>
+                            <p style="margin: 0; color: var(--muted); line-height: 1.6;">Beautiful gradient borders, glow effects, and smooth animations consistent with the Indie Neon theme.</p>
+                        </div>
+                        <div style="padding: 20px; background: var(--surface); border-radius: 12px; border: 1px solid rgba(55,183,255,.2);">
+                            <h4 style="margin: 0 0 8px; color: var(--neon-blue);">🎨 Customizable</h4>
+                            <p style="margin: 0; color: var(--muted); line-height: 1.6;">Add badges, section headers, user profiles, and custom icons. Fully themeable with CSS variables.</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 40px; padding: 24px; background: rgba(55,183,255,.05); border-radius: 12px; border: 1px solid rgba(55,183,255,.2);">
+                        <h4 style="margin: 0 0 12px; color: var(--text);">Quick Tips:</h4>
+                        <ul style="margin: 0; padding-left: 20px; color: var(--muted); line-height: 1.8;">
+                            <li><strong>Click "Projects" or "Team"</strong> to expand accordion submenus</li>
+                            <li>Click navigation items to see the active state</li>
+                            <li>Use the toggle button to collapse/expand the sidebar</li>
+                            <li>Badges show notification counts</li>
+                            <li>Hover over items in mini mode to see tooltips</li>
+                            <li>Resize your browser to see mobile responsiveness</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // Sidebar demo initialization
+            window.initSidebarDemo = function() {
+                const sidebar = document.querySelector('[data-sidebar]');
+                const toggleBtn = sidebar?.querySelector('[data-sidebar-toggle]');
+                const mobileToggleBtn = document.querySelector('[data-sidebar-mobile-toggle]');
+                const overlay = document.querySelector('[data-sidebar-overlay]');
+                const navLinks = sidebar?.querySelectorAll('.sidebar-nav-link');
+                const accordionLinks = sidebar?.querySelectorAll('.sidebar-nav-link.has-submenu');
+                const demoContent = document.getElementById('sidebarDemoContent');
+                
+                if (!sidebar) return;
+                
+                // Toggle sidebar mini mode
+                if (toggleBtn) {
+                    toggleBtn.addEventListener('click', () => {
+                        sidebar.classList.toggle('mini');
+                        const isMini = sidebar.classList.contains('mini');
+                        
+                        // Close all submenus when switching to mini mode
+                        if (isMini) {
+                            const openSubmenus = sidebar.querySelectorAll('.sidebar-submenu.open');
+                            openSubmenus.forEach(submenu => {
+                                submenu.classList.remove('open');
+                                const parentLink = submenu.previousElementSibling;
+                                if (parentLink) {
+                                    parentLink.classList.remove('expanded');
+                                }
+                            });
+                        }
+                        
+                        // Adjust main content margin
+                        if (demoContent) {
+                            demoContent.style.marginLeft = isMini ? '100px' : '300px';
+                        }
+                    });
+                }
+                
+                // Mobile toggle
+                if (mobileToggleBtn) {
+                    mobileToggleBtn.addEventListener('click', () => {
+                        sidebar.classList.toggle('open');
+                        if (overlay) {
+                            overlay.classList.toggle('active');
+                        }
+                    });
+                }
+                
+                // Close sidebar when clicking overlay
+                if (overlay) {
+                    overlay.addEventListener('click', () => {
+                        sidebar.classList.remove('open');
+                        overlay.classList.remove('active');
+                    });
+                }
+                
+                // Handle accordion submenu toggles
+                accordionLinks?.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        
+                        // Don't toggle in mini mode
+                        if (sidebar.classList.contains('mini')) {
+                            return;
+                        }
+                        
+                        const parentItem = link.parentElement;
+                        const submenu = parentItem.querySelector('.sidebar-submenu');
+                        
+                        if (!submenu) return;
+                        
+                        const isExpanded = link.classList.contains('expanded');
+                        
+                        // Close other open submenus (accordion behavior)
+                        accordionLinks.forEach(otherLink => {
+                            if (otherLink !== link) {
+                                otherLink.classList.remove('expanded');
+                                const otherSubmenu = otherLink.parentElement.querySelector('.sidebar-submenu');
+                                if (otherSubmenu) {
+                                    otherSubmenu.classList.remove('open');
+                                }
+                            }
+                        });
+                        
+                        // Toggle current submenu
+                        link.classList.toggle('expanded', !isExpanded);
+                        submenu.classList.toggle('open', !isExpanded);
+                        
+                        // Show toast
+                        const text = link.querySelector('span:not(.sidebar-nav-badge)')?.textContent || 'Item';
+                        IndieNeon.toast(`${isExpanded ? 'Collapsed' : 'Expanded'} ${text}`, {tone: 'good'});
+                    });
+                });
+                
+                // Handle navigation link clicks (non-accordion)
+                navLinks?.forEach(link => {
+                    if (!link.classList.contains('has-submenu')) {
+                        link.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            
+                            // Remove active from all non-accordion links
+                            navLinks.forEach(l => {
+                                if (!l.classList.contains('has-submenu')) {
+                                    l.classList.remove('active');
+                                }
+                            });
+                            
+                            // Add active to clicked link
+                            link.classList.add('active');
+                            
+                            // Show toast
+                            const text = link.querySelector('span:not(.sidebar-nav-badge)')?.textContent || 'Item';
+                            IndieNeon.toast(`Navigated to ${text}`, {tone: 'good'});
+                            
+                            // On mobile, close sidebar
+                            if (window.innerWidth <= 768) {
+                                sidebar.classList.remove('open');
+                                if (overlay) {
+                                    overlay.classList.remove('active');
+                                }
+                            }
+                        });
+                    }
+                });
+                
+                // Handle submenu link clicks
+                const submenuLinks = sidebar?.querySelectorAll('.sidebar-submenu-link');
+                submenuLinks?.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        
+                        // Remove active from all submenu links
+                        submenuLinks.forEach(l => l.classList.remove('active'));
+                        
+                        // Add active to clicked link
+                        link.classList.add('active');
+                        
+                        // Remove active from main nav links
+                        navLinks.forEach(l => {
+                            if (!l.classList.contains('has-submenu')) {
+                                l.classList.remove('active');
+                            }
+                        });
+                        
+                        // Show toast
+                        const text = link.textContent || 'Subitem';
+                        IndieNeon.toast(`Navigated to ${text}`, {tone: 'good'});
+                        
+                        // On mobile, close sidebar
+                        if (window.innerWidth <= 768) {
+                            sidebar.classList.remove('open');
+                            if (overlay) {
+                                overlay.classList.remove('active');
+                            }
+                        }
+                    });
+                });
+                
+                // Handle window resize
+                const handleResize = () => {
+                    if (window.innerWidth > 768) {
+                        sidebar.classList.remove('open');
+                        if (overlay) {
+                            overlay.classList.remove('active');
+                        }
+                    }
+                    
+                    // Adjust content margin based on sidebar state
+                    if (demoContent) {
+                        const isMini = sidebar.classList.contains('mini');
+                        if (window.innerWidth > 768) {
+                            demoContent.style.marginLeft = isMini ? '100px' : '300px';
+                        } else {
+                            demoContent.style.marginLeft = '0';
+                        }
+                    }
+                };
+                
+                window.addEventListener('resize', handleResize);
+                handleResize(); // Initial call
+            };
+        </script>
+    </div>
 </body>
 </html>
 

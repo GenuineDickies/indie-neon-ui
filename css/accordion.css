@@ -34,12 +34,14 @@
   margin: 4px 0;
   border-radius: 8px;
   
-  /* Subtle border and background */
-  border: 1px solid rgba(147,197,253,.35);
-  background: rgba(20,28,48,.55);
-  color: #9fc6ff;
+  /* Enhanced visibility with brighter colors and glow */
+  border: 1px solid rgba(55, 183, 255, 0.5);
+  background: rgba(25, 40, 65, 0.85);
+  color: #e0f2ff;
   text-decoration: none;
   font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 0 8px rgba(55, 183, 255, 0.2);
   
   transition: all .15s ease;
   cursor: pointer;
@@ -80,6 +82,9 @@
 
 /* Submenu item hover state */
 .submenu-item:hover {
-  background: rgba(24,40,76,.75);
-  color: #cfe5ff;
+  background: rgba(35, 60, 95, 0.95);
+  color: #ffffff;
+  border-color: rgba(55, 183, 255, 0.8);
+  box-shadow: 0 0 16px rgba(55, 183, 255, 0.4);
+  transform: translateX(2px);
 }
