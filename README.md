@@ -12,7 +12,7 @@ Built with pure HTML/CSS/JavaScript • Zero Dependencies • 2,500+ Color Varia
 [![GitHub stars](https://img.shields.io/github/stars/GenuineDickies/indie-neon-ui.svg?style=social&label=Star)](https://github.com/GenuineDickies/indie-neon-ui)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/GenuineDickies/indie-neon-ui/blob/main/CONTRIBUTING.md)
 
-[Demo](https://genuinedickies.github.io/indie-neon-ui/demo.html) • [Documentation](https://github.com/GenuineDickies/indie-neon-ui#readme) • [Examples](./examples/) • [Contributing](./CONTRIBUTING.md)
+[Live Demo](https://genuinedickies.github.io/indie-neon-ui/demo.html) • [Component Docs](https://genuinedickies.github.io/indie-neon-ui/) • [GitHub](https://github.com/GenuineDickies/indie-neon-ui) • [Contributing](./CONTRIBUTING.md)
 
 </div>
 
@@ -32,10 +32,11 @@ Built with pure HTML/CSS/JavaScript • Zero Dependencies • 2,500+ Color Varia
 ## Preview
 
 <div align="center">
-  <a href="https://wkrllc.com/indie_neon_ui/demo.html" target="_blank">
+  <a href="https://genuinedickies.github.io/indie-neon-ui/demo.html" target="_blank">
     <img src="https://via.placeholder.com/800x400/0a0f1a/37b7ff?text=Indie+Neon+UI+Demo" alt="Indie Neon UI Preview">
   </a>
-  <p><strong>🎯 <a href="https://wkrllc.com/indie_neon_ui/demo.html" target="_blank">View Live Demo</a></strong></p>
+  <p><strong>🎯 <a href="https://genuinedickies.github.io/indie-neon-ui/demo.html" target="_blank">View Live Demo</a></strong></p>
+  <p><a href="https://genuinedickies.github.io/indie-neon-ui/">Component Documentation</a></p>
 </div>
 
 ## Installation & Quick Start

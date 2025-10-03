@@ -208,7 +208,8 @@ npm publish
 ## Support & Resources
 
 - **Repository**: https://github.com/GenuineDickies/indie-neon-ui
-- **Demo**: https://wkrllc.com/indie_neon_ui/demo.html
+- **Live Demo**: https://genuinedickies.github.io/indie-neon-ui/demo.html
+- **Component Docs**: https://genuinedickies.github.io/indie-neon-ui/
 - **Issues**: https://github.com/GenuineDickies/indie-neon-ui/issues
 - **Documentation**: [README.md](README.md)
 - **Contributing**: [CONTRIBUTING.md](CONTRIBUTING.md)

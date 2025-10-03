@@ -17,6 +17,12 @@ yarn.lock
 *~
 .DS_Store
 
+# AI and Development Tools
+.amazonq/
+.cursorrules
+.hintrc
+.playwright-mcp/
+
 # OS files
 Thumbs.db
 Desktop.ini

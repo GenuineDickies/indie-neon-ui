@@ -137,8 +137,8 @@ Future releases will focus on:
 ## Links
 
 - **GitHub Repository**: https://github.com/GenuineDickies/indie-neon-ui
-- **Live Demo**: https://wkrllc.com/indie_neon_ui/demo.html
-- **Documentation**: https://github.com/GenuineDickies/indie-neon-ui#readme
+- **Live Demo**: https://genuinedickies.github.io/indie-neon-ui/demo.html
+- **Component Documentation**: https://genuinedickies.github.io/indie-neon-ui/
 - **NPM Package**: https://www.npmjs.com/package/indie-neon-ui
 
 ---
