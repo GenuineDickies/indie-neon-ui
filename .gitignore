@@ -23,11 +23,8 @@ yarn.lock
 .hintrc
 .playwright-mcp/
 
-# Internal Documentation (keep local only)
-DEVELOPMENT.md
-PRODUCTION_READY.md
-GITHUB_PAGES_SETUP.md
-FUTURE_COMPONENTS.md
+# Internal Development Folder (keep local only)
+dev/
 
 # OS files
 Thumbs.db
