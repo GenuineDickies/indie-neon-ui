@@ -77,7 +77,19 @@
         
         const isExpanded = link.classList.contains('expanded');
         
-        // Close other open submenus (optional - for accordion behavior)
+        // Remove active from all main nav links (both accordion and non-accordion)
+        navLinks.forEach(l => {
+          l.classList.remove('active');
+        });
+        
+        // Add active to clicked accordion link
+        link.classList.add('active');
+        
+        // Remove active from all submenu links
+        const submenuLinks = sidebar.querySelectorAll('.sidebar-submenu-link');
+        submenuLinks.forEach(l => l.classList.remove('active'));
+        
+        // Close other open submenus (accordion behavior)
         accordionLinks.forEach(otherLink => {
           if (otherLink !== link) {
             otherLink.classList.remove('expanded');
@@ -126,15 +138,32 @@
         // Remove active from all submenu links
         submenuLinks.forEach(l => l.classList.remove('active'));
         
-        // Add active to clicked link
+        // Add active to clicked submenu link
         link.classList.add('active');
         
-        // Remove active from main nav links
+        // Remove active from non-accordion main nav links only
         navLinks.forEach(l => {
           if (!l.classList.contains('has-submenu')) {
             l.classList.remove('active');
           }
         });
+        
+        // KEEP the parent accordion button active
+        // Find the parent list item, then find the accordion link within it
+        const parentNavItem = link.closest('.sidebar-nav-item');
+        if (parentNavItem) {
+          const parentLink = parentNavItem.querySelector('.sidebar-nav-link.has-submenu');
+          if (parentLink) {
+            // Remove active from other accordion buttons
+            accordionLinks.forEach(accLink => {
+              if (accLink !== parentLink) {
+                accLink.classList.remove('active');
+              }
+            });
+            // Ensure parent stays active
+            parentLink.classList.add('active');
+          }
+        }
 
         // On mobile, close sidebar after navigation
         if (window.innerWidth <= 768) {
@@ -165,13 +194,6 @@
 
   // Add to IndieNeon initialization
   if (window.IndieNeon) {
-    const originalInit = window.IndieNeon.init;
-    window.IndieNeon.init = function() {
-      originalInit.call(this);
-      initSidebar();
-    };
-    
-    // Also add as standalone method
     window.IndieNeon._initSidebar = initSidebar;
   } else {
     // If IndieNeon is not loaded, initialize on DOM ready
@@ -183,4 +205,3 @@
   }
 
 })();
-

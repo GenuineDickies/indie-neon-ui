@@ -1,0 +1,2272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indie Neon UI - Component Library</title>
+    <link rel="stylesheet" href="dist/indie-neon-ui.min.css?v=1.0.0">
+    <link rel="stylesheet" href="css/demo.css?v=1.0.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Top Navigation */
+        .docs-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(var(--panel-rgb), 0.95);
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(var(--neon-blue-rgb), 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .docs-nav.scrolled {
+            background: rgba(var(--panel-rgb), 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            width: 32px;
+            height: 32px;
+            stroke: var(--neon-blue);
+        }
+
+        .brand-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--neon-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--neon-blue);
+        }
+
+        .color-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .color-slider-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+        }
+
+        .color-slider-label {
+            font-size: 14px;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .color-number-display {
+            font-size: 12px;
+            color: var(--neon-blue);
+            font-weight: 600;
+            min-width: 32px;
+            text-align: center;
+        }
+
+        .color-slider {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff0080, #ff8000, #ffff00, #80ff00, #00ff80, #00ffff, #0080ff, #8000ff, #ff0080);
+            border-radius: 2px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .color-preview {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid rgba(var(--neon-blue-rgb), 0.3);
+            background: var(--neon-blue);
+        }
+
+        .restore-default-btn {
+            background: transparent;
+            border: 1px solid rgba(var(--neon-blue-rgb), 0.3);
+            color: var(--neon-blue);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .restore-default-btn:hover {
+            background: rgba(var(--neon-blue-rgb), 0.1);
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 280px;
+            height: calc(100vh - 80px);
+            background: var(--panel);
+            border-right: 1px solid rgba(var(--neon-blue-rgb), 0.2);
+            overflow-y: auto;
+            z-index: 100;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sidebar-body {
+            padding: 24px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 24px;
+        }
+
+        .sidebar-section-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-nav-item {
+            margin-bottom: 4px;
+        }
+
+        .sidebar-nav-link {
+            display: block;
+            padding: 8px 12px;
+            color: var(--text);
+            text-decoration: none;
+            border-radius: var(--radius);
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+
+        .sidebar-nav-link:hover {
+            background: rgba(var(--neon-blue-rgb), 0.1);
+            color: var(--neon-blue);
+        }
+
+        .sidebar-nav-link.active {
+            background: rgba(var(--neon-blue-rgb), 0.2);
+            color: var(--neon-blue);
+            box-shadow: 0 0 8px rgba(var(--neon-blue-rgb), 0.3);
+        }
+
+        .mobile-nav-toggle {
+            display: none;
+            width: auto;
+            height: var(--btn-h);
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: 2px solid transparent;
+            background: linear-gradient(var(--surface), var(--surface)) padding-box,
+                        linear-gradient(135deg, var(--neon-blue), var(--neon-purple)) border-box;
+            color: var(--text);
+            padding: 0 16px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            box-shadow: 0 0 12px rgba(55,183,255,.25), 0 0 18px rgba(154,77,255,.18);
+        }
+        
+        .mobile-nav-toggle:hover {
+            filter: saturate(1.1);
+            box-shadow: 0 0 18px rgba(55,183,255,.35), 0 0 28px rgba(154,77,255,.28);
+        }
+
+        .mobile-nav-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Main Content */
+        .docs-main {
+            margin-top: 80px;
+            padding: 40px 60px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .docs-header {
+            margin-bottom: 48px;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .docs-title {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        .docs-subtitle {
+            font-size: 20px;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .docs-actions {
+            margin-top: 32px;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* Component Section */
+        .component-section {
+            margin-bottom: 80px;
+            scroll-margin-top: 24px;
+        }
+
+        .component-header {
+            margin-bottom: 32px;
+        }
+
+        .component-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .component-description {
+            font-size: 18px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        /* Example Block */
+        .example-block {
+            margin-bottom: 40px;
+        }
+
+        .example-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .example-preview {
+            background: var(--panel);
+            border: 1px solid rgba(var(--neon-blue-rgb), 0.2);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-bottom: 16px;
+        }
+
+        .example-code {
+            position: relative;
+        }
+
+        .code-header {
+            background: rgba(var(--neon-blue-rgb), 0.1);
+            padding: 12px 16px;
+            border-radius: var(--radius) var(--radius) 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(var(--neon-blue-rgb), 0.2);
+            border-bottom: none;
+        }
+
+        .code-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--neon-blue);
+        }
+
+        .copy-btn {
+            background: transparent;
+            border: 1px solid rgba(var(--neon-blue-rgb), 0.3);
+            color: var(--neon-blue);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: rgba(var(--neon-blue-rgb), 0.2);
+            box-shadow: 0 0 8px rgba(var(--neon-blue-rgb), 0.3);
+        }
+
+        .copy-btn.copied {
+            background: rgba(0, 255, 128, 0.2);
+            border-color: rgba(0, 255, 128, 0.5);
+            color: #00ff80;
+        }
+
+        .code-block {
+            background: #0a0e1a;
+            border: 1px solid rgba(var(--neon-blue-rgb), 0.2);
+            border-top: none;
+            border-radius: 0 0 var(--radius) var(--radius);
+            padding: 20px;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        .code-block code {
+            display: block;
+            white-space: pre;
+        }
+
+        /* Props Table */
+        .props-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            background: var(--panel);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .props-table th {
+            background: rgba(var(--neon-blue-rgb), 0.1);
+            padding: 12px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--neon-blue);
+            border-bottom: 2px solid rgba(var(--neon-blue-rgb), 0.3);
+        }
+
+        .props-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(var(--neon-blue-rgb), 0.1);
+        }
+
+        .props-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .prop-name {
+            font-family: 'Monaco', monospace;
+            font-weight: 600;
+            color: var(--neon-purple);
+        }
+
+        .prop-type {
+            font-family: 'Monaco', monospace;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (min-width: 1025px) {
+            .sidebar {
+                transform: translateX(0);
+            }
+            
+            .docs-main {
+                margin-left: 280px;
+            }
+            
+            .mobile-nav-toggle {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-nav-toggle {
+                display: flex;
+            }
+
+            .docs-main {
+                margin-left: 0;
+                padding: 24px;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .color-slider-container {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .color-slider {
+                width: 100px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .docs-title {
+                font-size: 36px;
+            }
+
+            .docs-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .color-controls {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .footer-container {
+                padding: 0 24px;
+            }
+        }
+        
+        /* Smooth animations */
+        .btn {
+            transition: all 0.2s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-1px);
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(var(--neon-blue-rgb), 0.2);
+        }
+        
+        /* Footer Styles */
+        .docs-footer {
+            background: var(--panel);
+            border-top: 1px solid rgba(var(--neon-blue-rgb), 0.2);
+            padding: 60px 0 40px;
+            margin-top: 80px;
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .footer-icon {
+            width: 24px;
+            height: 24px;
+            stroke: var(--neon-blue);
+        }
+        
+        .footer-brand-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--neon-blue);
+        }
+        
+        .footer-description {
+            color: var(--muted);
+            line-height: 1.6;
+        }
+        
+        .footer-title {
+            color: var(--text);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .footer-link {
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-link:hover {
+            color: var(--neon-blue);
+        }
+        
+        .footer-features {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .footer-feature {
+            color: var(--muted);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(var(--neon-blue-rgb), 0.1);
+            padding-top: 24px;
+            text-align: center;
+        }
+        
+        .footer-copyright {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* Syntax Highlighting */
+        .token.tag { color: #ff6b9d; }
+        .token.attr-name { color: #c792ea; }
+        .token.attr-value { color: #c3e88d; }
+        .token.punctuation { color: #89ddff; }
+        .token.string { color: #c3e88d; }
+        .token.class-name { color: #ffcb6b; }
+
+        /* Example-specific overrides */
+        .card-max-400 {
+            max-width: 400px;
+        }
+
+        .progress-demo {
+            width: 75%;
+        }
+
+        .progress-circular-demo {
+            --progress: 75;
+        }
+
+        .fab-demo-container {
+            position: relative;
+            height: 200px;
+        }
+
+        .fab-demo {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="docs-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+                <span class="brand-text">Indie Neon UI</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#installation" class="nav-link">Installation</a>
+                <a href="#components" class="nav-link">Components</a>
+                <a href="demo.html" class="nav-link">Demo</a>
+            </div>
+            
+            <div class="color-controls">
+                <div class="color-slider-container">
+                    <label for="colorSlider" class="color-slider-label">Theme</label>
+                    <div class="color-number-display" id="colorNumberDisplay">1501</div>
+                    <input type="range" id="colorSlider" class="color-slider" min="0" max="2499" value="1500" aria-label="Theme color slider" />
+                    <div class="color-preview" id="colorPreview"></div>
+                    <button id="restoreDefaultBtn" class="restore-default-btn" title="Restore default colors">reset</button>
+                </div>
+                <button class="mobile-nav-toggle" id="mobileNavToggle" data-sidebar-mobile-toggle aria-label="Toggle menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 6h18M3 12h18M3 18h18"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" data-sidebar-overlay></div>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" data-sidebar>
+        <div class="sidebar-body">
+            <div class="sidebar-section">
+                <h6 class="sidebar-section-title">Getting Started</h6>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="#installation" class="sidebar-nav-link">
+                            <span>Installation</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#usage" class="sidebar-nav-link">
+                            <span>Basic Usage</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h6 class="sidebar-section-title">Components</h6>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="#buttons" class="sidebar-nav-link">
+                            <span>Buttons</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#button-groups" class="sidebar-nav-link">
+                            <span>Button Groups</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#forms" class="sidebar-nav-link">
+                            <span>Forms</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#dropdown" class="sidebar-nav-link">
+                            <span>Dropdown</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#cards" class="sidebar-nav-link">
+                            <span>Cards</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#modals" class="sidebar-nav-link">
+                            <span>Modals</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#sidebar" class="sidebar-nav-link">
+                            <span>Sidebar</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#tabs" class="sidebar-nav-link">
+                            <span>Tabs</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#accordion" class="sidebar-nav-link">
+                            <span>Accordion</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#pagination" class="sidebar-nav-link">
+                            <span>Pagination</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#table" class="sidebar-nav-link">
+                            <span>Table</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#badges" class="sidebar-nav-link">
+                            <span>Badges</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#alerts" class="sidebar-nav-link">
+                            <span>Alerts</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#stats-cards" class="sidebar-nav-link">
+                            <span>Stats Cards</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#progress" class="sidebar-nav-link">
+                            <span>Progress Indicators</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#search" class="sidebar-nav-link">
+                            <span>Search Bar</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#filter-chips" class="sidebar-nav-link">
+                            <span>Filter Chips</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#empty-states" class="sidebar-nav-link">
+                            <span>Empty States</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#loading" class="sidebar-nav-link">
+                            <span>Loading Skeletons</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#fab" class="sidebar-nav-link">
+                            <span>FAB</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#status" class="sidebar-nav-link">
+                            <span>Status Indicators</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="#star-rating" class="sidebar-nav-link">
+                            <span>Star Rating</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h6 class="sidebar-section-title">Resources</h6>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-nav-item">
+                        <a href="demo.html" class="sidebar-nav-link">
+                            <span>Interactive Demo</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-nav-item">
+                        <a href="https://github.com" class="sidebar-nav-link">
+                            <span>GitHub</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="docs-main">
+        <!-- Header -->
+        <div class="docs-header">
+            <h1 class="docs-title">Component Library</h1>
+            <p class="docs-subtitle">Complete reference with code examples for all 30+ Indie Neon UI components. Interactive color system with 2,500+ variations available above.</p>
+            <div class="docs-actions">
+                <a href="#installation" class="btn large">Get Started</a>
+                <a href="demo.html" class="btn large ghost">View Demo</a>
+            </div>
+        </div>
+
+        <!-- Installation -->
+        <section id="installation" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Installation</h2>
+                <p class="component-description">Get started with Indie Neon UI in your project</p>
+            </div>
+
+            <div class="example-block">
+                <h3 class="example-title">CDN (Recommended)</h3>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;!-- Single file includes CSS --&gt;
+&lt;script src="https://unpkg.com/indie-neon-ui@latest/dist/indie-neon-ui.cdn.js"&gt;&lt;/script&gt;</code></div>
+                </div>
+            </div>
+
+            <div class="example-block">
+                <h3 class="example-title">Separate Files</h3>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;!-- In your &lt;head&gt; --&gt;
+&lt;link rel="stylesheet" href="https://unpkg.com/indie-neon-ui@latest/dist/indie-neon-ui.min.css"&gt;
+
+&lt;!-- Before closing &lt;/body&gt; --&gt;
+&lt;script src="https://unpkg.com/indie-neon-ui@latest/dist/indie-neon-ui.min.js"&gt;&lt;/script&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage -->
+        <section id="usage" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Basic Usage</h2>
+                <p class="component-description">Start using components immediately after installation</p>
+            </div>
+
+            <div class="example-block">
+                <p class="component-description">All components work out of the box with semantic HTML and predefined CSS classes. Interactive components automatically initialize when the page loads.</p>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">JavaScript</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>// Initialize Indie Neon UI
+IndieNeon.init();
+
+// Show toast notification
+IndieNeon.toast("Welcome!", {tone: "good"});
+
+// Configure custom actions
+IndieNeon.configure({
+  actions: {
+    "my-action": () => alert("Custom action!")
+  }
+});</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Components Overview -->
+        <section id="components" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Components Overview</h2>
+                <p class="component-description">30+ beautifully crafted components with neon-inspired design</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="7" height="7"/>
+                                    <rect x="14" y="3" width="7" height="7"/>
+                                    <rect x="14" y="14" width="7" height="7"/>
+                                    <rect x="3" y="14" width="7" height="7"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value">30+</div>
+                                <div class="stat-label">Components</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value">2,500+</div>
+                                <div class="stat-label">Color Variations</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value">0</div>
+                                <div class="stat-label">Dependencies</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14,2 14,8 20,8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10,9 9,9 8,9"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value">92.5KB</div>
+                                <div class="stat-label">Minified Size</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buttons -->
+        <section id="buttons" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Buttons</h2>
+                <p class="component-description">Beautiful button components with neon glow effects in multiple sizes and styles</p>
+            </div>
+
+            <div class="example-block">
+                <h3 class="example-title">Primary Buttons</h3>
+                <div class="example-preview">
+                    <button class="btn large" onclick="IndieNeon.toast('Large button clicked!', {tone: 'good'})">Large Button</button>
+                    <button class="btn" onclick="IndieNeon.toast('Default button clicked!', {tone: 'good'})">Default Button</button>
+                    <button class="btn small" onclick="IndieNeon.toast('Small button clicked!', {tone: 'good'})">Small Button</button>
+                    <button class="btn" disabled>Disabled</button>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;button class="btn large"&gt;Large Button&lt;/button&gt;
+&lt;button class="btn"&gt;Default Button&lt;/button&gt;
+&lt;button class="btn small"&gt;Small Button&lt;/button&gt;
+&lt;button class="btn" disabled&gt;Disabled&lt;/button&gt;</code></div>
+                </div>
+            </div>
+
+            <div class="example-block">
+                <h3 class="example-title">Ghost Buttons</h3>
+                <div class="example-preview">
+                    <button class="btn large ghost" onclick="IndieNeon.toast('Ghost button works!', {tone: 'good'})">Large Ghost</button>
+                    <button class="btn ghost" onclick="IndieNeon.toast('Ghost button works!', {tone: 'good'})">Default Ghost</button>
+                    <button class="btn small ghost" onclick="IndieNeon.toast('Ghost button works!', {tone: 'good'})">Small Ghost</button>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;button class="btn large ghost"&gt;Large Ghost&lt;/button&gt;
+&lt;button class="btn ghost"&gt;Default Ghost&lt;/button&gt;
+&lt;button class="btn small ghost"&gt;Small Ghost&lt;/button&gt;</code></div>
+                </div>
+            </div>
+
+            <table class="props-table">
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="prop-name">.btn</span></td>
+                        <td>Base button class (required)</td>
+                    </tr>
+                    <tr>
+                        <td><span class="prop-name">.large</span></td>
+                        <td>Large size variant</td>
+                    </tr>
+                    <tr>
+                        <td><span class="prop-name">.small</span></td>
+                        <td>Small size variant</td>
+                    </tr>
+                    <tr>
+                        <td><span class="prop-name">.ghost</span></td>
+                        <td>Transparent background style</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Button Groups -->
+        <section id="button-groups" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Button Groups</h2>
+                <p class="component-description">Connected buttons for segmented controls</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <div class="button-group">
+                        <button class="btn" onclick="IndieNeon.toast('Left selected', {tone: 'good'})">Left</button>
+                        <button class="btn" onclick="IndieNeon.toast('Center selected', {tone: 'good'})">Center</button>
+                        <button class="btn" onclick="IndieNeon.toast('Right selected', {tone: 'good'})">Right</button>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="button-group"&gt;
+  &lt;button class="btn"&gt;Left&lt;/button&gt;
+  &lt;button class="btn"&gt;Center&lt;/button&gt;
+  &lt;button class="btn"&gt;Right&lt;/button&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Forms -->
+        <section id="forms" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Forms</h2>
+                <p class="component-description">Beautiful form controls with neon styling and focus states</p>
+            </div>
+
+            <div class="example-block">
+                <h3 class="example-title">Text Inputs</h3>
+                <div class="example-preview">
+                    <div class="form-group">
+                        <label for="demo-name">Name</label>
+                        <input type="text" id="demo-name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="demo-email">Email</label>
+                        <input type="email" id="demo-email" placeholder="you@example.com">
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="form-group"&gt;
+  &lt;label for="name"&gt;Name&lt;/label&gt;
+  &lt;input type="text" id="name" placeholder="Enter your name"&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+
+            <div class="example-block">
+                <h3 class="example-title">Textarea</h3>
+                <div class="example-preview">
+                    <div class="form-group">
+                        <label for="demo-message">Message</label>
+                        <textarea id="demo-message" rows="4" placeholder="Your message..."></textarea>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="form-group"&gt;
+  &lt;label for="message"&gt;Message&lt;/label&gt;
+  &lt;textarea id="message" rows="4" placeholder="Your message..."&gt;&lt;/textarea&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+
+            <div class="example-block">
+                <h3 class="example-title">Checkbox & Radio</h3>
+                <div class="example-preview">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="demo-check1" checked>
+                        <label for="demo-check1">I agree to the terms</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="demo-check2">
+                        <label for="demo-check2">Subscribe to newsletter</label>
+                    </div>
+                    <br>
+                    <div class="radio-group">
+                        <input type="radio" id="demo-radio1" name="demo-plan" checked>
+                        <label for="demo-radio1">Free Plan</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="demo-radio2" name="demo-plan">
+                        <label for="demo-radio2">Pro Plan</label>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="checkbox-group"&gt;
+  &lt;input type="checkbox" id="agree" checked&gt;
+  &lt;label for="agree"&gt;I agree to the terms&lt;/label&gt;
+&lt;/div&gt;
+
+&lt;div class="radio-group"&gt;
+  &lt;input type="radio" id="free" name="plan" checked&gt;
+  &lt;label for="free"&gt;Free Plan&lt;/label&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+
+            <div class="example-block">
+                <h3 class="example-title">Toggle Switch</h3>
+                <div class="example-preview">
+                    <div class="switch-group">
+                        <input type="checkbox" id="demo-toggle1" class="switch" checked>
+                        <label for="demo-toggle1">Enable notifications</label>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="switch-group"&gt;
+  &lt;input type="checkbox" id="toggle" class="switch" checked&gt;
+  &lt;label for="toggle"&gt;Enable notifications&lt;/label&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dropdown -->
+        <section id="dropdown" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Dropdown</h2>
+                <p class="component-description">Custom styled dropdown menus</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <div class="dropdown" data-dropdown>
+                        <button class="dropdown-btn" aria-expanded="false">
+                            <span class="dropdown-text">Select Option</span>
+                            <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="4 6 8 10 12 6"/>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" aria-hidden="true">
+                            <button class="dropdown-item" data-value="option1">Option 1</button>
+                            <button class="dropdown-item" data-value="option2">Option 2</button>
+                            <button class="dropdown-item" data-value="option3">Option 3</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="dropdown" data-dropdown&gt;
+  &lt;button class="dropdown-btn" aria-expanded="false"&gt;
+    &lt;span class="dropdown-text"&gt;Select Option&lt;/span&gt;
+    &lt;svg class="dropdown-arrow"&gt;...&lt;/svg&gt;
+  &lt;/button&gt;
+  &lt;div class="dropdown-menu" aria-hidden="true"&gt;
+    &lt;button class="dropdown-item" data-value="option1"&gt;Option 1&lt;/button&gt;
+    &lt;button class="dropdown-item" data-value="option2"&gt;Option 2&lt;/button&gt;
+    &lt;button class="dropdown-item" data-value="option3"&gt;Option 3&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cards -->
+        <section id="cards" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Cards</h2>
+                <p class="component-description">Flexible content containers with neon borders</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <div class="card card-max-400">
+                        <h3>Card Title</h3>
+                        <p>This is a card component with neon border effects. Perfect for displaying content in a structured way.</p>
+                        <button class="btn">Learn More</button>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="card"&gt;
+  &lt;h3&gt;Card Title&lt;/h3&gt;
+  &lt;p&gt;Card content goes here...&lt;/p&gt;
+  &lt;button class="btn"&gt;Learn More&lt;/button&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modals -->
+        <section id="modals" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Modals</h2>
+                <p class="component-description">Overlay dialogs with backdrop</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <button class="btn" onclick="document.getElementById('demoModal').setAttribute('aria-hidden', 'false'); IndieNeon.toast('Modal opened!', {tone: 'good'})">Open Modal</button>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;!-- Trigger --&gt;
+&lt;button class="btn" onclick="document.getElementById('myModal').setAttribute('aria-hidden', 'false')"&gt;
+  Open Modal
+&lt;/button&gt;
+
+&lt;!-- Modal --&gt;
+&lt;div id="myModal" class="modal" aria-hidden="true"&gt;
+  &lt;div class="backdrop"&gt;&lt;/div&gt;
+  &lt;div class="dialog"&gt;
+    &lt;header&gt;
+      &lt;h2&gt;Modal Title&lt;/h2&gt;
+      &lt;button class="icon-btn" onclick="document.getElementById('myModal').setAttribute('aria-hidden', 'true')" aria-label="Close"&gt;×&lt;/button&gt;
+    &lt;/header&gt;
+    &lt;div class="content"&gt;
+      &lt;p&gt;Modal content here...&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;footer&gt;
+      &lt;button class="btn ghost"&gt;Cancel&lt;/button&gt;
+      &lt;button class="btn"&gt;Confirm&lt;/button&gt;
+    &lt;/footer&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Modal -->
+        <div id="demoModal" class="modal" aria-hidden="true">
+            <div class="backdrop" onclick="document.getElementById('demoModal').setAttribute('aria-hidden', 'true')"></div>
+            <div class="dialog">
+                <header>
+                    <h2>Example Modal</h2>
+                    <button class="icon-btn" onclick="document.getElementById('demoModal').setAttribute('aria-hidden', 'true')" aria-label="Close">×</button>
+                </header>
+                <div class="content">
+                    <p>This is an example modal dialog. Click outside or press the × button to close.</p>
+                </div>
+                <footer>
+                    <button class="btn ghost" onclick="document.getElementById('demoModal').setAttribute('aria-hidden', 'true')">Cancel</button>
+                    <button class="btn" onclick="document.getElementById('demoModal').setAttribute('aria-hidden', 'true')">Confirm</button>
+                </footer>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <section id="sidebar" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Sidebar</h2>
+                <p class="component-description">Slide-in side panel for navigation or content</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <button class="btn" onclick="document.getElementById('demoSidebar').classList.add('open'); IndieNeon.toast('Sidebar opened!', {tone: 'good'})">Open Sidebar</button>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;!-- Trigger --&gt;
+&lt;button onclick="document.getElementById('mySidebar').classList.add('open')"&gt;
+  Open Sidebar
+&lt;/button&gt;
+
+&lt;!-- Sidebar --&gt;
+&lt;div id="mySidebar" class="sidebar"&gt;
+  &lt;div class="sidebar-header"&gt;
+    &lt;h3&gt;Sidebar Title&lt;/h3&gt;
+    &lt;button class="sidebar-close" onclick="document.getElementById('mySidebar').classList.remove('open')" aria-label="Close"&gt;×&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="sidebar-content"&gt;
+    &lt;p&gt;Sidebar content...&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="sidebar-overlay" onclick="document.getElementById('mySidebar').classList.remove('open')"&gt;&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Sidebar -->
+        <div id="demoSidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3>Example Sidebar</h3>
+                <button class="sidebar-close" onclick="document.getElementById('demoSidebar').classList.remove('open')" aria-label="Close">×</button>
+            </div>
+            <div class="sidebar-content">
+                <p>This is an example sidebar panel.</p>
+                <ul>
+                    <li>Navigation Item 1</li>
+                    <li>Navigation Item 2</li>
+                    <li>Navigation Item 3</li>
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar-overlay" onclick="document.getElementById('demoSidebar').classList.remove('open')"></div>
+
+        <!-- Tabs -->
+        <section id="tabs" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Tabs</h2>
+                <p class="component-description">Organize content in tabbed interfaces</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <div class="tabs">
+                        <div class="tab-nav" role="tablist">
+                            <button class="tab active" role="tab">Tab 1</button>
+                            <button class="tab" role="tab">Tab 2</button>
+                            <button class="tab" role="tab">Tab 3</button>
+                        </div>
+                        <div class="tab-panels">
+                            <div class="tab-panel active">Content for Tab 1</div>
+                            <div class="tab-panel">Content for Tab 2</div>
+                            <div class="tab-panel">Content for Tab 3</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="tabs"&gt;
+  &lt;div class="tab-nav" role="tablist"&gt;
+    &lt;button class="tab active" role="tab"&gt;Tab 1&lt;/button&gt;
+    &lt;button class="tab" role="tab"&gt;Tab 2&lt;/button&gt;
+    &lt;button class="tab" role="tab"&gt;Tab 3&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="tab-panels"&gt;
+    &lt;div class="tab-panel active"&gt;Content 1&lt;/div&gt;
+    &lt;div class="tab-panel"&gt;Content 2&lt;/div&gt;
+    &lt;div class="tab-panel"&gt;Content 3&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accordion -->
+        <section id="accordion" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Accordion</h2>
+                <p class="component-description">Collapsible content panels</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>Section 1</span>
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"/>
+                                </svg>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Content for section 1</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span>Section 2</span>
+                                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"/>
+                                </svg>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Content for section 2</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="accordion"&gt;
+  &lt;div class="accordion-item"&gt;
+    &lt;button class="accordion-header"&gt;
+      &lt;span&gt;Section 1&lt;/span&gt;
+      &lt;svg class="accordion-icon"&gt;...&lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;div class="accordion-content"&gt;
+      &lt;p&gt;Content here...&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pagination -->
+        <section id="pagination" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Pagination</h2>
+                <p class="component-description">Navigate through pages of content</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <div class="pagination">
+                        <button class="pagination-btn" disabled aria-label="Previous page">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="12 4 6 10 12 16"/>
+                            </svg>
+                        </button>
+                        <button class="pagination-btn active">1</button>
+                        <button class="pagination-btn">2</button>
+                        <button class="pagination-btn">3</button>
+                        <span class="pagination-ellipsis">...</span>
+                        <button class="pagination-btn">10</button>
+                        <button class="pagination-btn" aria-label="Next page">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="8 4 14 10 8 16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="pagination"&gt;
+  &lt;button class="pagination-btn" disabled&gt;&amp;lt;&lt;/button&gt;
+  &lt;button class="pagination-btn active"&gt;1&lt;/button&gt;
+  &lt;button class="pagination-btn"&gt;2&lt;/button&gt;
+  &lt;button class="pagination-btn"&gt;3&lt;/button&gt;
+  &lt;span class="pagination-ellipsis"&gt;...&lt;/span&gt;
+  &lt;button class="pagination-btn"&gt;10&lt;/button&gt;
+  &lt;button class="pagination-btn"&gt;&amp;gt;&lt;/button&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Table -->
+        <section id="table" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Table</h2>
+                <p class="component-description">Styled data tables with neon accents</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>John Doe</td>
+                                <td><span class="badge success">Active</span></td>
+                                <td>Admin</td>
+                            </tr>
+                            <tr>
+                                <td>Jane Smith</td>
+                                <td><span class="badge warning">Pending</span></td>
+                                <td>User</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;table class="table"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Status&lt;/th&gt;
+      &lt;th&gt;Role&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;John Doe&lt;/td&gt;
+      &lt;td&gt;&lt;span class="badge success"&gt;Active&lt;/span&gt;&lt;/td&gt;
+      &lt;td&gt;Admin&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Badges -->
+        <section id="badges" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Badges</h2>
+                <p class="component-description">Small status indicators and labels</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <span class="badge">Default</span>
+                    <span class="badge success">Success</span>
+                    <span class="badge warning">Warning</span>
+                    <span class="badge error">Error</span>
+                    <span class="badge neutral">Neutral</span>
+                    <span class="badge outline">Outline</span>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;span class="badge"&gt;Default&lt;/span&gt;
+&lt;span class="badge success"&gt;Success&lt;/span&gt;
+&lt;span class="badge warning"&gt;Warning&lt;/span&gt;
+&lt;span class="badge error"&gt;Error&lt;/span&gt;
+&lt;span class="badge neutral"&gt;Neutral&lt;/span&gt;
+&lt;span class="badge outline"&gt;Outline&lt;/span&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alerts -->
+        <section id="alerts" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Alerts</h2>
+                <p class="component-description">Contextual feedback messages</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <div class="alert success">
+                        <strong>Success!</strong> Your changes have been saved.
+                    </div>
+                    <div class="alert warning">
+                        <strong>Warning!</strong> Please review before continuing.
+                    </div>
+                    <div class="alert error">
+                        <strong>Error!</strong> Something went wrong.
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="alert success"&gt;
+  &lt;strong&gt;Success!&lt;/strong&gt; Your changes have been saved.
+&lt;/div&gt;
+&lt;div class="alert warning"&gt;
+  &lt;strong&gt;Warning!&lt;/strong&gt; Please review before continuing.
+&lt;/div&gt;
+&lt;div class="alert error"&gt;
+  &lt;strong&gt;Error!&lt;/strong&gt; Something went wrong.
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Cards -->
+        <section id="stats-cards" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Stats Cards</h2>
+                <p class="component-description">Display key metrics and statistics</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="8.5" cy="7" r="4"/>
+                                    <polyline points="17 11 19 13 23 9"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value">2,547</div>
+                                <div class="stat-label">Active Users</div>
+                                <div class="stat-trend positive">+12%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="stats-grid"&gt;
+  &lt;div class="stat-card"&gt;
+    &lt;div class="stat-icon"&gt;...&lt;/div&gt;
+    &lt;div class="stat-content"&gt;
+      &lt;div class="stat-value"&gt;2,547&lt;/div&gt;
+      &lt;div class="stat-label"&gt;Active Users&lt;/div&gt;
+      &lt;div class="stat-trend positive"&gt;+12%&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Indicators -->
+        <section id="progress" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Progress Indicators</h2>
+                <p class="component-description">Show progress and loading states</p>
+            </div>
+
+            <div class="example-block">
+                <h3 class="example-title">Progress Bar</h3>
+                <div class="example-preview">
+                    <div class="progress">
+                        <div class="progress-bar progress-demo"></div>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="progress"&gt;
+  &lt;div class="progress-bar" style="width: 75%"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+
+            <div class="example-block">
+                <h3 class="example-title">Spinner</h3>
+                <div class="example-preview">
+                    <div class="spinner"></div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="spinner"&gt;&lt;/div&gt;</code></div>
+                </div>
+            </div>
+
+            <div class="example-block">
+                <h3 class="example-title">Circular Progress</h3>
+                <div class="example-preview">
+                    <div class="circular-progress progress-circular-demo">
+                        <svg class="circular-progress-svg" viewBox="0 0 100 100">
+                            <circle class="circular-progress-bg" cx="50" cy="50" r="45"/>
+                            <circle class="circular-progress-bar" cx="50" cy="50" r="45"/>
+                        </svg>
+                        <div class="circular-progress-text">75%</div>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="circular-progress" style="--progress: 75"&gt;
+  &lt;svg class="circular-progress-svg" viewBox="0 0 100 100"&gt;
+    &lt;circle class="circular-progress-bg" cx="50" cy="50" r="45"/&gt;
+    &lt;circle class="circular-progress-bar" cx="50" cy="50" r="45"/&gt;
+  &lt;/svg&gt;
+  &lt;div class="circular-progress-text"&gt;75%&lt;/div&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Bar -->
+        <section id="search" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Search Bar</h2>
+                <p class="component-description">Styled search input with icon</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <div class="search-bar">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="9" r="7"/>
+                            <line x1="14" y1="14" x2="19" y2="19"/>
+                        </svg>
+                        <input type="text" class="search-input" placeholder="Search...">
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="search-bar"&gt;
+  &lt;svg class="search-icon"&gt;...&lt;/svg&gt;
+  &lt;input type="text" class="search-input" placeholder="Search..."&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Chips -->
+        <section id="filter-chips" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Filter Chips</h2>
+                <p class="component-description">Clickable filter tags</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <div class="filter-chips">
+                        <button class="chip active" onclick="setActiveChip(this, 'All')">All</button>
+                        <button class="chip" onclick="setActiveChip(this, 'Active')">Active</button>
+                        <button class="chip" onclick="setActiveChip(this, 'Pending')">Pending</button>
+                        <button class="chip" onclick="setActiveChip(this, 'Completed')">Completed</button>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="filter-chips"&gt;
+  &lt;button class="chip active"&gt;All&lt;/button&gt;
+  &lt;button class="chip"&gt;Active&lt;/button&gt;
+  &lt;button class="chip"&gt;Pending&lt;/button&gt;
+  &lt;button class="chip"&gt;Completed&lt;/button&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Empty States -->
+        <section id="empty-states" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Empty States</h2>
+                <p class="component-description">Friendly empty state placeholders</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <div class="empty-state">
+                        <svg class="empty-state-icon" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="32" cy="32" r="28"/>
+                            <line x1="32" y1="22" x2="32" y2="32"/>
+                            <circle cx="32" cy="42" r="1"/>
+                        </svg>
+                        <h3 class="empty-state-title">No Data Available</h3>
+                        <p class="empty-state-description">Get started by creating your first item.</p>
+                        <button class="btn">Create Item</button>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="empty-state"&gt;
+  &lt;svg class="empty-state-icon"&gt;...&lt;/svg&gt;
+  &lt;h3 class="empty-state-title"&gt;No Data Available&lt;/h3&gt;
+  &lt;p class="empty-state-description"&gt;Get started by creating your first item.&lt;/p&gt;
+  &lt;button class="btn"&gt;Create Item&lt;/button&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading Skeletons -->
+        <section id="loading" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Loading Skeletons</h2>
+                <p class="component-description">Animated loading placeholders</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <div class="skeleton-card">
+                        <div class="skeleton skeleton-title"></div>
+                        <div class="skeleton skeleton-text"></div>
+                        <div class="skeleton skeleton-text"></div>
+                        <div class="skeleton skeleton-button"></div>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="skeleton-card"&gt;
+  &lt;div class="skeleton skeleton-title"&gt;&lt;/div&gt;
+  &lt;div class="skeleton skeleton-text"&gt;&lt;/div&gt;
+  &lt;div class="skeleton skeleton-text"&gt;&lt;/div&gt;
+  &lt;div class="skeleton skeleton-button"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAB -->
+        <section id="fab" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Floating Action Button</h2>
+                <p class="component-description">Fixed floating button for primary actions</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview fab-demo-container">
+                    <button class="fab fab-demo" aria-label="Add new item">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;button class="fab" aria-label="Add new item"&gt;
+  &lt;svg&gt;...&lt;/svg&gt;
+&lt;/button&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Indicators -->
+        <section id="status" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Status Indicators</h2>
+                <p class="component-description">Animated status dots</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <div class="status-indicator">
+                        <span class="status-dot active"></span>
+                        <span>Active</span>
+                    </div>
+                    <div class="status-indicator">
+                        <span class="status-dot inactive"></span>
+                        <span>Inactive</span>
+                    </div>
+                    <div class="status-indicator">
+                        <span class="status-dot busy"></span>
+                        <span>Busy</span>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="status-indicator"&gt;
+  &lt;span class="status-dot active"&gt;&lt;/span&gt;
+  &lt;span&gt;Active&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="status-indicator"&gt;
+  &lt;span class="status-dot inactive"&gt;&lt;/span&gt;
+  &lt;span&gt;Inactive&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="status-indicator"&gt;
+  &lt;span class="status-dot busy"&gt;&lt;/span&gt;
+  &lt;span&gt;Busy&lt;/span&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Star Rating -->
+        <section id="star-rating" class="component-section">
+            <div class="component-header">
+                <h2 class="component-title">Star Rating</h2>
+                <p class="component-description">Interactive star rating component</p>
+            </div>
+
+            <div class="example-block">
+                <div class="example-preview">
+                    <div class="star-rating">
+                        <input type="radio" id="demo-star5" name="demo-rating" value="5">
+                        <label for="demo-star5" aria-label="5 stars">★</label>
+                        <input type="radio" id="demo-star4" name="demo-rating" value="4">
+                        <label for="demo-star4" aria-label="4 stars">★</label>
+                        <input type="radio" id="demo-star3" name="demo-rating" value="3" checked>
+                        <label for="demo-star3" aria-label="3 stars">★</label>
+                        <input type="radio" id="demo-star2" name="demo-rating" value="2">
+                        <label for="demo-star2" aria-label="2 stars">★</label>
+                        <input type="radio" id="demo-star1" name="demo-rating" value="1">
+                        <label for="demo-star1" aria-label="1 star">★</label>
+                    </div>
+                </div>
+                <div class="example-code">
+                    <div class="code-header">
+                        <span class="code-label">HTML</span>
+                        <button class="copy-btn" onclick="copyCode(this)" aria-label="Copy code">Copy</button>
+                    </div>
+                    <div class="code-block"><code>&lt;div class="star-rating"&gt;
+  &lt;input type="radio" id="star5" name="rating" value="5"&gt;
+  &lt;label for="star5"&gt;★&lt;/label&gt;
+  &lt;input type="radio" id="star4" name="rating" value="4"&gt;
+  &lt;label for="star4"&gt;★&lt;/label&gt;
+  &lt;input type="radio" id="star3" name="rating" value="3" checked&gt;
+  &lt;label for="star3"&gt;★&lt;/label&gt;
+  &lt;input type="radio" id="star2" name="rating" value="2"&gt;
+  &lt;label for="star2"&gt;★&lt;/label&gt;
+  &lt;input type="radio" id="star1" name="rating" value="1"&gt;
+  &lt;label for="star1"&gt;★&lt;/label&gt;
+&lt;/div&gt;</code></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="docs-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                        <span class="footer-brand-text">Indie Neon UI</span>
+                    </div>
+                    <p class="footer-description">A modern CSS component library for creating beautiful, futuristic interfaces with neon-inspired design and smooth animations.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Components</h4>
+                    <div class="footer-links">
+                        <a href="#buttons" class="footer-link">Buttons & Actions</a>
+                        <a href="#forms" class="footer-link">Form Controls</a>
+                        <a href="#modals" class="footer-link">Modals & Overlays</a>
+                        <a href="#badges" class="footer-link">Badges & Indicators</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Resources</h4>
+                    <div class="footer-links">
+                        <a href="demo.html" class="footer-link">Interactive Demo</a>
+                        <a href="#installation" class="footer-link">Installation Guide</a>
+                        <a href="https://github.com" class="footer-link">GitHub Repository</a>
+                        <a href="https://npmjs.com" class="footer-link">NPM Package</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Features</h4>
+                    <div class="footer-features">
+                        <span class="footer-feature">✨ 30+ Components</span>
+                        <span class="footer-feature">🎨 2,500+ Color Variations</span>
+                        <span class="footer-feature">⚡ Zero Dependencies</span>
+                        <span class="footer-feature">📱 Fully Responsive</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">Built with passion for modern web design. MIT License.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="dist/indie-neon-ui.min.js?v=1.0.7"></script>
+    <script>
+        // Initialize Indie Neon UI
+        IndieNeon.init();
+        
+        // Copy to clipboard functionality
+        function copyCode(button) {
+            const codeBlock = button.closest('.example-code').querySelector('.code-block code');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // Mobile sidebar toggle
+        const mobileToggle = document.querySelector('[data-sidebar-mobile-toggle]');
+        const sidebar = document.querySelector('[data-sidebar]');
+        const overlay = document.querySelector('[data-sidebar-overlay]');
+        
+        if (mobileToggle && sidebar && overlay) {
+            mobileToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+                overlay.classList.toggle('active');
+            });
+            
+            overlay.addEventListener('click', () => {
+                sidebar.classList.remove('open');
+                overlay.classList.remove('active');
+            });
+        }
+        
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('.component-section');
+        const sidebarLinks = document.querySelectorAll('.sidebar-nav-link');
+
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.docs-nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close mobile menu if open
+                    if (sidebar) {
+                        sidebar.classList.remove('open');
+                    }
+                    if (overlay) {
+                        overlay.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Filter chips demo function
+        window.setActiveChip = function(chip, name) {
+            document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            IndieNeon.toast(`Filter: ${name}`, {tone: 'good'});
+        };
+        
+        // Card button demo with ghost effect
+        document.querySelectorAll('.card .btn').forEach(cardBtn => {
+            cardBtn.addEventListener('click', (e) => {
+                e.target.classList.add('ghost-effect');
+                IndieNeon.toast('Card action triggered!', {tone: 'good'});
+                setTimeout(() => {
+                    e.target.classList.remove('ghost-effect');
+                }, 300);
+            });
+        });
+        
+        // Make star rating interactive
+        document.querySelectorAll('.star-rating').forEach(rating => {
+            const stars = rating.querySelectorAll('input[type="radio"]');
+            stars.forEach((star, index) => {
+                star.addEventListener('change', () => {
+                    IndieNeon.toast(`Rated ${star.value} stars!`, {tone: 'good'});
+                });
+            });
+        });
+        
+        // Color slider functionality (from demo.html)
+        const colorSlider = document.getElementById('colorSlider');
+        const colorNumberDisplay = document.getElementById('colorNumberDisplay');
+        const colorPreview = document.getElementById('colorPreview');
+        const restoreDefaultBtn = document.getElementById('restoreDefaultBtn');
+        
+        if (colorSlider) {
+            // Load saved color or use default
+            const savedColor = localStorage.getItem('indie-neon-color') || '1500';
+            colorSlider.value = savedColor;
+            updateColorDisplay(savedColor);
+            applyColor(savedColor);
+            
+            colorSlider.addEventListener('input', (e) => {
+                const value = e.target.value;
+                updateColorDisplay(value);
+                applyColor(value);
+                localStorage.setItem('indie-neon-color', value);
+            });
+            
+            // Keyboard navigation for color slider
+            colorSlider.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                    setTimeout(() => {
+                        const value = colorSlider.value;
+                        updateColorDisplay(value);
+                        applyColor(value);
+                        localStorage.setItem('indie-neon-color', value);
+                    }, 0);
+                }
+            });
+        }
+        
+        if (restoreDefaultBtn) {
+            restoreDefaultBtn.addEventListener('click', () => {
+                colorSlider.value = '1500';
+                updateColorDisplay('1500');
+                applyColor('1500');
+                localStorage.removeItem('indie-neon-color');
+                IndieNeon.toast('Colors restored to default', {tone: 'good'});
+            });
+        }
+        
+        function updateColorDisplay(value) {
+            if (colorNumberDisplay) {
+                colorNumberDisplay.textContent = parseInt(value) + 1;
+            }
+            
+            const hue = (parseInt(value) / 2500) * 360;
+            const color = `hsl(${hue}, 70%, 60%)`;
+            
+            if (colorPreview) {
+                colorPreview.style.background = color;
+            }
+        }
+        
+        function applyColor(value) {
+            const hue = (parseInt(value) / 2500) * 360;
+            const saturation = 70;
+            const lightness = 60;
+            
+            // Calculate RGB values for CSS custom properties
+            const hslToRgb = (h, s, l) => {
+                s /= 100;
+                l /= 100;
+                const c = (1 - Math.abs(2 * l - 1)) * s;
+                const x = c * (1 - Math.abs((h / 60) % 2 - 1));
+                const m = l - c / 2;
+                let r, g, b;
+                
+                if (0 <= h && h < 60) {
+                    r = c; g = x; b = 0;
+                } else if (60 <= h && h < 120) {
+                    r = x; g = c; b = 0;
+                } else if (120 <= h && h < 180) {
+                    r = 0; g = c; b = x;
+                } else if (180 <= h && h < 240) {
+                    r = 0; g = x; b = c;
+                } else if (240 <= h && h < 300) {
+                    r = x; g = 0; b = c;
+                } else if (300 <= h && h < 360) {
+                    r = c; g = 0; b = x;
+                }
+                
+                r = Math.round((r + m) * 255);
+                g = Math.round((g + m) * 255);
+                b = Math.round((b + m) * 255);
+                
+                return [r, g, b];
+            };
+            
+            const [r, g, b] = hslToRgb(hue, saturation, lightness);
+            const [r2, g2, b2] = hslToRgb((hue + 60) % 360, saturation, lightness);
+            
+            // Update CSS custom properties
+            document.documentElement.style.setProperty('--neon-blue', `hsl(${hue}, ${saturation}%, ${lightness}%)`);
+            document.documentElement.style.setProperty('--neon-purple', `hsl(${(hue + 60) % 360}, ${saturation}%, ${lightness}%)`);
+            document.documentElement.style.setProperty('--neon-blue-rgb', `${r}, ${g}, ${b}`);
+            document.documentElement.style.setProperty('--neon-purple-rgb', `${r2}, ${g2}, ${b2}`);
+        }
+        
+        console.log('✨ Indie Neon UI Component Library loaded!');
+    </script>
+</body>
+</html>
+

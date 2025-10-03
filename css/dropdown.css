@@ -5,22 +5,23 @@
 /* Dropdown container */
 .dropdown {
   position: relative;
-  width: 100%;
+  width: auto;
+  display: inline-block;
 }
 
 /* Dropdown button (trigger) */
 .dropdown-btn {
   position: relative;
-  width: 100%;
+  width: auto;
   height: var(--btn-h);
-  max-height: 46px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 12px;
-  border-radius: 12px;
+  padding: 0 16px 0 20px;
+  border-radius: var(--radius);
   border: 2px solid transparent;
   color: var(--text);
+  font-size: 14px;
   
   /* Neon gradient border */
   background: linear-gradient(var(--surface), var(--surface)) padding-box,
@@ -81,12 +82,12 @@
   position: absolute;
   top: 100%;
   left: 0;
-  right: 0;
+  width: 100%;
   z-index: 1000;
   margin: 0;
   padding: 0;
   list-style: none;
-  border-radius: 0 0 12px 12px;
+  border-radius: 0 0 var(--radius) var(--radius);
   border: 2px solid transparent;
   border-top: none;
   overflow: hidden;

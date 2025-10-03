@@ -133,7 +133,7 @@ fs.writeFileSync(path.join(distDir, 'indie-neon-ui.min.js'), minifiedJS);
 // Create CDN version (single file with embedded CSS)
 const cdnVersion = `/*!
  * Indie Neon UI - CDN Version
- * Version: 1.0.0
+ * Production Release v1.0.0
  */
 
 // Embed CSS

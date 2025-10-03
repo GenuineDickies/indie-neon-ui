@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Indie Neon UI - Modern CSS Component Library</title>
-    <link rel="stylesheet" href="dist/indie-neon-ui.min.css">
-    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="dist/indie-neon-ui.min.css?v=1.0.0">
+    <link rel="stylesheet" href="css/demo.css?v=1.0.0">
 </head>
 <body>
     <!-- Navigation -->
@@ -21,7 +21,6 @@
                 <a href="#components" class="nav-link">Components</a>
                 <a href="#examples" class="nav-link">Examples</a>
                 <a href="#installation" class="nav-link">Installation</a>
-                <a href="mockup.html" class="nav-link">Dashboard</a>
             </div>
             <div class="color-controls">
                 <div class="color-slider-container">
@@ -99,7 +98,7 @@
                 </p>
                 <div class="hero-actions">
                     <a href="#installation" class="btn large">Get Started</a>
-                    <a href="mockup.html" class="btn large ghost">View Demo</a>
+                    <a href="#components" class="btn large ghost">View Components</a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat">
@@ -532,7 +531,7 @@
                     <div class="showcase-group">
                         <h4 class="showcase-label">Sidebar Navigation</h4>
                         <button class="btn" id="sidebarDemoBtn">Show Sidebar Demo</button>
-                        <p style="margin-top: 8px; font-size: 13px; color: var(--muted);">Click to see a full sidebar navigation component with collapsible functionality</p>
+                        <p class="sidebar-demo-description">Click to see a full sidebar navigation component with collapsible functionality</p>
                     </div>
                 </div>
             </div>
@@ -546,20 +545,6 @@
             </div>
             
             <div class="examples-grid">
-                <div class="example-card">
-                    <div class="example-icon">
-                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="4" y="4" width="16" height="16" rx="2"/>
-                            <rect x="28" y="4" width="16" height="16" rx="2"/>
-                            <rect x="4" y="28" width="16" height="16" rx="2"/>
-                            <rect x="28" y="28" width="16" height="16" rx="2"/>
-                        </svg>
-                    </div>
-                    <h3 class="example-title">Dashboard Mockup</h3>
-                    <p class="example-description">Complete dashboard application showcasing all components in a real-world scenario with interactive elements</p>
-                    <a href="mockup.html" class="btn">View Dashboard</a>
-                </div>
-                
                 <div class="example-card">
                     <div class="example-icon">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
@@ -744,7 +729,6 @@ IndieNeon.configure({
                     <a href="#components" class="footer-link">Components</a>
                     <a href="#examples" class="footer-link">Examples</a>
                     <a href="#installation" class="footer-link">Installation</a>
-                    <a href="mockup.html" class="footer-link">Dashboard</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -802,7 +786,7 @@ IndieNeon.configure({
         </div>
     </div>
 
-    <script src="dist/indie-neon-ui.min.js"></script>
+    <script src="dist/indie-neon-ui.min.js?v=1.0.0"></script>
     <script>
         // Initialize Indie Neon UI
         IndieNeon.init();
@@ -966,35 +950,18 @@ IndieNeon.configure({
         
         document.querySelectorAll('.stat-value').forEach(stat => statsObserver.observe(stat));
         
-        // Sidebar demo button
-        const sidebarDemoBtn = document.getElementById('sidebarDemoBtn');
-        if (sidebarDemoBtn) {
-            sidebarDemoBtn.addEventListener('click', () => {
-                const sidebarModal = document.getElementById('sidebarDemoModal');
-                if (sidebarModal) {
-                    sidebarModal.style.display = 'block';
-                    // Initialize sidebar after showing modal
-                    setTimeout(() => {
-                        if (window.initSidebarDemo) {
-                            window.initSidebarDemo();
-                        }
-                    }, 100);
-                }
-            });
-        }
-        
         console.log('✨ Indie Neon UI initialized successfully!');
     </script>
     
     <!-- Sidebar Demo Modal -->
-    <div id="sidebarDemoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 10000; overflow: auto;">
-        <button onclick="document.getElementById('sidebarDemoModal').style.display='none'" style="position: absolute; top: 20px; right: 20px; width: 48px; height: 48px; background: var(--surface); border: 2px solid var(--neon-blue); border-radius: 12px; color: var(--text); font-size: 24px; cursor: pointer; z-index: 10002; box-shadow: 0 4px 16px rgba(0,0,0,.3); transition: all .2s ease;">×</button>
+    <div id="sidebarDemoModal">
+        <button class="sidebar-demo-close-btn" data-close-sidebar-demo>×</button>
         
-        <div style="padding: 80px 20px 40px; max-width: 1400px; margin: 0 auto;">
-            <h2 style="text-align: center; margin-bottom: 32px; font-size: 32px; background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Sidebar Component Demo</h2>
+        <div class="sidebar-demo-container">
+            <h2 class="sidebar-demo-title">Sidebar Component Demo</h2>
             
             <!-- Mobile toggle button -->
-            <button class="sidebar-mobile-toggle" data-sidebar-mobile-toggle>
+            <button class="sidebar-mobile-toggle" data-sidebar-mobile-toggle aria-label="Toggle sidebar menu">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M3 6h18M3 12h18M3 18h18"/>
                 </svg>
@@ -1013,7 +980,7 @@ IndieNeon.configure({
                         </svg>
                         <span class="sidebar-brand-text">Indie Neon</span>
                     </div>
-                    <button class="sidebar-toggle" data-sidebar-toggle>
+                    <button class="sidebar-toggle" data-sidebar-toggle aria-label="Collapse sidebar">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M11 19l-7-7 7-7M4 12h16"/>
                         </svg>
@@ -1150,7 +1117,7 @@ IndieNeon.configure({
                             <span class="sidebar-user-name">John Doe</span>
                             <span class="sidebar-user-role">Developer</span>
                         </div>
-                        <svg style="width: 16px; height: 16px; color: var(--muted);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="sidebar-user-dropdown-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M6 9l6 6 6-6"/>
                         </svg>
                     </div>
@@ -1158,31 +1125,31 @@ IndieNeon.configure({
             </aside>
             
             <!-- Main content area to show sidebar context -->
-            <div style="margin-left: 300px; padding: 40px; min-height: 600px; transition: margin-left .3s ease;" id="sidebarDemoContent">
-                <div style="max-width: 800px;">
-                    <h3 style="font-size: 28px; margin-bottom: 16px; color: var(--text);">Sidebar Features</h3>
-                    <div style="display: grid; gap: 20px;">
-                        <div style="padding: 20px; background: var(--surface); border-radius: 12px; border: 1px solid rgba(55,183,255,.2);">
-                            <h4 style="margin: 0 0 8px; color: var(--neon-blue);">🎯 Collapsible Design</h4>
-                            <p style="margin: 0; color: var(--muted); line-height: 1.6;">Click the toggle button in the sidebar header to collapse it into a mini sidebar with icons only.</p>
+            <div id="sidebarDemoContent">
+                <div class="sidebar-demo-content-inner">
+                    <h3 class="sidebar-demo-section-title">Sidebar Features</h3>
+                    <div class="sidebar-demo-grid">
+                        <div class="sidebar-demo-feature-card">
+                            <h4>🎯 Collapsible Design</h4>
+                            <p>Click the toggle button in the sidebar header to collapse it into a mini sidebar with icons only.</p>
                         </div>
-                        <div style="padding: 20px; background: var(--surface); border-radius: 12px; border: 1px solid rgba(55,183,255,.2);">
-                            <h4 style="margin: 0 0 8px; color: var(--neon-blue);">📱 Mobile Responsive</h4>
-                            <p style="margin: 0; color: var(--muted); line-height: 1.6;">On mobile devices, the sidebar transforms into a slide-out menu with overlay backdrop.</p>
+                        <div class="sidebar-demo-feature-card">
+                            <h4>📱 Mobile Responsive</h4>
+                            <p>On mobile devices, the sidebar transforms into a slide-out menu with overlay backdrop.</p>
                         </div>
-                        <div style="padding: 20px; background: var(--surface); border-radius: 12px; border: 1px solid rgba(55,183,255,.2);">
-                            <h4 style="margin: 0 0 8px; color: var(--neon-blue);">✨ Neon Effects</h4>
-                            <p style="margin: 0; color: var(--muted); line-height: 1.6;">Beautiful gradient borders, glow effects, and smooth animations consistent with the Indie Neon theme.</p>
+                        <div class="sidebar-demo-feature-card">
+                            <h4>✨ Neon Effects</h4>
+                            <p>Beautiful gradient borders, glow effects, and smooth animations consistent with the Indie Neon theme.</p>
                         </div>
-                        <div style="padding: 20px; background: var(--surface); border-radius: 12px; border: 1px solid rgba(55,183,255,.2);">
-                            <h4 style="margin: 0 0 8px; color: var(--neon-blue);">🎨 Customizable</h4>
-                            <p style="margin: 0; color: var(--muted); line-height: 1.6;">Add badges, section headers, user profiles, and custom icons. Fully themeable with CSS variables.</p>
+                        <div class="sidebar-demo-feature-card">
+                            <h4>🎨 Customizable</h4>
+                            <p>Add badges, section headers, user profiles, and custom icons. Fully themeable with CSS variables.</p>
                         </div>
                     </div>
                     
-                    <div style="margin-top: 40px; padding: 24px; background: rgba(55,183,255,.05); border-radius: 12px; border: 1px solid rgba(55,183,255,.2);">
-                        <h4 style="margin: 0 0 12px; color: var(--text);">Quick Tips:</h4>
-                        <ul style="margin: 0; padding-left: 20px; color: var(--muted); line-height: 1.8;">
+                    <div class="sidebar-demo-tips">
+                        <h4>Quick Tips:</h4>
+                        <ul>
                             <li><strong>Click "Projects" or "Team"</strong> to expand accordion submenus</li>
                             <li>Click navigation items to see the active state</li>
                             <li>Use the toggle button to collapse/expand the sidebar</li>
@@ -1196,6 +1163,33 @@ IndieNeon.configure({
         </div>
         
         <script>
+            // Sidebar demo button event listeners
+            const sidebarDemoBtn = document.getElementById('sidebarDemoBtn');
+            const sidebarModal = document.getElementById('sidebarDemoModal');
+            const sidebarCloseBtn = document.querySelector('[data-close-sidebar-demo]');
+            
+            if (sidebarDemoBtn) {
+                sidebarDemoBtn.addEventListener('click', () => {
+                    if (sidebarModal) {
+                        sidebarModal.classList.add('active');
+                        // Initialize sidebar after showing modal
+                        setTimeout(() => {
+                            if (window.initSidebarDemo) {
+                                window.initSidebarDemo();
+                            }
+                        }, 100);
+                    }
+                });
+            }
+            
+            if (sidebarCloseBtn) {
+                sidebarCloseBtn.addEventListener('click', () => {
+                    if (sidebarModal) {
+                        sidebarModal.classList.remove('active');
+                    }
+                });
+            }
+            
             // Sidebar demo initialization
             window.initSidebarDemo = function() {
                 const sidebar = document.querySelector('[data-sidebar]');
@@ -1268,6 +1262,18 @@ IndieNeon.configure({
                         
                         const isExpanded = link.classList.contains('expanded');
                         
+                        // Remove active from all main nav links (both accordion and non-accordion)
+                        navLinks.forEach(l => {
+                            l.classList.remove('active');
+                        });
+                        
+                        // Add active to clicked accordion link
+                        link.classList.add('active');
+                        
+                        // Remove active from all submenu links
+                        const submenuLinks = sidebar.querySelectorAll('.sidebar-submenu-link');
+                        submenuLinks.forEach(l => l.classList.remove('active'));
+                        
                         // Close other open submenus (accordion behavior)
                         accordionLinks.forEach(otherLink => {
                             if (otherLink !== link) {
@@ -1295,12 +1301,12 @@ IndieNeon.configure({
                         link.addEventListener('click', (e) => {
                             e.preventDefault();
                             
-                            // Remove active from all non-accordion links
-                            navLinks.forEach(l => {
-                                if (!l.classList.contains('has-submenu')) {
-                                    l.classList.remove('active');
-                                }
-                            });
+                            // Remove active from ALL nav links (including accordion buttons)
+                            navLinks.forEach(l => l.classList.remove('active'));
+                            
+                            // Remove active from all submenu links
+                            const submenuLinks = sidebar?.querySelectorAll('.sidebar-submenu-link');
+                            submenuLinks?.forEach(l => l.classList.remove('active'));
                             
                             // Add active to clicked link
                             link.classList.add('active');
@@ -1329,15 +1335,32 @@ IndieNeon.configure({
                         // Remove active from all submenu links
                         submenuLinks.forEach(l => l.classList.remove('active'));
                         
-                        // Add active to clicked link
+                        // Add active to clicked submenu link
                         link.classList.add('active');
                         
-                        // Remove active from main nav links
+                        // Remove active from non-accordion main nav links only
                         navLinks.forEach(l => {
                             if (!l.classList.contains('has-submenu')) {
                                 l.classList.remove('active');
                             }
                         });
+                        
+                        // KEEP the parent accordion button active
+                        // Find the parent list item, then find the accordion link within it
+                        const parentNavItem = link.closest('.sidebar-nav-item');
+                        if (parentNavItem) {
+                            const parentLink = parentNavItem.querySelector('.sidebar-nav-link.has-submenu');
+                            if (parentLink) {
+                                // Remove active from other accordion buttons
+                                accordionLinks.forEach(accLink => {
+                                    if (accLink !== parentLink) {
+                                        accLink.classList.remove('active');
+                                    }
+                                });
+                                // Ensure parent stays active
+                                parentLink.classList.add('active');
+                            }
+                        }
                         
                         // Show toast
                         const text = link.textContent || 'Subitem';

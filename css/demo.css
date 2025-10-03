@@ -845,89 +845,6 @@
   padding-bottom: 4px;
 }
 
-/* Executive dashboard mockup */
-.dashboard-showcase {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.dashboard-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.dashboard-toolbar .component-description {
-  max-width: 520px;
-}
-
-.toolbar-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 16px;
-  align-items: center;
-}
-
-.toolbar-actions .search-bar {
-  width: 280px;
-}
-
-.dashboard-columns {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  gap: 24px;
-}
-
-.dashboard-left,
-.dashboard-right {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.dashboard-left .stats-grid {
-  margin-bottom: 0;
-}
-
-.dashboard-right .card {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.dashboard-right .badge-group {
-  margin: 0;
-}
-
-.dashboard-right .progress,
-.dashboard-right .spinner {
-  align-self: flex-start;
-}
-
-.dashboard-empty-state .empty-state {
-  padding: 24px;
-}
-
-@media (max-width: 1024px) {
-  .dashboard-columns {
-    grid-template-columns: 1fr;
-  }
-
-  .toolbar-actions {
-    justify-content: flex-start;
-  }
-}
-
-@media (max-width: 640px) {
-  .toolbar-actions .search-bar {
-    width: 100%;
-  }
-}
-
 .showcase-label {
   font-size: 16px;
   font-weight: 600;
@@ -940,6 +857,12 @@
   color: var(--muted);
   margin: 12px 0 0;
   font-style: italic;
+}
+
+.sidebar-demo-description {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--muted);
 }
 
 /* Examples Grid */
@@ -1191,7 +1114,142 @@
   }
 }
 
-.dashboard-toolbar .search-bar .search-input {
-  padding-left: 56px;
+/* ===========================================
+   SIDEBAR DEMO MODAL STYLES
+   =========================================== */
+
+#sidebarDemoModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  overflow: auto;
+}
+
+#sidebarDemoModal.active {
+  display: block;
+}
+
+.sidebar-demo-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background: var(--surface);
+  border: 2px solid var(--neon-blue);
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10002;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.sidebar-demo-close-btn:hover {
+  background: rgba(55, 183, 255, 0.1);
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(55, 183, 255, 0.3);
+}
+
+.sidebar-demo-container {
+  padding: 80px 20px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.sidebar-demo-title {
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 32px;
+  background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#sidebarDemoContent {
+  margin-left: 300px;
+  padding: 40px;
+  min-height: 600px;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar-demo-content-inner {
+  max-width: 800px;
+}
+
+.sidebar-demo-section-title {
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.sidebar-demo-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.sidebar-demo-feature-card {
+  padding: 20px;
+  background: var(--surface);
+  border-radius: 12px;
+  border: 1px solid rgba(55, 183, 255, 0.2);
+}
+
+.sidebar-demo-feature-card h4 {
+  margin: 0 0 8px;
+  color: var(--neon-blue);
+}
+
+.sidebar-demo-feature-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.sidebar-demo-tips {
+  margin-top: 40px;
+  padding: 24px;
+  background: rgba(55, 183, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(55, 183, 255, 0.2);
+}
+
+.sidebar-demo-tips h4 {
+  margin: 0 0 12px;
+  color: var(--text);
+}
+
+.sidebar-demo-tips ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.sidebar-demo-tips strong {
+  color: var(--text);
+}
+
+.sidebar-user-dropdown-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--muted);
+}
+
+@media (max-width: 768px) {
+  #sidebarDemoContent {
+    margin-left: 0;
+  }
+  
+  .sidebar-demo-container {
+    padding: 80px 16px 40px;
+  }
 }
 

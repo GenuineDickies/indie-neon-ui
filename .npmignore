@@ -1,0 +1,27 @@
+# Development files
+.git
+.gitignore
+.cursorrules
+.hintrc
+.amazonq/
+.playwright-mcp/
+
+# Documentation (keep README.md)
+DEVELOPMENT.md
+FUTURE_COMPONENTS.md
+
+# Demo files
+demo.html
+index.html
+
+# Build scripts
+build.js
+
+# Hidden files
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+*.swo
+*~
+
